@@ -1,0 +1,92 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { MapPin, Search, ArrowRight } from "lucide-react";
+import heroImage from "@/assets/hero-architecture.jpg";
+
+const Hero = () => {
+  const [activeTab, setActiveTab] = useState("find");
+  const [searchValue, setSearchValue] = useState("");
+
+  return (
+    <section className="relative min-h-screen flex items-center">
+      <div className="absolute inset-0 bg-gradient-hero" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-tight">
+                Experience{" "}
+                <span className="block">Real Estate</span>
+                <span className="text-primary">Agility</span>
+              </h1>
+              
+              <p className="text-xl text-muted-foreground max-w-lg">
+                Discover luxury homes across America with our premier real estate agency. Our expert team is dedicated to guiding you through every step of the home-buying process.
+              </p>
+
+              <div className="flex items-center space-x-2 text-muted-foreground">
+                <MapPin className="h-5 w-5" />
+                <span>New York, USA</span>
+                <Button variant="link" className="text-primary p-0 h-auto">
+                  View more <ArrowRight className="h-4 w-4 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Search Section */}
+            <div className="space-y-4">
+              <div className="flex space-x-4">
+                <Button
+                  variant={activeTab === "find" ? "default" : "secondary"}
+                  onClick={() => setActiveTab("find")}
+                  className="px-6"
+                >
+                  Find a home
+                </Button>
+                <Button
+                  variant={activeTab === "value" ? "default" : "secondary"}
+                  onClick={() => setActiveTab("value")}
+                  className="px-6"
+                >
+                  My home value
+                </Button>
+              </div>
+
+              <div className="relative">
+                <Input
+                  placeholder="Enter an address, city or zip"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  className="pl-4 pr-12 py-6 text-lg bg-card border-border"
+                />
+                <Button
+                  size="icon"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10"
+                >
+                  <Search className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Content - Hero Image */}
+          <div className="relative">
+            <div className="relative overflow-hidden rounded-3xl shadow-luxury">
+              <img
+                src={heroImage}
+                alt="Modern luxury skyscrapers"
+                className="w-full h-[600px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
