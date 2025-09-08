@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigationItems = [
-    { name: "Buy", href: "#" },
-    { name: "Sell", href: "#" },
-    { name: "Rent", href: "#" },
-    { name: "Mortgage", href: "#" },
-    { name: "Agents & Offices", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "Properties", href: "/properties" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -18,20 +19,20 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold text-foreground tracking-wider">
+          <Link to="/" className="text-2xl font-bold text-foreground tracking-wider hover:text-primary transition-colors">
             ASTRAVISTA
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navigationItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-foreground/80 hover:text-foreground transition-fast text-sm font-medium"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -51,14 +52,14 @@ const Navigation = () => {
           <div className="lg:hidden mt-4 pb-4">
             <div className="flex flex-col space-y-4">
               {navigationItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-foreground/80 hover:text-foreground transition-fast text-sm font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

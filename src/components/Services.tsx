@@ -14,18 +14,18 @@ const Services = () => {
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10">
                   <Shield className="h-5 w-5 text-primary" />
                 </div>
-                <p className="text-sm font-medium text-muted-foreground tracking-wider uppercase">
-                  The Smartest Choice for Home Sellers
-                </p>
-              </div>
-              
-              <h3 className="text-3xl lg:text-4xl font-bold text-foreground">
-                Seller's Assurance Program
-              </h3>
-              
-              <p className="text-muted-foreground leading-relaxed">
-                Sell with AstraVista Real Estate and get amazing benefits like home improvements at no upfront cost and new technology to help find worthy buyers.
+              <p className="text-sm font-medium text-muted-foreground tracking-wider uppercase">
+                Trusted Real Estate Partner Across India
               </p>
+            </div>
+            
+            <h3 className="text-3xl lg:text-4xl font-bold text-foreground">
+              Premium Property Solutions
+            </h3>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              Experience seamless property transactions with AstraVista. From Mumbai's commercial hubs to Delhi's heritage properties, we provide comprehensive real estate solutions across India.
+            </p>
               
               <Button variant="outline" className="group">
                 Learn more
@@ -43,12 +43,12 @@ const Services = () => {
                   <Award className="h-5 w-5 text-primary" />
                 </div>
                 <h4 className="text-xl font-bold text-foreground">
-                  AARP® Real Estate Benefits
+                  Home Loan Assistance Program
                 </h4>
               </div>
               
               <p className="text-muted-foreground leading-relaxed">
-                Did you know? AARP® members may earn $300 to $7,400 in benefits when buying or selling a home with a participating AstraVista affiliated agent.
+                Get expert assistance with home loans from leading Indian banks. Our partnerships help you secure the best interest rates and simplified documentation processes.
               </p>
               
               <Button variant="link" className="text-primary p-0 h-auto group">
@@ -67,8 +67,8 @@ const Services = () => {
                     <Users className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-foreground">Expert Consultation</h4>
-                    <p className="text-muted-foreground text-sm">Professional real estate guidance</p>
+                    <h4 className="text-lg font-semibold text-foreground">Property Consultation</h4>
+                    <p className="text-muted-foreground text-sm">Expert guidance across Indian markets</p>
                   </div>
                 </div>
                 
@@ -81,8 +81,8 @@ const Services = () => {
                 
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground font-medium">Buyer Connections</span>
-                    <span className="text-primary font-semibold">Real Value Analyze</span>
+                    <span className="text-foreground font-medium">Property Matches</span>
+                    <span className="text-primary font-semibold">Market Analysis</span>
                   </div>
                   <div className="h-2 bg-muted rounded-full overflow-hidden">
                     <div className="h-full bg-primary rounded-full" style={{ width: '75%' }} />

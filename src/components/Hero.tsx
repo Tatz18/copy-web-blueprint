@@ -18,20 +18,20 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-tight">
-                Experience{" "}
-                <span className="block">Real Estate</span>
-                <span className="text-primary">Agility</span>
+                Discover{" "}
+                <span className="block">Your Dream Home</span>
+                <span className="text-primary">in India</span>
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-lg">
-                Discover luxury homes across America with our premier real estate agency. Our expert team is dedicated to guiding you through every step of the home-buying process.
+                Find premium properties across India's most vibrant cities. From Mumbai's skylines to Delhi's heritage, discover your perfect home with our expert guidance.
               </p>
 
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
-                <span>New York, USA</span>
+                <span>Mumbai, Delhi, Bangalore & more</span>
                 <Button variant="link" className="text-primary p-0 h-auto">
-                  View more <ArrowRight className="h-4 w-4 ml-1" />
+                  View cities <ArrowRight className="h-4 w-4 ml-1" />
                 </Button>
               </div>
             </div>
@@ -57,7 +57,7 @@ const Hero = () => {
 
               <div className="relative">
                 <Input
-                  placeholder="Enter an address, city or zip"
+                  placeholder="Enter city, locality or project name"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
                   className="pl-4 pr-12 py-6 text-lg bg-card border-border"

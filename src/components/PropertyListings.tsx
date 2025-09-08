@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Bed, Bath, Square } from "lucide-react";
+import { ChevronLeft, ChevronRight, Bed, Bath, Square, MapPin } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
 
 const PropertyListings = () => {
   const { data: properties, isLoading, error } = useQuery({
@@ -80,9 +81,10 @@ const PropertyListings = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {properties.map((property) => (
-            <div
+            <Link
               key={property.id}
-              className="gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer"
+              to={`/property/${property.id}`}
+              className="gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer block"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -99,31 +101,36 @@ const PropertyListings = () => {
                     {formatPrice(property.price)}
                   </h3>
                   
+                  <h4 className="text-lg font-semibold text-foreground/90">
+                    {property.title}
+                  </h4>
+
+                  <div className="flex items-center text-muted-foreground text-sm mb-2">
+                    <MapPin className="h-4 w-4 mr-1" />
+                    <span>{property.location}</span>
+                  </div>
+                  
                   <div className="flex items-center space-x-4 text-muted-foreground text-sm">
                     <div className="flex items-center space-x-1">
                       <Bed className="h-4 w-4" />
-                      <span>{property.bedrooms} beds</span>
+                      <span>{property.bedrooms} BHK</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Bath className="h-4 w-4" />
-                      <span>{property.bathrooms} baths</span>
+                      <span>{property.bathrooms} Bath</span>
                     </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4 text-muted-foreground text-sm">
                     <div className="flex items-center space-x-1">
                       <Square className="h-4 w-4" />
                       <span>{formatSquareFeet(property.square_feet)}</span>
                     </div>
-                    <span>| {property.property_type}</span>
                   </div>
 
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {property.location}
-                  </p>
+                  <div className="text-muted-foreground text-sm">
+                    {property.property_type}
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
