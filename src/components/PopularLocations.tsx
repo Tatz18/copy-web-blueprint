@@ -12,7 +12,7 @@ const PopularLocations = () => {
   const locations = [
     {
       city: "North Kolkata",
-      area: "Shyambazar & Hatibagan",
+      area: "Shyambazar & Bagbazar",
       priceRange: "₹45L - 1.2 Cr",
       properties: "85+ Properties",
       growth: "+8.5%",
@@ -20,42 +20,42 @@ const PopularLocations = () => {
     },
     {
       city: "South Kolkata",
-      area: "Ballygunge & Gariahat",
-      priceRange: "₹75L - 2.5 Cr",
+      area: "Ballygunge & Bakulbagan",
+      priceRange: "₹65L - 2.5 Cr",
       properties: "120+ Properties",
       growth: "+12.3%",
       image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=400"
     },
     {
       city: "Central Kolkata",
-      area: "Park Street & Camac Street",
-      priceRange: "₹65L - 2.1 Cr",
+      area: "Park Street & Rupchand Mukherjee Lane",
+      priceRange: "₹85L - 2.1 Cr",
       properties: "95+ Properties",
       growth: "+10.7%",
       image: "https://images.unsplash.com/photo-1582454603088-a4ec4bbbd329?w=400"
     },
     {
-      city: "South Kolkata",
-      area: "Alipore & New Alipore",
-      priceRange: "₹1.2 - 4.5 Cr",
+      city: "Salt Lake",
+      area: "Sector V & New Town",
+      priceRange: "₹55L - 12 Cr",
       properties: "65+ Properties",
       growth: "+15.2%",
       image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=400"
     },
     {
-      city: "East Kolkata",
-      area: "Salt Lake & New Town",
-      priceRange: "₹55L - 1.8 Cr",
-      properties: "150+ Properties",
-      growth: "+18.4%",
+      city: "Paikpara",
+      area: "Sovabajar & Tilljala",
+      priceRange: "₹65L - 1.1 Cr",
+      properties: "45+ Properties",
+      growth: "+11.4%",
       image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400"
     },
     {
-      city: "West Kolkata",
-      area: "Behala & Thakurpukur",
-      priceRange: "₹35L - 95L",
-      properties: "110+ Properties",
-      growth: "+11.1%",
+      city: "P. Majumdar road",
+      area: "Beldanga Area",
+      priceRange: "₹26L - 45L",
+      properties: "35+ Properties",
+      growth: "+9.1%",
       image: "https://images.unsplash.com/photo-1595856776060-85208bab3a1f?w=400"
     }
   ];
