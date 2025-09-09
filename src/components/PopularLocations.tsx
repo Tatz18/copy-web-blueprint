@@ -4,52 +4,52 @@ import { Button } from "@/components/ui/button";
 const PopularLocations = () => {
   const locations = [
     {
-      city: "Mumbai",
-      area: "Bandra West",
-      priceRange: "₹2.1 - 4.5 Cr",
+      city: "North Kolkata",
+      area: "Shyambazar & Hatibagan",
+      priceRange: "₹45L - 1.2 Cr",
+      properties: "85+ Properties",
+      growth: "+8.5%",
+      image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400"
+    },
+    {
+      city: "South Kolkata",
+      area: "Ballygunge & Gariahat",
+      priceRange: "₹75L - 2.5 Cr",
       properties: "120+ Properties",
       growth: "+12.3%",
       image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=400"
     },
     {
-      city: "Delhi NCR",
-      area: "Gurgaon Sector 54",
-      priceRange: "₹1.2 - 3.2 Cr",
+      city: "Central Kolkata",
+      area: "Park Street & Camac Street",
+      priceRange: "₹65L - 2.1 Cr",
       properties: "95+ Properties",
-      growth: "+8.7%",
+      growth: "+10.7%",
       image: "https://images.unsplash.com/photo-1582454603088-a4ec4bbbd329?w=400"
     },
     {
-      city: "Bangalore",
-      area: "Whitefield",
-      priceRange: "₹85L - 2.1 Cr",
-      properties: "150+ Properties",
+      city: "South Kolkata",
+      area: "Alipore & New Alipore",
+      priceRange: "₹1.2 - 4.5 Cr",
+      properties: "65+ Properties",
       growth: "+15.2%",
       image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=400"
     },
     {
-      city: "Hyderabad",
-      area: "Hitec City",
-      priceRange: "₹65L - 1.8 Cr",
-      properties: "80+ Properties",
-      growth: "+11.4%",
+      city: "East Kolkata",
+      area: "Salt Lake & New Town",
+      priceRange: "₹55L - 1.8 Cr",
+      properties: "150+ Properties",
+      growth: "+18.4%",
       image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400"
     },
     {
-      city: "Chennai",
-      area: "OMR Thoraipakkam",
-      priceRange: "₹70L - 1.9 Cr",
-      properties: "75+ Properties",
-      growth: "+9.8%",
-      image: "https://images.unsplash.com/photo-1595856776060-85208bab3a1f?w=400"
-    },
-    {
-      city: "Pune",
-      area: "Hinjewadi Phase 2",
-      priceRange: "₹55L - 1.4 Cr",
+      city: "West Kolkata",
+      area: "Behala & Thakurpukur",
+      priceRange: "₹35L - 95L",
       properties: "110+ Properties",
-      growth: "+13.1%",
-      image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400"
+      growth: "+11.1%",
+      image: "https://images.unsplash.com/photo-1595856776060-85208bab3a1f?w=400"
     }
   ];
 
@@ -58,10 +58,10 @@ const PopularLocations = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Popular Locations Across India
+            Popular Locations Across Kolkata
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover the most sought-after residential areas in India's major metropolitan cities
+            Discover the most sought-after residential areas across North, South, Central, East & West Kolkata
           </p>
         </div>
 
