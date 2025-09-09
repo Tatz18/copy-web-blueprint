@@ -78,10 +78,10 @@ const WhyWorkWithUs = () => {
           })}
         </div>
 
-        <div className="bg-card rounded-3xl p-8 md:p-12 shadow-card">
+        <div className="bg-card rounded-3xl p-8 md:p-12 shadow-card border border-accent/20">
           <div className="grid lg:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-primary">50K+</div>
+              <div className="text-4xl md:text-5xl font-bold text-accent">50K+</div>
               <div className="text-muted-foreground">Happy Families</div>
             </div>
             <div className="space-y-2">
@@ -89,7 +89,7 @@ const WhyWorkWithUs = () => {
               <div className="text-muted-foreground">Cities Covered</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-primary">₹500Cr+</div>
+              <div className="text-4xl md:text-5xl font-bold text-accent">₹500Cr+</div>
               <div className="text-muted-foreground">Properties Sold</div>
             </div>
           </div>

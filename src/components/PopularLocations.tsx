@@ -54,7 +54,7 @@ const PopularLocations = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-gradient-to-br from-secondary/30 via-background to-secondary/10">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -103,7 +103,7 @@ const PopularLocations = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Available</span>
-                    <span className="font-medium text-primary">{location.properties}</span>
+                    <span className="font-medium text-accent">{location.properties}</span>
                   </div>
                 </div>
               </div>

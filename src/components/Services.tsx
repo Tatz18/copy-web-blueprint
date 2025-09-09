@@ -3,7 +3,7 @@ import { Shield, Award, Users } from "lucide-react";
 
 const Services = () => {
   return (
-    <section className="py-20">
+    <section className="py-20 bg-gradient-to-br from-accent/5 via-background to-accent/10">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
@@ -63,7 +63,7 @@ const Services = () => {
             <div className="gradient-card rounded-2xl p-8 shadow-card">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4 bg-background/50 rounded-xl">
-                  <div className="text-3xl font-bold text-primary mb-2">98%</div>
+                  <div className="text-3xl font-bold text-accent mb-2">98%</div>
                   <div className="text-sm text-muted-foreground">Success Rate</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-xl">
@@ -71,7 +71,7 @@ const Services = () => {
                   <div className="text-sm text-muted-foreground">Days Average</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-xl">
-                  <div className="text-3xl font-bold text-primary mb-2">50K+</div>
+                  <div className="text-3xl font-bold text-accent mb-2">50K+</div>
                   <div className="text-sm text-muted-foreground">Happy Clients</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-xl">

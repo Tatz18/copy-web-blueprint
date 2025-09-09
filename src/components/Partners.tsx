@@ -8,7 +8,7 @@ const Partners = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-gradient-to-br from-accent/10 via-background to-accent/5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p className="text-sm font-medium text-muted-foreground mb-4 tracking-wider uppercase">
