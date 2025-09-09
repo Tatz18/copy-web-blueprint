@@ -1,6 +1,10 @@
 import { MapPin, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import kolkataBuilding1 from "@/assets/kolkata-building-1.jpg";
+import kolkataBuilding2 from "@/assets/kolkata-building-2.jpg";
+import kolkataBuilding3 from "@/assets/kolkata-building-3.jpg";
+import kolkataBuilding4 from "@/assets/kolkata-building-4.jpg";
 
 const PopularLocations = () => {
   const navigate = useNavigate();
@@ -16,7 +20,7 @@ const PopularLocations = () => {
       priceRange: "₹45L - 1.2 Cr",
       properties: "85+ Properties",
       growth: "+8.5%",
-      image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400"
+      image: kolkataBuilding1
     },
     {
       city: "South Kolkata",
@@ -24,7 +28,7 @@ const PopularLocations = () => {
       priceRange: "₹65L - 2.5 Cr",
       properties: "120+ Properties",
       growth: "+12.3%",
-      image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=400"
+      image: kolkataBuilding2
     },
     {
       city: "Central Kolkata",
@@ -32,7 +36,7 @@ const PopularLocations = () => {
       priceRange: "₹85L - 2.1 Cr",
       properties: "95+ Properties",
       growth: "+10.7%",
-      image: "https://images.unsplash.com/photo-1582454603088-a4ec4bbbd329?w=400"
+      image: kolkataBuilding4
     },
     {
       city: "Salt Lake",
@@ -40,7 +44,7 @@ const PopularLocations = () => {
       priceRange: "₹55L - 12 Cr",
       properties: "65+ Properties",
       growth: "+15.2%",
-      image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=400"
+      image: kolkataBuilding3
     },
     {
       city: "Paikpara",
@@ -48,7 +52,7 @@ const PopularLocations = () => {
       priceRange: "₹65L - 1.1 Cr",
       properties: "45+ Properties",
       growth: "+11.4%",
-      image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400"
+      image: kolkataBuilding1
     },
     {
       city: "P. Majumdar road",
@@ -56,7 +60,7 @@ const PopularLocations = () => {
       priceRange: "₹26L - 45L",
       properties: "35+ Properties",
       growth: "+9.1%",
-      image: "https://images.unsplash.com/photo-1595856776060-85208bab3a1f?w=400"
+      image: kolkataBuilding2
     }
   ];
 

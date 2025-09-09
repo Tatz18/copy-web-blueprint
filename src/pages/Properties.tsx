@@ -145,11 +145,10 @@ const Properties = () => {
                 >
                   <div className="relative overflow-hidden">
                     <img
-                      src={property.image_url}
+                      src={property.image_url || "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400"}
                       alt={property.title}
                       className="w-full h-64 object-cover group-hover:scale-105 transition-smooth"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
                   </div>
 
                   <div className="p-6 space-y-4">
