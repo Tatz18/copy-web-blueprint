@@ -1,0 +1,196 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { 
+  MapPin, Phone, Mail, Clock, 
+  Facebook, Twitter, Instagram, Linkedin,
+  Building2, Home, Users, Shield
+} from "lucide-react";
+import { Link } from "react-router-dom";
+
+const Footer = () => {
+  const quickLinks = [
+    { name: "Home", href: "/" },
+    { name: "Properties", href: "/properties" },
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" }
+  ];
+
+  const services = [
+    { name: "Property Buying", icon: Home },
+    { name: "Property Selling", icon: Building2 },
+    { name: "Investment Advisory", icon: Shield },
+    { name: "Home Loan Assistance", icon: Users }
+  ];
+
+  const socialLinks = [
+    { name: "Facebook", icon: Facebook, href: "#" },
+    { name: "Twitter", icon: Twitter, href: "#" },
+    { name: "Instagram", icon: Instagram, href: "#" },
+    { name: "LinkedIn", icon: Linkedin, href: "#" }
+  ];
+
+  return (
+    <footer className="bg-card border-t">
+      {/* Main Footer */}
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-bold text-primary mb-3">AstraVista</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Your trusted real estate partner in Kolkata and across India. 
+                Helping families find their dream homes since 2008.
+              </p>
+            </div>
+            
+            <div className="space-y-3">
+              <div className="flex items-center text-muted-foreground">
+                <MapPin className="h-4 w-4 mr-3 flex-shrink-0" />
+                <span className="text-sm">123 Park Street, Kolkata 700016</span>
+              </div>
+              <div className="flex items-center text-muted-foreground">
+                <Phone className="h-4 w-4 mr-3 flex-shrink-0" />
+                <span className="text-sm">+91 98765 43210</span>
+              </div>
+              <div className="flex items-center text-muted-foreground">
+                <Mail className="h-4 w-4 mr-3 flex-shrink-0" />
+                <span className="text-sm">info@astravista.com</span>
+              </div>
+              <div className="flex items-center text-muted-foreground">
+                <Clock className="h-4 w-4 mr-3 flex-shrink-0" />
+                <span className="text-sm">Mon-Sat: 9:00 AM - 8:00 PM</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-bold text-foreground">Quick Links</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    to={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            
+            <div className="pt-4">
+              <h5 className="font-medium text-foreground mb-3">Legal</h5>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                    Cookie Policy
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-bold text-foreground">Our Services</h4>
+            <ul className="space-y-3">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <li key={index} className="flex items-center">
+                    <Icon className="h-4 w-4 text-primary mr-3" />
+                    <span className="text-muted-foreground text-sm">{service.name}</span>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="pt-4">
+              <h5 className="font-medium text-foreground mb-3">Coverage Areas</h5>
+              <ul className="space-y-2">
+                <li className="text-muted-foreground text-sm">• Kolkata (HQ)</li>
+                <li className="text-muted-foreground text-sm">• Mumbai</li>
+                <li className="text-muted-foreground text-sm">• Delhi NCR</li>
+                <li className="text-muted-foreground text-sm">• Bangalore</li>
+                <li className="text-muted-foreground text-sm">• Chennai</li>
+                <li className="text-muted-foreground text-sm">• Pune</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Newsletter */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-bold text-foreground">Stay Updated</h4>
+            <p className="text-muted-foreground text-sm">
+              Subscribe to our newsletter for the latest property listings, market insights, and investment tips.
+            </p>
+            
+            <div className="space-y-3">
+              <Input 
+                placeholder="Enter your email"
+                className="bg-background border-border"
+              />
+              <Button className="w-full">
+                Subscribe Now
+              </Button>
+            </div>
+
+            <div className="pt-4">
+              <h5 className="font-medium text-foreground mb-4">Follow Us</h5>
+              <div className="flex space-x-3">
+                {socialLinks.map((social, index) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={index}
+                      href={social.href}
+                      className="w-10 h-10 bg-muted hover:bg-primary/10 rounded-lg flex items-center justify-center transition-colors group"
+                      aria-label={social.name}
+                    >
+                      <Icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Separator />
+
+      {/* Bottom Footer */}
+      <div className="container mx-auto px-6 py-6">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="text-sm text-muted-foreground">
+            © 2024 AstraVista Real Estate. All rights reserved. | RERA Registration: WB/2024/0123456
+          </div>
+          
+          <div className="flex items-center space-x-6 text-sm text-muted-foreground">
+            <span>Made with ❤️ in Kolkata</span>
+            <div className="flex items-center space-x-1">
+              <span>🏆</span>
+              <span>Award Winning Service</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
