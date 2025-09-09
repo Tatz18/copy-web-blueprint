@@ -30,14 +30,9 @@ const Properties = () => {
         .select('*')
         .eq('status', 'available');
       
-      // Apply location filter if provided
+      // Simple location search - prioritize city name first
       if (locationFilter) {
         query = query.ilike('location', `%${locationFilter}%`);
-      }
-      
-      // Apply area filter if provided  
-      if (areaFilter) {
-        query = query.or(`location.ilike.%${areaFilter}%,title.ilike.%${areaFilter}%`);
       }
       
       const { data, error } = await query;
