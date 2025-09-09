@@ -92,7 +92,7 @@ const About = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   AstraVista was founded with a simple mission: to make the dream of homeownership 
                   accessible to every Indian family. What started as a small real estate consultancy 
-                  in Mumbai has grown into one of India's most trusted property platforms.
+                  in Kolkata has grown into one of India's most trusted property platforms.
                 </p>
                 
                 <p className="text-muted-foreground leading-relaxed">

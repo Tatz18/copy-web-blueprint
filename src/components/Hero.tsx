@@ -24,12 +24,12 @@ const Hero = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-lg">
-                Find premium properties across India's most vibrant cities. From Mumbai's skylines to Delhi's heritage, discover your perfect home with our expert guidance.
+                Find premium properties across India's most vibrant cities. Based in Kolkata, we serve the cultural capital and major metros with expert guidance for your perfect home.
               </p>
 
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
-                <span>Mumbai, Delhi, Bangalore & more</span>
+                <span>Kolkata, Mumbai, Delhi, Bangalore & more</span>
                 <Button variant="link" className="text-primary p-0 h-auto">
                   View cities <ArrowRight className="h-4 w-4 ml-1" />
                 </Button>

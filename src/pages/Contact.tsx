@@ -26,7 +26,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["123 Business District", "Mumbai, Maharashtra 400001"],
+      details: ["123 Park Street", "Kolkata, West Bengal 700016"],
       description: "Mon-Sat: 10:00 AM - 7:00 PM"
     },
     {
@@ -39,26 +39,26 @@ const Contact = () => {
 
   const offices = [
     {
-      city: "Mumbai",
-      address: "123 Business District, Bandra Kurla Complex",
+      city: "Kolkata (HQ)",
+      address: "123 Park Street, Central Kolkata",
       phone: "+91 98765 43210",
       manager: "Rajesh Kumar"
     },
     {
-      city: "Delhi",
-      address: "456 Corporate Hub, Connaught Place",
+      city: "Mumbai",
+      address: "456 Business District, Bandra Kurla Complex",
       phone: "+91 87654 32109", 
       manager: "Priya Sharma"
     },
     {
-      city: "Bangalore",
-      address: "789 Tech Park, Whitefield",
+      city: "Delhi",
+      address: "789 Corporate Hub, Connaught Place",
       phone: "+91 76543 21098",
       manager: "Amit Singh"
     },
     {
-      city: "Pune",
-      address: "321 Business Center, Koregaon Park",
+      city: "Bangalore",
+      address: "321 Tech Park, Whitefield",
       phone: "+91 65432 10987",
       manager: "Neha Patel"
     }
@@ -216,10 +216,10 @@ const Contact = () => {
                       <h4 className="font-medium text-foreground mb-1">Do you charge for consultations?</h4>
                       <p className="text-sm text-muted-foreground">Initial consultations are completely free of charge.</p>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-foreground mb-1">Which cities do you operate in?</h4>
-                      <p className="text-sm text-muted-foreground">We have offices in Mumbai, Delhi, Bangalore, and Pune.</p>
-                    </div>
+                     <div>
+                       <h4 className="font-medium text-foreground mb-1">Which cities do you operate in?</h4>
+                       <p className="text-sm text-muted-foreground">Headquartered in Kolkata, we have offices in Mumbai, Delhi, and Bangalore.</p>
+                     </div>
                   </div>
                 </CardContent>
               </Card>

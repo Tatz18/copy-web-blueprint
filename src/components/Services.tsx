@@ -23,9 +23,9 @@ const Services = () => {
               Premium Property Solutions
             </h3>
             
-            <p className="text-muted-foreground leading-relaxed">
-              Experience seamless property transactions with AstraVista. From Mumbai's commercial hubs to Delhi's heritage properties, we provide comprehensive real estate solutions across India.
-            </p>
+             <p className="text-muted-foreground leading-relaxed">
+               Experience seamless property transactions with AstraVista. Based in Kolkata's cultural heart, we serve from Bengal's heritage properties to Mumbai's commercial hubs, providing comprehensive real estate solutions across India.
+             </p>
               
               <Button variant="outline" className="group">
                 Learn more
