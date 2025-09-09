@@ -1,7 +1,14 @@
 import { MapPin, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const PopularLocations = () => {
+  const navigate = useNavigate();
+
+  const handleLocationClick = (city: string, area: string) => {
+    // Navigate to properties page with location filter
+    navigate(`/properties?location=${encodeURIComponent(city)}&area=${encodeURIComponent(area)}`);
+  };
   const locations = [
     {
       city: "North Kolkata",
@@ -70,6 +77,7 @@ const PopularLocations = () => {
             <div 
               key={index}
               className="gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer"
+              onClick={() => handleLocationClick(location.city, location.area)}
             >
               <div className="relative overflow-hidden">
                 <img
@@ -112,7 +120,7 @@ const PopularLocations = () => {
         </div>
 
         <div className="text-center">
-          <Button size="lg" className="px-8">
+          <Button size="lg" className="px-8" onClick={() => navigate('/properties')}>
             View All Locations
           </Button>
         </div>

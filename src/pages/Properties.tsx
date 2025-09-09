@@ -5,16 +5,42 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Bed, Bath, Square, MapPin, Search } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Properties = () => {
+  const [searchParams] = useSearchParams();
+  const locationFilter = searchParams.get('location');
+  const areaFilter = searchParams.get('area');
+  const [searchLocation, setSearchLocation] = useState('');
+  
+  // Set initial search location from URL params
+  useEffect(() => {
+    if (locationFilter || areaFilter) {
+      const locationText = areaFilter ? `${areaFilter}, ${locationFilter}` : locationFilter || '';
+      setSearchLocation(locationText);
+    }
+  }, [locationFilter, areaFilter]);
+
   const { data: properties, isLoading } = useQuery({
-    queryKey: ['all-properties'],
+    queryKey: ['all-properties', locationFilter, areaFilter],
     queryFn: async () => {
-      const { data, error } = await supabase
+      let query = supabase
         .from('properties')
         .select('*')
         .eq('status', 'available');
+      
+      // Apply location filter if provided
+      if (locationFilter) {
+        query = query.ilike('location', `%${locationFilter}%`);
+      }
+      
+      // Apply area filter if provided  
+      if (areaFilter) {
+        query = query.or(`location.ilike.%${areaFilter}%,title.ilike.%${areaFilter}%`);
+      }
+      
+      const { data, error } = await query;
       
       if (error) throw error;
       return data;
@@ -38,17 +64,22 @@ const Properties = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-              Find Your Dream Home
+              {locationFilter || areaFilter ? `Properties in ${areaFilter ? areaFilter + ', ' : ''}${locationFilter || ''}` : 'Find Your Dream Home'}
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover premium properties across India's most sought-after locations
+              {locationFilter || areaFilter ? `Discover premium properties in ${locationFilter || areaFilter}` : 'Discover premium properties across India\'s most sought-after locations'}
             </p>
           </div>
 
           {/* Search Filters */}
           <div className="max-w-4xl mx-auto bg-card rounded-2xl p-6 shadow-xl">
             <div className="grid md:grid-cols-4 gap-4 mb-4">
-              <Input placeholder="Location" className="h-12" />
+              <Input 
+                placeholder="Location" 
+                className="h-12" 
+                value={searchLocation}
+                onChange={(e) => setSearchLocation(e.target.value)}
+              />
               <Select>
                 <SelectTrigger className="h-12">
                   <SelectValue placeholder="Property Type" />
@@ -83,7 +114,9 @@ const Properties = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="text-4xl font-bold text-foreground">Available Properties</h2>
+            <h2 className="text-4xl font-bold text-foreground">
+              {locationFilter || areaFilter ? `Properties in ${areaFilter ? areaFilter + ', ' : ''}${locationFilter || ''}` : 'Available Properties'}
+            </h2>
             <div className="text-muted-foreground">
               {properties?.length || 0} properties found
             </div>
