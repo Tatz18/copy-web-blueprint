@@ -62,7 +62,7 @@ const Properties = () => {
               {locationFilter || areaFilter ? `Properties in ${areaFilter ? areaFilter + ', ' : ''}${locationFilter || ''}` : 'Find Your Dream Home'}
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              {locationFilter || areaFilter ? `Discover premium properties in ${locationFilter || areaFilter}` : 'Discover premium properties across India\'s most sought-after locations'}
+              {locationFilter || areaFilter ? `Discover premium properties in ${locationFilter || areaFilter}` : 'Discover premium properties across Kolkata\'s most sought-after neighborhoods'}
             </p>
           </div>
 
