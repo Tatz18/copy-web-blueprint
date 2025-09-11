@@ -1,38 +1,111 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Home, TrendingUp, Users, CheckCircle, ArrowRight, Phone } from "lucide-react";
+import { Home, TrendingUp, Users, CheckCircle, ArrowRight, Phone, Star, Clock, Shield, UserCheck, Eye, Award } from "lucide-react";
 
 const PropertySales = () => {
   const benefits = [
-    "Free property valuation and market analysis",
-    "Professional photography and virtual tours", 
-    "Extensive marketing across multiple platforms",
-    "Expert negotiation to maximize your sale price",
-    "Complete legal assistance and documentation",
-    "Post-sale support and guidance"
+    "Property Valuation",
+    "Basic Marketing", 
+    "Buyer Coordination",
+    "Legal Documentation",
+    "Sale Agreement Preparation"
+  ];
+
+  const premiumBenefits = [
+    "Everything in Basic",
+    "Professional Photography",
+    "360° Virtual Tours",
+    "Premium Listing Placement",
+    "Social Media Marketing",
+    "Dedicated Relationship Manager",
+    "Home Staging Consultation"
+  ];
+
+  const luxuryBenefits = [
+    "Everything in Premium",
+    "Drone Photography & Video",
+    "Luxury Property Magazine Features",
+    "Exclusive Buyer Network Access",
+    "Interior Design Consultation",
+    "Concierge Services",
+    "Post-Sale Support"
   ];
 
   const process = [
     {
       step: "1",
-      title: "Property Evaluation",
-      description: "Our experts conduct a comprehensive evaluation of your property to determine the optimal listing price."
+      title: "Property Valuation",
+      description: "Our certified appraisers conduct comprehensive market analysis to determine the optimal selling price for your property."
     },
     {
       step: "2", 
       title: "Marketing Strategy",
-      description: "We create a customized marketing plan with professional photography and targeted advertising."
+      description: "We create compelling property listings with professional photography and deploy multi-channel marketing campaigns."
     },
     {
       step: "3",
       title: "Buyer Screening",
-      description: "We screen potential buyers and arrange qualified viewings to ensure serious inquiries."
+      description: "We pre-qualify potential buyers and arrange viewings to ensure serious inquiries and smooth transactions."
     },
     {
       step: "4",
       title: "Negotiation & Closing",
-      description: "Our team handles negotiations and manages all paperwork for a smooth transaction."
+      description: "Our expert negotiators secure the best deal while handling all paperwork and legal formalities for you."
+    }
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: <Award className="h-12 w-12 text-primary" />,
+      title: "10+ Years Experience",
+      description: "Decade of proven track record in Kolkata real estate market with over 2000+ successful transactions."
+    },
+    {
+      icon: <TrendingUp className="h-12 w-12 text-primary" />,
+      title: "Best Market Prices", 
+      description: "We achieve 15-20% higher selling prices through strategic marketing and expert negotiation skills."
+    },
+    {
+      icon: <Clock className="h-12 w-12 text-primary" />,
+      title: "Quick Sale Guarantee",
+      description: "Average selling time of 45-60 days with our proven marketing strategies and buyer network."
+    },
+    {
+      icon: <Shield className="h-12 w-12 text-primary" />,
+      title: "Legal Protection",
+      description: "Complete legal verification and documentation support with insurance coverage for transactions."
+    },
+    {
+      icon: <UserCheck className="h-12 w-12 text-primary" />,
+      title: "Customer Satisfaction",
+      description: "98% customer satisfaction rate with dedicated relationship managers for personalized service."
+    },
+    {
+      icon: <Eye className="h-12 w-12 text-primary" />,
+      title: "Transparent Process",
+      description: "Clear communication and regular updates throughout the selling process with detailed reports."
+    }
+  ];
+
+  const testimonials = [
+    {
+      quote: "Phoenix Realesthatic sold my 3BHK apartment in just 3 weeks at 18% above my expected price. Their marketing strategy was exceptional!",
+      name: "Rajesh Banerjee",
+      location: "Bhawanipur",
+      amount: "₹95 Lakhs"
+    },
+    {
+      quote: "Professional service from start to finish. They handled everything while I was abroad. Highly recommend for property selling.",
+      name: "Priya Chakraborty", 
+      location: "Salt Lake",
+      amount: "₹1.2 Crores"
+    },
+    {
+      quote: "Transparent process, excellent communication, and got the best price in the market. Will definitely use their services again.",
+      name: "Amit Sengupta",
+      location: "New Town", 
+      amount: "₹85 Lakhs"
     }
   ];
 
@@ -45,10 +118,10 @@ const PropertySales = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Property Sales Services
+              Sell Your Property At Best Market Price
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Sell your property quickly and at the best price with our expert sales team in Kolkata
+              Get 15-20% higher selling prices with our proven marketing strategies, expert negotiations, and extensive buyer network across Kolkata.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8">
@@ -56,60 +129,9 @@ const PropertySales = () => {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8">
-                <Phone className="mr-2 h-5 w-5" />
-                Call Now: +91 98765 43210
+                View Sold Properties
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Our Sales Service?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              We combine market expertise with personalized service to ensure your property sells quickly at the best price
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <Card className="text-center">
-              <CardHeader>
-                <Home className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>Market Expertise</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Deep knowledge of Kolkata's property market trends and pricing strategies
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>Proven Results</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Average sale time of 30 days with 95% of asking price achieved
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-                <CardTitle>Dedicated Support</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Personal sales manager assigned to your property from listing to closing
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
@@ -118,9 +140,9 @@ const PropertySales = () => {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Sales Process</h2>
+            <h2 className="text-3xl font-bold mb-4">Our Proven Sales Process</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A proven 4-step process that ensures maximum value for your property
+              A systematic approach that ensures maximum returns and hassle-free property selling experience
             </p>
           </div>
 
@@ -142,25 +164,138 @@ const PropertySales = () => {
         </div>
       </section>
 
-      {/* What's Included */}
+      {/* Why Choose Us */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">What's Included in Our Service</h2>
-              <p className="text-muted-foreground">
-                Comprehensive support from listing to closing - all at no upfront cost
-              </p>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Why Choose Phoenix Realesthatic?</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Proven expertise that delivers exceptional results for property sellers
+            </p>
+          </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 mr-4 flex-shrink-0" />
-                  <span className="text-foreground">{benefit}</span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {whyChooseUs.map((item, index) => (
+              <Card key={index} className="text-center">
+                <CardHeader>
+                  <div className="mx-auto mb-4">{item.icon}</div>
+                  <CardTitle className="text-lg">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sales Packages */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Choose Your Sales Package</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Tailored solutions to meet different property selling needs and budgets
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Basic Package */}
+            <Card className="text-center">
+              <CardHeader>
+                <CardTitle className="text-2xl">Basic Sale</CardTitle>
+                <div className="text-3xl font-bold text-primary">2% Commission</div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start text-left">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-foreground">{benefit}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+                <Button className="w-full mt-6">Get Started</Button>
+              </CardContent>
+            </Card>
+
+            {/* Premium Package */}
+            <Card className="text-center border-primary relative">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+                  Most Popular
+                </span>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-2xl">Premium Sale</CardTitle>
+                <div className="text-3xl font-bold text-primary">2.5% Commission</div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  {premiumBenefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start text-left">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-foreground">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+                <Button className="w-full mt-6">Get Started</Button>
+              </CardContent>
+            </Card>
+
+            {/* Luxury Package */}
+            <Card className="text-center">
+              <CardHeader>
+                <CardTitle className="text-2xl">Luxury Sale</CardTitle>
+                <div className="text-3xl font-bold text-primary">3% Commission</div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  {luxuryBenefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start text-left">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-foreground">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+                <Button className="w-full mt-6">Get Started</Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories */}
+      <section className="py-16">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Success Stories</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Real results from satisfied property sellers across Kolkata
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="text-center">
+                <CardHeader>
+                  <div className="flex justify-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground italic">"{testimonial.quote}"</p>
+                  <div className="border-t pt-4">
+                    <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
+                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                    <p className="text-sm font-medium text-primary">Sold: {testimonial.amount}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -170,14 +305,14 @@ const PropertySales = () => {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Sell Your Property?</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Get started with a free property valuation and personalized sales strategy
+            Get a free property valuation and discover how much your property is worth in today's market. Our experts are ready to help you achieve the best possible price.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8">
-              Schedule Free Consultation
+              Get Free Valuation
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8">
-              Download Sales Guide
+              View Market Trends
             </Button>
           </div>
         </div>
