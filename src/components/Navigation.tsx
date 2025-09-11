@@ -24,7 +24,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/6cfec74f-8510-4ad2-896d-4477495fe2f1.png" 
               alt="Phoenix Realestatic - Turning Properties into Prosperities" 
-              className="h-10 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
