@@ -18,10 +18,12 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: "Property Buying", icon: Home },
-    { name: "Property Selling", icon: Building2 },
-    { name: "Investment Advisory", icon: Shield },
-    { name: "Home Loan Assistance", icon: Users }
+    { name: "Property Sales", icon: Home, href: "/property-sales" },
+    { name: "Property Rental", icon: Building2, href: "/property-rental" },
+    { name: "Investment Consulting", icon: Shield, href: "/investment-consulting" },
+    { name: "Property Management", icon: Users, href: "/property-management" },
+    { name: "Market Analysis", icon: Building2, href: "/market-analysis" },
+    { name: "Commercial Services", icon: Home, href: "/commercial-services" }
   ];
 
   const socialLinks = [
@@ -111,9 +113,14 @@ const Footer = () => {
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
-                  <li key={index} className="flex items-center">
-                    <Icon className="h-4 w-4 text-primary mr-3" />
-                    <span className="text-muted-foreground text-sm">{service.name}</span>
+                  <li key={index}>
+                    <Link 
+                      to={service.href}
+                      className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <Icon className="h-4 w-4 mr-3" />
+                      <span className="text-sm">{service.name}</span>
+                    </Link>
                   </li>
                 );
               })}
