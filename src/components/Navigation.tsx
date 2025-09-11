@@ -20,8 +20,12 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-foreground tracking-wider hover:text-primary transition-colors">
-            ASTRAVISTA
+          <Link to="/" className="hover:opacity-80 transition-opacity">
+            <img 
+              src="/lovable-uploads/6cfec74f-8510-4ad2-896d-4477495fe2f1.png" 
+              alt="Phoenix Realestatic - Turning Properties into Prosperities" 
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
