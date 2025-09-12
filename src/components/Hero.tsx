@@ -20,7 +20,7 @@ const Hero = () => {
               <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-tight">
                 Discover{" "}
                 <span className="block">Your Dream Home</span>
-                <span className="text-primary">in India</span>
+                <span className="text-pink-500">in India</span>
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-lg">
