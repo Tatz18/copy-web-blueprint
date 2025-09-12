@@ -15,7 +15,7 @@ const Services = () => {
                   <Shield className="h-5 w-5 text-primary" />
                 </div>
               <p className="text-sm font-medium text-muted-foreground tracking-wider uppercase">
-                Trusted Real Estate Partner Across India
+                Trusted Real Estate Partner Across <span className="text-pink-500">India</span>
               </p>
             </div>
             
@@ -24,8 +24,8 @@ const Services = () => {
             </h3>
             
              <p className="text-muted-foreground leading-relaxed">
-               Experience seamless property transactions with AstraVista. Based in Kolkata's cultural heart, we serve from Bengal's heritage properties to Mumbai's commercial hubs, providing comprehensive real estate solutions across India.
-             </p>
+                Experience seamless property transactions with AstraVista. Based in Kolkata's cultural heart, we serve from Bengal's heritage properties to Mumbai's commercial hubs, providing comprehensive real estate solutions across <span className="text-pink-500">India</span>.
+              </p>
               
               <Button variant="outline" className="group">
                 Learn more
@@ -48,7 +48,7 @@ const Services = () => {
               </div>
               
               <p className="text-muted-foreground leading-relaxed">
-                Get expert assistance with home loans from leading Indian banks. Our partnerships help you secure the best interest rates and simplified documentation processes.
+                Get expert assistance with home loans from leading <span className="text-pink-500">Indian</span> banks. Our partnerships help you secure the best interest rates and simplified documentation processes.
               </p>
               
               <Button variant="link" className="text-primary p-0 h-auto group">
