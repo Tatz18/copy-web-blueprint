@@ -62,20 +62,20 @@ const Services = () => {
           <div className="relative">
             <div className="gradient-card rounded-2xl p-8 shadow-card">
               <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-background/50 rounded-xl">
-                  <div className="text-3xl font-bold text-accent mb-2">98%</div>
+                <div className="text-center p-6 bg-blue-50/70 dark:bg-blue-900/20 border border-blue-200/40 dark:border-blue-800/40 rounded-xl hover:bg-blue-100/80 dark:hover:bg-blue-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">98%</div>
                   <div className="text-sm text-muted-foreground">Success Rate</div>
                 </div>
-                <div className="text-center p-4 bg-background/50 rounded-xl">
-                  <div className="text-3xl font-bold text-primary mb-2">15</div>
+                <div className="text-center p-6 bg-green-50/70 dark:bg-green-900/20 border border-green-200/40 dark:border-green-800/40 rounded-xl hover:bg-green-100/80 dark:hover:bg-green-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">15</div>
                   <div className="text-sm text-muted-foreground">Days Average</div>
                 </div>
-                <div className="text-center p-4 bg-background/50 rounded-xl">
-                  <div className="text-3xl font-bold text-accent mb-2">50K+</div>
+                <div className="text-center p-6 bg-purple-50/70 dark:bg-purple-900/20 border border-purple-200/40 dark:border-purple-800/40 rounded-xl hover:bg-purple-100/80 dark:hover:bg-purple-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">50K+</div>
                   <div className="text-sm text-muted-foreground">Happy Clients</div>
                 </div>
-                <div className="text-center p-4 bg-background/50 rounded-xl">
-                  <div className="text-3xl font-bold text-primary mb-2">25+</div>
+                <div className="text-center p-6 bg-orange-50/70 dark:bg-orange-900/20 border border-orange-200/40 dark:border-orange-800/40 rounded-xl hover:bg-orange-100/80 dark:hover:bg-orange-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">25+</div>
                   <div className="text-sm text-muted-foreground">Cities</div>
                 </div>
               </div>
