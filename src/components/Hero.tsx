@@ -49,7 +49,7 @@ const Hero = () => {
                 <Button
                   variant={activeTab === "value" ? "default" : "secondary"}
                   onClick={() => setActiveTab("value")}
-                  className={`px-6 ${activeTab === "value" ? "dark:bg-pink-500 dark:hover:bg-pink-600" : ""}`}
+                  className="px-6 dark:bg-pink-500 dark:hover:bg-pink-600 dark:text-white"
                 >
                   My home value
                 </Button>
