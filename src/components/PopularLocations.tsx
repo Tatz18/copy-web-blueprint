@@ -124,8 +124,8 @@ const PopularLocations = () => {
         </div>
 
         <div className="text-center">
-          <Button size="lg" className="px-8" onClick={() => navigate('/properties')}>
-            <span className="text-pink-500">View All Locations</span>
+          <Button size="lg" className="px-8 bg-pink-500 hover:bg-pink-600" onClick={() => navigate('/properties')}>
+            View All Locations
           </Button>
         </div>
       </div>
