@@ -151,7 +151,7 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="bg-background border-border"
               />
-              <Button className="w-full">
+              <Button className="w-full bg-pink-500 hover:bg-pink-600">
                 Subscribe Now
               </Button>
             </div>
