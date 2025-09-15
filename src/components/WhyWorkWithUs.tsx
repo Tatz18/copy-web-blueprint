@@ -63,7 +63,7 @@ const WhyWorkWithUs = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Why Choose AstraVista?
+            Why Choose Phoenix Real Estate?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We're not just another real estate platform. We're your trusted partner in finding the perfect property across India.

@@ -40,7 +40,7 @@ const About = () => {
       <section className="py-20 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            About AstraVista
+            About Phoenix Real Estate
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Your trusted partner in finding the perfect home across India. We've been helping families 
@@ -90,7 +90,7 @@ const About = () => {
                 </h3>
                 
                 <p className="text-muted-foreground leading-relaxed">
-                  AstraVista was founded with a simple mission: to make the dream of homeownership 
+                  Phoenix Real Estate was founded with a simple mission: to make the dream of homeownership 
                   accessible to every Indian family. What started as a small real estate consultancy 
                   in Kolkata has grown into one of India's most trusted property platforms.
                 </p>

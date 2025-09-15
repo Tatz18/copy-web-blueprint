@@ -20,7 +20,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us", 
-      details: ["info@astravista.com", "support@astravista.com"],
+      details: ["info@phoenixrealestate.com", "support@phoenixrealestate.com"],
       description: "We'll respond within 24 hours"
     },
     {
