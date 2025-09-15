@@ -75,10 +75,20 @@ const ClientTestimonials = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => {
+            const bgColors = [
+              "bg-gradient-to-br from-pink-100 to-pink-200/50 dark:from-pink-900/20 dark:to-pink-800/10",
+              "bg-gradient-to-br from-blue-100 to-blue-200/50 dark:from-blue-900/20 dark:to-blue-800/10", 
+              "bg-gradient-to-br from-purple-100 to-purple-200/50 dark:from-purple-900/20 dark:to-purple-800/10",
+              "bg-gradient-to-br from-green-100 to-green-200/50 dark:from-green-900/20 dark:to-green-800/10",
+              "bg-gradient-to-br from-orange-100 to-orange-200/50 dark:from-orange-900/20 dark:to-orange-800/10",
+              "bg-gradient-to-br from-indigo-100 to-indigo-200/50 dark:from-indigo-900/20 dark:to-indigo-800/10"
+            ];
+            
+            return (
             <div 
               key={index}
-              className="bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-card hover:shadow-glow transition-smooth relative border border-white/10 dark:border-gray-800/50"
+              className={`${bgColors[index]} backdrop-blur-sm rounded-2xl p-6 shadow-card hover:shadow-glow transition-smooth relative border border-white/20 dark:border-gray-700/30`}
             >
               <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/20" />
               
@@ -115,7 +125,8 @@ const ClientTestimonials = () => {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
