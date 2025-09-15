@@ -24,7 +24,7 @@ const Services = () => {
             </h3>
             
              <p className="text-muted-foreground leading-relaxed">
-                Experience seamless property transactions with Phoenix Real Estate. Based in Kolkata's cultural heart, we serve from Bengal's heritage properties to Mumbai's commercial hubs, providing comprehensive real estate solutions across <span className="text-pink-500">India</span>.
+                Experience seamless property transactions with Phoenix Realesthatic. Based in Kolkata's cultural heart, we serve from Bengal's heritage properties to Mumbai's commercial hubs, providing comprehensive real estate solutions across <span className="text-pink-500">India</span>.
               </p>
               
               <Button className="group bg-pink-500 hover:bg-pink-600 text-white border-pink-500 border">

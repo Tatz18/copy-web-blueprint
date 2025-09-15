@@ -8,7 +8,7 @@ import {
 const FAQ = () => {
   const faqs = [
     {
-      question: "How do I buy a property through Phoenix Real Estate?",
+      question: "How do I buy a property through Phoenix Realesthatic?",
       answer: "Our process is simple: Browse properties, schedule a viewing, get expert consultation, and complete legal formalities with our assistance. We handle documentation and ensure smooth transactions."
     },
     {
@@ -28,7 +28,7 @@ const FAQ = () => {
       answer: "We operate in major Indian cities including Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, Pune, Kolkata, and Ahmedabad with plans to expand to more cities."
     },
     {
-      question: "Can I sell my property through Phoenix Real Estate?",
+      question: "Can I sell my property through Phoenix Realesthatic?",
       answer: "Absolutely! We provide end-to-end selling services including property valuation, marketing, buyer verification, and transaction support with competitive commission rates."
     }
   ];

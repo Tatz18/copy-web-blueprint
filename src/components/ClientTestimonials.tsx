@@ -13,7 +13,7 @@ const ClientTestimonials = () => {
       location: "Salt Lake, Kolkata",
       property: "3 BHK Apartment in Sector V",
       rating: 5,
-      text: "Phoenix Real Estate made my dream of owning a home in Kolkata's IT hub come true. Their team's knowledge of local areas and transparent dealings impressed me throughout.",
+      text: "Phoenix Realesthatic made my dream of owning a home in Kolkata's IT hub come true. Their team's knowledge of local areas and transparent dealings impressed me throughout.",
       avatar: bengaliMan1
     },
     {
@@ -21,7 +21,7 @@ const ClientTestimonials = () => {
       location: "Park Street, Kolkata",
       property: "2 BHK Heritage Flat",
       rating: 5,
-      text: "The professionalism of Phoenix Real Estate team is commendable. They helped us find the perfect heritage property in the heart of Kolkata within our budget in just 3 weeks.",
+      text: "The professionalism of Phoenix Realesthatic team is commendable. They helped us find the perfect heritage property in the heart of Kolkata within our budget in just 3 weeks.",
       avatar: bengaliWoman1
     },
     {
@@ -29,7 +29,7 @@ const ClientTestimonials = () => {
       location: "New Town, Kolkata",
       property: "4 BHK Independent House",
       rating: 5,
-      text: "Bought my first property through Phoenix Real Estate. Their legal team ensured all documents were verified properly. The process was smooth and completely hassle-free.",
+      text: "Bought my first property through Phoenix Realesthatic. Their legal team ensured all documents were verified properly. The process was smooth and completely hassle-free.",
       avatar: bengaliMan2
     },
     {
@@ -37,7 +37,7 @@ const ClientTestimonials = () => {
       location: "Behala, Kolkata",
       property: "Commercial Space for Clinic",
       rating: 5,
-      text: "Invested in commercial property with Phoenix Real Estate's expert guidance. Their deep understanding of Kolkata's real estate market helped me make the right investment decision.",
+      text: "Invested in commercial property with Phoenix Realesthatic's expert guidance. Their deep understanding of Kolkata's real estate market helped me make the right investment decision.",
       avatar: bengaliWoman2
     },
     {
@@ -45,7 +45,7 @@ const ClientTestimonials = () => {
       location: "Garia, Kolkata",
       property: "3 BHK Apartment in South Kolkata",
       rating: 5,
-      text: "Excellent service from Phoenix Real Estate from start to finish. The team was always available to answer questions and provided regular updates throughout the buying process.",
+      text: "Excellent service from Phoenix Realesthatic from start to finish. The team was always available to answer questions and provided regular updates throughout the buying process.",
       avatar: bengaliMan3
     },
     {
@@ -53,7 +53,7 @@ const ClientTestimonials = () => {
       location: "Tollygunge, Kolkata",
       property: "2 BHK Near Metro Station",
       rating: 5,
-      text: "Phoenix Real Estate's home loan assistance program saved me months of paperwork. They connected me with the right bank and secured the best interest rate available in Kolkata.",
+      text: "Phoenix Realesthatic's home loan assistance program saved me months of paperwork. They connected me with the right bank and secured the best interest rate available in Kolkata.",
       avatar: bengaliWoman3
     }
   ];
@@ -66,7 +66,7 @@ const ClientTestimonials = () => {
             What Our Clients Say
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Real stories from families who found their dream homes with Phoenix Real Estate in Kolkata
+            Real stories from families who found their dream homes with Phoenix Realesthatic in Kolkata
           </p>
         </div>
 

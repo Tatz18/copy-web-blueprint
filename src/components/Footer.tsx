@@ -41,7 +41,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-bold text-primary mb-3">Phoenix Real Estate</h3>
+              <h3 className="text-2xl font-bold text-primary mb-3">Phoenix Realesthatic</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Your trusted real estate partner in Kolkata and across India. 
                 Helping families find their dream homes since 2008.
@@ -59,7 +59,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center text-muted-foreground">
                 <Mail className="h-4 w-4 mr-3 flex-shrink-0" />
-                <span className="text-sm">info@phoenixrealestate.com</span>
+                <span className="text-sm">info@phoenixrealesthatic.com</span>
               </div>
               <div className="flex items-center text-muted-foreground">
                 <Clock className="h-4 w-4 mr-3 flex-shrink-0" />
@@ -184,7 +184,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="text-sm text-muted-foreground">
-            © 2024 Phoenix Real Estate. All rights reserved. | RERA Registration: WB/2024/0123456
+            © 2024 Phoenix Realesthatic. All rights reserved. | RERA Registration: WB/2024/0123456
           </div>
           
           <div className="flex items-center space-x-6 text-sm text-muted-foreground">

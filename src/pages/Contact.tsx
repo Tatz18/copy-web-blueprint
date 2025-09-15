@@ -20,7 +20,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us", 
-      details: ["info@phoenixrealestate.com", "support@phoenixrealestate.com"],
+      details: ["info@phoenixrealesthatic.com", "support@phoenixrealesthatic.com"],
       description: "We'll respond within 24 hours"
     },
     {
