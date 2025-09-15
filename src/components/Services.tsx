@@ -27,7 +27,7 @@ const Services = () => {
                 Experience seamless property transactions with AstraVista. Based in Kolkata's cultural heart, we serve from Bengal's heritage properties to Mumbai's commercial hubs, providing comprehensive real estate solutions across <span className="text-pink-500">India</span>.
               </p>
               
-              <Button variant="outline" className="group bg-pink-500 hover:bg-pink-600 text-white border-pink-500">
+              <Button className="group bg-pink-500 hover:bg-pink-600 text-white border-pink-500 border">
                 Learn more
                 <span className="ml-2 group-hover:translate-x-1 transition-smooth">→</span>
               </Button>
