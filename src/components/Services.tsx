@@ -75,7 +75,7 @@ const Services = () => {
                   <div className="text-sm text-muted-foreground">Happy Clients</div>
                 </div>
                 <div className="text-center p-6 bg-orange-50/70 dark:bg-orange-900/20 border border-orange-200/40 dark:border-orange-800/40 rounded-xl hover:bg-orange-100/80 dark:hover:bg-orange-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">25+</div>
+                  <div className="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-2">25+</div>
                   <div className="text-sm text-muted-foreground">Cities</div>
                 </div>
               </div>
