@@ -60,7 +60,7 @@ const Services = () => {
 
           {/* Right Content - Service Image */}
           <div className="relative">
-            <div className="gradient-card rounded-2xl p-8 shadow-card bg-pink-50/30 dark:bg-pink-900/10">
+            <div className="gradient-card rounded-2xl p-8 shadow-card bg-pink-100/50 dark:bg-pink-900/20">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-6 bg-blue-50/70 dark:bg-blue-900/20 border border-blue-200/40 dark:border-blue-800/40 rounded-xl hover:bg-blue-100/80 dark:hover:bg-blue-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">98%</div>
