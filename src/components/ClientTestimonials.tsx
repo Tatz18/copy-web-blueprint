@@ -1,54 +1,60 @@
 import { Star, Quote } from "lucide-react";
+import bengaliMan1 from "@/assets/testimonial-bengali-man-1.jpg";
+import bengaliWoman1 from "@/assets/testimonial-bengali-woman-1.jpg";
+import bengaliMan2 from "@/assets/testimonial-bengali-man-2.jpg";
+import bengaliWoman2 from "@/assets/testimonial-bengali-woman-2.jpg";
+import bengaliMan3 from "@/assets/testimonial-bengali-man-3.jpg";
+import bengaliWoman3 from "@/assets/testimonial-bengali-woman-3.jpg";
 
 const ClientTestimonials = () => {
   const testimonials = [
     {
-      name: "Rajesh Sharma",
-      location: "Mumbai",
-      property: "3 BHK Apartment in Bandra",
+      name: "Subhash Chatterjee",
+      location: "Salt Lake, Kolkata",
+      property: "3 BHK Apartment in Sector V",
       rating: 5,
-      text: "AstraVista made my dream of owning a home in Mumbai come true. Their team handled everything from property selection to loan approval. Exceptional service!",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+      text: "Phoenix Real Estate made my dream of owning a home in Kolkata's IT hub come true. Their team's knowledge of local areas and transparent dealings impressed me throughout.",
+      avatar: bengaliMan1
     },
     {
-      name: "Priya Patel",
-      location: "Bangalore",
-      property: "2 BHK Villa in Whitefield",
+      name: "Priya Banerjee",
+      location: "Park Street, Kolkata",
+      property: "2 BHK Heritage Flat",
       rating: 5,
-      text: "The transparency and professionalism of AstraVista team is commendable. They helped us find the perfect home within our budget in just 2 weeks.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+      text: "The professionalism of Phoenix Real Estate team is commendable. They helped us find the perfect heritage property in the heart of Kolkata within our budget in just 3 weeks.",
+      avatar: bengaliWoman1
     },
     {
-      name: "Arjun Reddy",
-      location: "Hyderabad",
+      name: "Arjun Mukherjee",
+      location: "New Town, Kolkata",
       property: "4 BHK Independent House",
       rating: 5,
-      text: "Bought my first property through AstraVista. Their legal team ensured all documents were verified. The process was smooth and hassle-free.",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+      text: "Bought my first property through Phoenix Real Estate. Their legal team ensured all documents were verified properly. The process was smooth and completely hassle-free.",
+      avatar: bengaliMan2
     },
     {
-      name: "Neeta Agarwal",
-      location: "Delhi NCR",
-      property: "Commercial Space in Gurgaon",
+      name: "Sutapa Das",
+      location: "Behala, Kolkata",
+      property: "Commercial Space for Clinic",
       rating: 5,
-      text: "Invested in commercial property with AstraVista's guidance. Their market analysis and investment advice helped me make the right decision.",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+      text: "Invested in commercial property with Phoenix Real Estate's expert guidance. Their deep understanding of Kolkata's real estate market helped me make the right investment decision.",
+      avatar: bengaliWoman2
     },
     {
-      name: "Vikram Singh",
-      location: "Pune",
-      property: "3 BHK Apartment in Hinjewadi",
+      name: "Biswajit Sen",
+      location: "Garia, Kolkata",
+      property: "3 BHK Apartment in South Kolkata",
       rating: 5,
-      text: "Excellent service from start to finish. The team was always available to answer questions and provided regular updates throughout the buying process.",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+      text: "Excellent service from Phoenix Real Estate from start to finish. The team was always available to answer questions and provided regular updates throughout the buying process.",
+      avatar: bengaliMan3
     },
     {
-      name: "Kavita Menon",
-      location: "Chennai",
-      property: "2 BHK Apartment in OMR",
+      name: "Ruma Ghosh",
+      location: "Tollygunge, Kolkata",
+      property: "2 BHK Near Metro Station",
       rating: 5,
-      text: "AstraVista's home loan assistance program saved me months of paperwork. They connected me with the right bank and got me the best interest rate.",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
+      text: "Phoenix Real Estate's home loan assistance program saved me months of paperwork. They connected me with the right bank and secured the best interest rate available in Kolkata.",
+      avatar: bengaliWoman3
     }
   ];
 
@@ -60,7 +66,7 @@ const ClientTestimonials = () => {
             What Our Clients Say
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Real stories from families who found their dream homes with AstraVista
+            Real stories from families who found their dream homes with Phoenix Real Estate in Kolkata
           </p>
         </div>
 
