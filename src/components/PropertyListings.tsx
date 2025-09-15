@@ -3,21 +3,46 @@ import { ChevronLeft, ChevronRight, Bed, Bath, Square, MapPin } from "lucide-rea
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const PropertyListings = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const { toast } = useToast();
+  
   const { data: properties, isLoading, error } = useQuery({
-    queryKey: ['properties'],
+    queryKey: ['properties', currentPage],
     queryFn: async () => {
       const { data, error } = await supabase
         .from('properties')
         .select('*')
         .eq('status', 'available')
-        .limit(6);
+        .range(currentPage * 6, (currentPage * 6) + 5);
       
       if (error) throw error;
       return data;
     },
   });
+
+  const handlePrevious = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+      toast({
+        title: "Previous Properties",
+        description: "Loading previous property listings..."
+      });
+    }
+  };
+
+  const handleNext = () => {
+    if (properties && properties.length === 6) {
+      setCurrentPage(currentPage + 1);
+      toast({
+        title: "Next Properties", 
+        description: "Loading more property listings..."
+      });
+    }
+  };
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
@@ -70,10 +95,20 @@ const PropertyListings = () => {
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-4xl font-bold text-foreground">Current Listings</h2>
           <div className="flex space-x-2">
-            <Button variant="outline" size="icon">
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={handlePrevious}
+              disabled={currentPage === 0}
+            >
               <ChevronLeft className="h-5 w-5" />
             </Button>
-            <Button variant="outline" size="icon">
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={handleNext}
+              disabled={!properties || properties.length < 6}
+            >
               <ChevronRight className="h-5 w-5" />
             </Button>
           </div>

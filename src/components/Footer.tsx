@@ -7,8 +7,57 @@ import {
   Building2, Home, Users, Shield
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const { toast } = useToast();
+
+  const handleNewsletterSubmit = async () => {
+    if (!email.trim()) {
+      toast({
+        title: "Email Required",
+        description: "Please enter your email address to subscribe.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubscribing(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Successfully Subscribed!",
+        description: "You'll receive the latest property updates and market insights."
+      });
+      setEmail("");
+      setIsSubscribing(false);
+    }, 1000);
+  };
+
+  const handleSocialClick = (platform: string, url: string) => {
+    if (url === "#") {
+      toast({
+        title: `Follow us on ${platform}`,
+        description: "Social media links will be available soon!"
+      });
+    } else {
+      window.open(url, '_blank');
+    }
+  };
   const quickLinks = [
     { name: "Home", href: "/" },
     { name: "Properties", href: "/properties" },
@@ -27,10 +76,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "Facebook", icon: Facebook, href: "#" },
-    { name: "Twitter", icon: Twitter, href: "#" },
-    { name: "Instagram", icon: Instagram, href: "#" },
-    { name: "LinkedIn", icon: Linkedin, href: "#" }
+    { name: "Facebook", icon: Facebook, href: "https://facebook.com/phoenixrealesthatic" },
+    { name: "Twitter", icon: Twitter, href: "https://twitter.com/phoenixrealestate" },
+    { name: "Instagram", icon: Instagram, href: "https://instagram.com/phoenixrealesthatic" },
+    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/phoenixrealesthatic" }
   ];
 
   return (
@@ -150,9 +199,16 @@ const Footer = () => {
               <Input 
                 placeholder="Enter your email"
                 className="bg-background border-border"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleNewsletterSubmit()}
               />
-              <Button className="w-full bg-pink-500 hover:bg-pink-600">
-                Subscribe Now
+              <Button 
+                className="w-full bg-pink-500 hover:bg-pink-600"
+                onClick={handleNewsletterSubmit}
+                disabled={isSubscribing}
+              >
+                {isSubscribing ? "Subscribing..." : "Subscribe Now"}
               </Button>
             </div>
 
@@ -162,14 +218,14 @@ const Footer = () => {
                 {socialLinks.map((social, index) => {
                   const Icon = social.icon;
                   return (
-                    <a
-                      key={index}
-                      href={social.href}
-                      className="w-10 h-10 bg-muted hover:bg-primary/10 rounded-lg flex items-center justify-center transition-colors group"
-                      aria-label={social.name}
-                    >
+                <button
+                  key={index}
+                  onClick={() => handleSocialClick(social.name, social.href)}
+                  className="w-10 h-10 bg-muted hover:bg-primary/10 rounded-lg flex items-center justify-center transition-colors group"
+                  aria-label={social.name}
+                >
                       <Icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </a>
+                </button>
                   );
                 })}
               </div>

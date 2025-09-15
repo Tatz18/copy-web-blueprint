@@ -2,8 +2,36 @@ import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Home, TrendingUp, Users, CheckCircle, ArrowRight, Phone, Star, Clock, Shield, UserCheck, Eye, Award } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 const PropertySales = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleGetValuation = () => {
+    navigate("/market-analysis");
+    toast({
+      title: "Free Property Valuation",
+      description: "Get your property valued by our certified experts."
+    });
+  };
+
+  const handleViewSoldProperties = () => {
+    navigate("/properties?filter=sold");
+    toast({
+      title: "Sold Properties",
+      description: "Viewing recently sold properties in your area."
+    });
+  };
+
+  const handleGetStarted = (packageType: string) => {
+    navigate("/contact");
+    toast({
+      title: `${packageType} Package Selected`,
+      description: "Our team will contact you within 24 hours to get started."
+    });
+  };
   const benefits = [
     "Property Valuation",
     "Basic Marketing", 
@@ -124,11 +152,20 @@ const PropertySales = () => {
               Get 15-20% higher selling prices with our proven marketing strategies, expert negotiations, and extensive buyer network across Kolkata.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
+              <Button 
+                size="lg" 
+                className="text-lg px-8"
+                onClick={handleGetValuation}
+              >
                 Get Free Valuation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8"
+                onClick={handleViewSoldProperties}
+              >
                 View Sold Properties
               </Button>
             </div>
@@ -216,7 +253,12 @@ const PropertySales = () => {
                     </div>
                   ))}
                 </div>
-                <Button className="w-full mt-6">Get Started</Button>
+                <Button 
+                  className="w-full mt-6"
+                  onClick={() => handleGetStarted("Premium")}
+                >
+                  Get Started
+                </Button>
               </CardContent>
             </Card>
 
@@ -259,7 +301,12 @@ const PropertySales = () => {
                     </div>
                   ))}
                 </div>
-                <Button className="w-full mt-6">Get Started</Button>
+                <Button 
+                  className="w-full mt-6"
+                  onClick={() => handleGetStarted("Luxury")}
+                >
+                  Get Started
+                </Button>
               </CardContent>
             </Card>
           </div>

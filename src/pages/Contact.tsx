@@ -8,8 +8,94 @@ import {
   MapPin, Phone, Mail, Clock, MessageCircle, 
   Building2, Users, HeadphonesIcon 
 } from "lucide-react";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validation
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Our team will contact you within 24 hours."
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      });
+      setIsSubmitting(false);
+    }, 1500);
+  };
+
+  const handleCall = () => {
+    window.location.href = "tel:+919876543210";
+    toast({
+      title: "Initiating Call",
+      description: "Connecting you to our sales team..."
+    });
+  };
+
+  const handleWhatsApp = () => {
+    const message = "Hi! I'm interested in your real estate services. Can you help me?";
+    const url = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+    toast({
+      title: "WhatsApp Chat",
+      description: "Opening WhatsApp to start conversation..."
+    });
+  };
+
+  const handleEmailSupport = () => {
+    window.location.href = "mailto:info@phoenixrealesthatic.com?subject=Property Inquiry";
+    toast({
+      title: "Opening Email",
+      description: "Composing email to our support team..."
+    });
+  };
   const contactInfo = [
     {
       icon: Phone,
@@ -115,7 +201,7 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium mb-2">First Name</label>
@@ -164,11 +250,19 @@ const Contact = () => {
                     <Textarea 
                       placeholder="Tell us about your requirements..."
                       rows={5}
+                      required
+                      value={formData.message}
+                      onChange={(e) => handleInputChange("message", e.target.value)}
                     />
                   </div>
                   
-                  <Button className="w-full" size="lg">
-                    Send Message
+                  <Button 
+                    className="w-full" 
+                    size="lg" 
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
@@ -185,15 +279,29 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <Button className="w-full" size="lg">
+                    <Button 
+                      className="w-full" 
+                      size="lg"
+                      onClick={handleCall}
+                    >
                       <Phone className="h-4 w-4 mr-2" />
                       Call Now: +91 98765 43210
                     </Button>
-                    <Button variant="outline" className="w-full" size="lg">
+                    <Button 
+                      variant="outline" 
+                      className="w-full" 
+                      size="lg"
+                      onClick={handleWhatsApp}
+                    >
                       <MessageCircle className="h-4 w-4 mr-2" />
                       WhatsApp Chat
                     </Button>
-                    <Button variant="outline" className="w-full" size="lg">
+                    <Button 
+                      variant="outline" 
+                      className="w-full" 
+                      size="lg"
+                      onClick={handleEmailSupport}
+                    >
                       <Mail className="h-4 w-4 mr-2" />
                       Email Support
                     </Button>

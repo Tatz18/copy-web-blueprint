@@ -1,7 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 const Services = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleLearnMore = (type: "premium" | "loan") => {
+    if (type === "premium") {
+      navigate("/about");
+      toast({
+        title: "Learn More",
+        description: "Discover our premium property solutions and services."
+      });
+    } else {
+      navigate("/investment-consulting");
+      toast({
+        title: "Home Loan Assistance",
+        description: "Get expert guidance on home loans and financing options."
+      });
+    }
+  };
   return (
     <section className="py-20 bg-gradient-to-br from-accent/5 via-background to-accent/10">
       <div className="container mx-auto px-6">
@@ -27,7 +47,10 @@ const Services = () => {
                 Experience seamless property transactions with Phoenix Realesthatic. Based in Kolkata's cultural heart, we serve from Bengal's heritage properties to Mumbai's commercial hubs, providing comprehensive real estate solutions across <span className="text-pink-500">India</span>.
               </p>
               
-              <Button className="group bg-pink-500 hover:bg-pink-600 text-white border-pink-500 border">
+              <Button 
+                className="group bg-pink-500 hover:bg-pink-600 text-white border-pink-500 border"
+                onClick={() => handleLearnMore("premium")}
+              >
                 Learn more
                 <span className="ml-2 group-hover:translate-x-1 transition-smooth">→</span>
               </Button>
@@ -51,7 +74,11 @@ const Services = () => {
                 Get expert assistance with home loans from leading <span className="text-pink-500">Indian</span> banks. Our partnerships help you secure the best interest rates and simplified documentation processes.
               </p>
               
-              <Button variant="outline" className="bg-pink-500 hover:bg-pink-600 text-white border-pink-500 group">
+              <Button 
+                variant="outline" 
+                className="bg-pink-500 hover:bg-pink-600 text-white border-pink-500 group"
+                onClick={() => handleLearnMore("loan")}
+              >
                 Learn more
                 <span className="ml-2 group-hover:translate-x-1 transition-smooth">→</span>
               </Button>

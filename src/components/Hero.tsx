@@ -2,11 +2,58 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Search, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 import heroImage from "@/assets/hero-architecture.jpg";
 
 const Hero = () => {
   const [activeTab, setActiveTab] = useState("find");
   const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleSearch = () => {
+    if (!searchValue.trim()) {
+      toast({
+        title: "Search Query Required",
+        description: "Please enter a city, locality or project name to search.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Navigate to properties page with search query
+    navigate(`/properties?search=${encodeURIComponent(searchValue.trim())}`);
+    
+    toast({
+      title: "Searching Properties",
+      description: `Looking for properties in "${searchValue.trim()}"...`
+    });
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  const handleViewCities = () => {
+    navigate("/properties");
+    toast({
+      title: "Explore Cities",
+      description: "Viewing all available cities and locations."
+    });
+  };
+
+  const handleHomeValue = () => {
+    if (activeTab === "value") {
+      navigate("/market-analysis");
+      toast({
+        title: "Home Valuation",
+        description: "Get your property valued by our experts."
+      });
+    }
+  };
 
   return (
     <section className="relative min-h-screen flex items-center">
@@ -30,7 +77,11 @@ const Hero = () => {
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
                 <span>Kolkata, Mumbai, Delhi, Bangalore & more</span>
-                <Button variant="link" className="text-primary p-0 h-auto">
+                <Button 
+                  variant="link" 
+                  className="text-primary p-0 h-auto"
+                  onClick={handleViewCities}
+                >
                   View cities <ArrowRight className="h-4 w-4 ml-1" />
                 </Button>
               </div>
@@ -48,7 +99,10 @@ const Hero = () => {
                 </Button>
                 <Button
                   variant={activeTab === "value" ? "default" : "secondary"}
-                  onClick={() => setActiveTab("value")}
+                  onClick={() => {
+                    setActiveTab("value");
+                    handleHomeValue();
+                  }}
                   className="px-6 dark:bg-pink-500 dark:hover:bg-pink-600 dark:text-white"
                 >
                   My home value
@@ -60,11 +114,13 @@ const Hero = () => {
                   placeholder="Enter city, locality or project name"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
+                  onKeyPress={handleKeyPress}
                   className="pl-4 pr-12 py-6 text-lg bg-card border-border"
                 />
                 <Button
                   size="icon"
                   className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10"
+                  onClick={handleSearch}
                 >
                   <Search className="h-5 w-5" />
                 </Button>
