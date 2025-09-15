@@ -59,8 +59,12 @@ const ClientTestimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-gradient-to-br from-pink-50/40 via-purple-50/20 to-blue-50/30 dark:from-pink-900/10 dark:via-purple-900/5 dark:to-blue-900/10 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-pink-300/20 dark:bg-pink-600/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-300/20 dark:bg-purple-600/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-blue-300/15 dark:bg-blue-600/8 rounded-full blur-3xl"></div>
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             What Our Clients Say
@@ -74,7 +78,7 @@ const ClientTestimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-card rounded-2xl p-6 shadow-card hover:shadow-glow transition-smooth relative"
+              className="bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-card hover:shadow-glow transition-smooth relative border border-white/10 dark:border-gray-800/50"
             >
               <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/20" />
               
