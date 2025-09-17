@@ -60,7 +60,7 @@ const PropertyListings = () => {
 
   if (isLoading) {
     return (
-      <section className="py-20">
+      <section ref={sectionRef} className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-foreground mb-12">Current Listings</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -82,7 +82,7 @@ const PropertyListings = () => {
 
   if (error || !properties) {
     return (
-      <section className="py-20">
+      <section ref={sectionRef} className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-foreground mb-12">Current Listings</h2>
           <p className="text-center text-muted-foreground">Unable to load properties at this time.</p>
