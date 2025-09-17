@@ -10,7 +10,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const PropertyListings = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const { toast } = useToast();
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
   
   const { data: properties, isLoading, error } = useQuery({
     queryKey: ['properties', currentPage],

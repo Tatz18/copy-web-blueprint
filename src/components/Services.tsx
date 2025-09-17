@@ -7,7 +7,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const Services = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
 
   const handleLearnMore = (type: "premium" | "loan") => {
     if (type === "premium") {

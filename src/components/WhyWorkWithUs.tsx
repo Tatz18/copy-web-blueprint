@@ -2,7 +2,7 @@ import { Shield, Award, Users, Zap, HeartHandshake, TrendingUp } from "lucide-re
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const WhyWorkWithUs = () => {
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
   const reasons = [
     {
       icon: Shield,

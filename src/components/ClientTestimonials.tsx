@@ -8,7 +8,7 @@ import bengaliWoman3 from "@/assets/testimonial-bengali-woman-3.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ClientTestimonials = () => {
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
   const testimonials = [
     {
       name: "Subhash Chatterjee",

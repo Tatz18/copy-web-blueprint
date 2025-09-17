@@ -9,7 +9,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const PopularLocations = () => {
   const navigate = useNavigate();
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
 
   const handleLocationClick = (city: string, area: string) => {
     // Navigate to properties page with location filter
