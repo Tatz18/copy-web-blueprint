@@ -7,7 +7,7 @@ import {
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const FAQ = () => {
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
   const faqs = [
     {
       question: "How do I buy a property through Phoenix Realesthatic?",
