@@ -76,7 +76,7 @@ const Hero = () => {
 
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
-                <span>Kolkata, Mumbai, Delhi, Bangalore & more</span>
+                <span>Kolkata</span>
                 <Button 
                   variant="link" 
                   className="text-primary p-0 h-auto"
