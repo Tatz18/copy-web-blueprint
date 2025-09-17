@@ -102,21 +102,29 @@ const Footer = () => {
             </div>
             
             <div className="space-y-3">
-              <div className="flex items-center text-muted-foreground">
-                <MapPin className="h-4 w-4 mr-3 flex-shrink-0" />
-                <span className="text-sm">123 Park Street, Kolkata 700016</span>
+              <div className="flex items-start text-muted-foreground">
+                <MapPin className="h-4 w-4 mr-3 flex-shrink-0 mt-0.5" />
+                <div className="text-sm">
+                  <div>Regus Globsyn Crystals</div>
+                  <div>X-11& 12, Block-EP</div>
+                  <div>Saltlake Sector-V, Kolkata-91, IN</div>
+                </div>
               </div>
               <div className="flex items-center text-muted-foreground">
                 <Phone className="h-4 w-4 mr-3 flex-shrink-0" />
-                <span className="text-sm">+91 98765 43210</span>
+                <span className="text-sm">+91 93301 02817</span>
               </div>
               <div className="flex items-center text-muted-foreground">
                 <Mail className="h-4 w-4 mr-3 flex-shrink-0" />
                 <span className="text-sm">info@phoenixrealesthatic.com</span>
               </div>
-              <div className="flex items-center text-muted-foreground">
-                <Clock className="h-4 w-4 mr-3 flex-shrink-0" />
-                <span className="text-sm">Mon-Sat: 9:00 AM - 8:00 PM</span>
+              <div className="flex items-start text-muted-foreground">
+                <Clock className="h-4 w-4 mr-3 flex-shrink-0 mt-0.5" />
+                <div className="text-sm">
+                  <div>Mon-Fri: 9:00 AM - 6:00 PM</div>
+                  <div>Saturday: 10:00 AM - 4:00 PM</div>
+                  <div>Sunday: Closed</div>
+                </div>
               </div>
             </div>
           </div>
