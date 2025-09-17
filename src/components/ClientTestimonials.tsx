@@ -61,7 +61,7 @@ const ClientTestimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-pink-50/40 via-purple-50/20 to-blue-50/30 dark:from-pink-900/10 dark:via-purple-900/5 dark:to-blue-900/10 relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-pink-50/40 via-purple-50/20 to-blue-50/30 dark:from-pink-900/10 dark:via-purple-900/5 dark:to-blue-900/10 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-pink-300/20 dark:bg-pink-600/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-300/20 dark:bg-purple-600/10 rounded-full blur-3xl"></div>
