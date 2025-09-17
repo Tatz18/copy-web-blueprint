@@ -5,10 +5,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const PropertyListings = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const { toast } = useToast();
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   
   const { data: properties, isLoading, error } = useQuery({
     queryKey: ['properties', currentPage],
@@ -90,8 +92,8 @@ const PropertyListings = () => {
   }
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} className="py-20">
+      <div className={`container mx-auto px-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-4xl font-bold text-foreground">Current Listings</h2>
           <div className="flex space-x-2">
@@ -115,11 +117,12 @@ const PropertyListings = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {properties.map((property) => (
+          {properties.map((property, index) => (
             <Link
               key={property.id}
               to={`/property/${property.id}`}
-              className="gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer block"
+              className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer block ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="relative overflow-hidden">
                 <img

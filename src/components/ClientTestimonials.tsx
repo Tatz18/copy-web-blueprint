@@ -5,8 +5,10 @@ import bengaliMan2 from "@/assets/testimonial-bengali-man-2.jpg";
 import bengaliWoman2 from "@/assets/testimonial-bengali-woman-2.jpg";
 import bengaliMan3 from "@/assets/testimonial-bengali-man-3.jpg";
 import bengaliWoman3 from "@/assets/testimonial-bengali-woman-3.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ClientTestimonials = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const testimonials = [
     {
       name: "Subhash Chatterjee",
@@ -64,7 +66,7 @@ const ClientTestimonials = () => {
       <div className="absolute top-0 left-0 w-72 h-72 bg-pink-300/20 dark:bg-pink-600/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-300/20 dark:bg-purple-600/10 rounded-full blur-3xl"></div>
       <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-blue-300/15 dark:bg-blue-600/8 rounded-full blur-3xl"></div>
-      <div className="container mx-auto px-6 relative z-10">
+      <div className={`container mx-auto px-6 relative z-10 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             What Our Clients Say
@@ -88,7 +90,8 @@ const ClientTestimonials = () => {
             return (
             <div 
               key={index}
-              className={`${bgColors[index]} backdrop-blur-sm rounded-2xl p-6 shadow-card hover:shadow-glow transition-smooth relative border border-white/20 dark:border-gray-700/30`}
+              className={`${bgColors[index]} backdrop-blur-sm rounded-2xl p-6 shadow-card hover:shadow-glow transition-smooth relative border border-white/20 dark:border-gray-700/30 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+              style={{ animationDelay: `${index * 200}ms` }}
             >
               <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/20" />
               

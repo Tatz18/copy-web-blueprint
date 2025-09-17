@@ -1,4 +1,7 @@
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 const Partners = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const partners = [
     "WATG",
     "IMPACT",
@@ -8,8 +11,8 @@ const Partners = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-accent/10 via-background to-accent/5">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-accent/10 via-background to-accent/5">
+      <div className={`container mx-auto px-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="text-center mb-16">
           <p className="text-sm font-medium text-muted-foreground mb-4 tracking-wider uppercase">
             Partners & Clients
@@ -23,7 +26,8 @@ const Partners = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-6 rounded-xl hover:bg-card/50 transition-smooth cursor-pointer group"
+              className={`flex items-center justify-center p-6 rounded-xl hover:bg-card/50 transition-smooth cursor-pointer group ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <span className="text-xl lg:text-2xl font-bold text-muted-foreground/60 group-hover:text-foreground transition-smooth">
                 {partner}

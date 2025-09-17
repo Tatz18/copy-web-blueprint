@@ -1,6 +1,8 @@
 import { Shield, Award, Users, Zap, HeartHandshake, TrendingUp } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const WhyWorkWithUs = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const reasons = [
     {
       icon: Shield,
@@ -59,8 +61,8 @@ const WhyWorkWithUs = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5">
+      <div className={`container mx-auto px-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Why Choose Phoenix Realesthatic?
@@ -76,7 +78,8 @@ const WhyWorkWithUs = () => {
             return (
               <div 
                 key={index}
-                className={`${reason.bgColor} ${reason.borderColor} ${reason.hoverBg} border rounded-2xl p-8 shadow-card hover:shadow-glow transition-smooth group hover:scale-105`}
+                className={`${reason.bgColor} ${reason.borderColor} ${reason.hoverBg} border rounded-2xl p-8 shadow-card hover:shadow-glow transition-smooth group hover:scale-105 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="space-y-4">
                   <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-background ${reason.color} mb-2`}>

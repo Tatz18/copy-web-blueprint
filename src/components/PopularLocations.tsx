@@ -5,9 +5,11 @@ import kolkataBuilding1 from "@/assets/kolkata-building-1.jpg";
 import kolkataBuilding2 from "@/assets/kolkata-building-2.jpg";
 import kolkataBuilding3 from "@/assets/kolkata-building-3.jpg";
 import kolkataBuilding4 from "@/assets/kolkata-building-4.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const PopularLocations = () => {
   const navigate = useNavigate();
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   const handleLocationClick = (city: string, area: string) => {
     // Navigate to properties page with location filter
@@ -65,8 +67,8 @@ const PopularLocations = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-secondary/30 via-background to-secondary/10">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-secondary/30 via-background to-secondary/10">
+      <div className={`container mx-auto px-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Popular Locations Across Kolkata
@@ -80,7 +82,8 @@ const PopularLocations = () => {
           {locations.map((location, index) => (
             <div 
               key={index}
-              className="gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer"
+              className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+              style={{ animationDelay: `${index * 150}ms` }}
               onClick={() => handleLocationClick(location.city, location.area)}
             >
               <div className="relative overflow-hidden">

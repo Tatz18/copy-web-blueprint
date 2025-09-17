@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Shield, Award, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Services = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   const handleLearnMore = (type: "premium" | "loan") => {
     if (type === "premium") {
@@ -23,11 +25,11 @@ const Services = () => {
     }
   };
   return (
-    <section className="py-20 bg-gradient-to-br from-accent/5 via-background to-accent/10">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-accent/5 via-background to-accent/10">
+      <div className={`container mx-auto px-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-12">
+          <div className={`space-y-12 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
             {/* Seller's Assurance Program */}
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
@@ -86,7 +88,7 @@ const Services = () => {
           </div>
 
           {/* Right Content - Service Image */}
-          <div className="relative">
+          <div className={`relative ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '400ms' }}>
             <div className="gradient-card rounded-2xl p-8 shadow-card bg-pink-200/60 dark:bg-pink-800/30">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-6 bg-blue-50/70 dark:bg-blue-900/20 border border-blue-200/40 dark:border-blue-800/40 rounded-xl hover:bg-blue-100/80 dark:hover:bg-blue-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
