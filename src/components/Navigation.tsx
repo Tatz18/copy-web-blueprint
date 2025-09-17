@@ -22,7 +22,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <img 
-              src="/lovable-uploads/6cfec74f-8510-4ad2-896d-4477495fe2f1.png" 
+              src="/ph-logo.png" 
               alt="Phoenix Realestatic - Turning Properties into Prosperities" 
               className="h-16 w-auto"
             />
