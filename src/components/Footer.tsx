@@ -93,7 +93,7 @@ const Footer = () => {
               <img 
                 src="/ph-logo.png" 
                 alt="Phoenix Realestatic - Turning Properties into Prosperities" 
-                className="h-12 w-auto mb-3"
+                className="h-16 w-auto mb-3"
               />
               <p className="text-muted-foreground leading-relaxed">
                 Your trusted real estate partner in Kolkata and across India. 
