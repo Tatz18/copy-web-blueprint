@@ -118,84 +118,88 @@ const PropertyListings = () => {
           setApi={setApi}
           opts={{
             align: "start",
-            loop: true,
+            loop: false,
+            skipSnaps: false,
+            dragFree: true,
           }}
           className="w-full relative"
         >
-          {(isFetching || isTransitioning) && (
-            <div className="absolute inset-0 z-10 bg-background/80 backdrop-blur-sm flex items-center justify-center rounded-2xl">
-              <div className="flex flex-col items-center space-y-4">
-                <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full"></div>
-                <p className="text-muted-foreground text-sm">Loading upcoming properties...</p>
+          {(isFetching && isTransitioning) && (
+            <div className="absolute top-4 right-4 z-10 bg-background/90 backdrop-blur-sm rounded-lg p-2 shadow-md">
+              <div className="flex items-center space-x-2">
+                <div className="animate-spin w-4 h-4 border-2 border-primary border-t-transparent rounded-full"></div>
+                <p className="text-muted-foreground text-xs">Loading more...</p>
               </div>
             </div>
           )}
           
-          <CarouselContent className="-ml-2 md:-ml-4">
-            {properties.map((property, index) => (
-              <CarouselItem key={property.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                <Link
-                  to={`/property/${property.id}`}
-                  className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer block transform-gpu ${
-                    isVisible 
-                      ? `${isTransitioning ? 'animate-slide-in-from-back' : 'animate-property-entrance'} opacity-100` 
-                      : 'opacity-0'
-                  }`}
-                  style={{ 
-                    animationDelay: `${index * 150}ms`,
-                    transformStyle: 'preserve-3d',
-                  }}
-                >
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={property.image_url}
-                      alt={`Property at ${property.location}`}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-smooth"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
-                  </div>
+          <CarouselContent className="-ml-1 md:-ml-2">
+            {properties?.map((property, index) => (
+              <CarouselItem key={property.id} className="pl-1 md:pl-2 basis-full sm:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <Link
+                    to={`/property/${property.id}`}
+                    className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-all duration-300 group cursor-pointer block will-change-transform ${
+                      isVisible 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-4'
+                    }`}
+                    style={{ 
+                      animationDelay: `${index * 100}ms`,
+                    }}
+                  >
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={property.image_url}
+                        alt={`Property at ${property.location || 'Unknown location'}`}
+                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
 
-                  <div className="p-6 space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="text-2xl font-bold text-foreground">
-                        {formatPrice(property.price)}
-                      </h3>
-                      
-                      <h4 className="text-lg font-semibold text-foreground/90">
-                        {property.title}
-                      </h4>
+                    <div className="p-6 space-y-4">
+                      <div className="space-y-2">
+                        <h3 className="text-2xl font-bold text-foreground">
+                          {formatPrice(property.price)}
+                        </h3>
+                        
+                        <h4 className="text-lg font-semibold text-foreground/90">
+                          {property.title}
+                        </h4>
 
-                      <div className="flex items-center text-muted-foreground text-sm mb-2">
-                        <MapPin className="h-4 w-4 mr-1" />
-                        <span>{property.location || 'Location not specified'}</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-4 text-muted-foreground text-sm">
-                        <div className="flex items-center space-x-1">
-                          <Bed className="h-4 w-4" />
-                          <span>{property.bedrooms || 0} BHK</span>
+                        <div className="flex items-center text-muted-foreground text-sm mb-2">
+                          <MapPin className="h-4 w-4 mr-1" />
+                          <span>{property.location || 'Location not specified'}</span>
                         </div>
-                        <div className="flex items-center space-x-1">
-                          <Bath className="h-4 w-4" />
-                          <span>{property.bathrooms || 0} Bath</span>
+                        
+                        <div className="flex items-center space-x-4 text-muted-foreground text-sm">
+                          <div className="flex items-center space-x-1">
+                            <Bed className="h-4 w-4" />
+                            <span>{property.bedrooms || 0} BHK</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <Bath className="h-4 w-4" />
+                            <span>{property.bathrooms || 0} Bath</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <Square className="h-4 w-4" />
+                            <span>{formatSquareFeet(property.square_feet)}</span>
+                          </div>
                         </div>
-                        <div className="flex items-center space-x-1">
-                          <Square className="h-4 w-4" />
-                          <span>{formatSquareFeet(property.square_feet)}</span>
-                        </div>
-                      </div>
 
-                      <div className="text-muted-foreground text-sm">
-                        {property.property_type || 'Property type not specified'}
+                        <div className="text-muted-foreground text-sm">
+                          {property.property_type || 'Property type not specified'}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-12 hover:bg-primary hover:text-primary-foreground" />
-          <CarouselNext className="hidden md:flex -right-12 hover:bg-primary hover:text-primary-foreground" />
+          <CarouselPrevious className="hidden md:flex -left-12 hover:bg-primary hover:text-primary-foreground transition-colors duration-200" />
+          <CarouselNext className="hidden md:flex -right-12 hover:bg-primary hover:text-primary-foreground transition-colors duration-200" />
         </Carousel>
       </div>
     </section>
