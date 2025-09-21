@@ -60,7 +60,8 @@ const PropertyListings = () => {
     };
   }, [api, onCarouselSelect]);
 
-  const formatPrice = (price: number) => {
+  const formatPrice = (price: number | null) => {
+    if (!price) return 'Price on request';
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
       currency: 'INR',
@@ -68,7 +69,8 @@ const PropertyListings = () => {
     }).format(price);
   };
 
-  const formatSquareFeet = (sqft: number) => {
+  const formatSquareFeet = (sqft: number | null) => {
+    if (!sqft) return 'N/A';
     return `${sqft.toLocaleString()} sqft`;
   };
 
@@ -165,17 +167,17 @@ const PropertyListings = () => {
 
                       <div className="flex items-center text-muted-foreground text-sm mb-2">
                         <MapPin className="h-4 w-4 mr-1" />
-                        <span>{property.location}</span>
+                        <span>{property.location || 'Location not specified'}</span>
                       </div>
                       
                       <div className="flex items-center space-x-4 text-muted-foreground text-sm">
                         <div className="flex items-center space-x-1">
                           <Bed className="h-4 w-4" />
-                          <span>{property.bedrooms} BHK</span>
+                          <span>{property.bedrooms || 0} BHK</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Bath className="h-4 w-4" />
-                          <span>{property.bathrooms} Bath</span>
+                          <span>{property.bathrooms || 0} Bath</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Square className="h-4 w-4" />
@@ -184,7 +186,7 @@ const PropertyListings = () => {
                       </div>
 
                       <div className="text-muted-foreground text-sm">
-                        {property.property_type}
+                        {property.property_type || 'Property type not specified'}
                       </div>
                     </div>
                   </div>
