@@ -2,6 +2,7 @@ import { Bed, Bath, Square, MapPin } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
+import { useState, useCallback, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Carousel,
@@ -9,24 +10,55 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  CarouselApi,
 } from "@/components/ui/carousel";
 
 const PropertyListings = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
   
-  const { data: properties, isLoading, error } = useQuery({
-    queryKey: ['properties'],
+  const { data: properties, isLoading, isFetching, error } = useQuery({
+    queryKey: ['properties', currentPage],
     queryFn: async () => {
       const { data, error } = await supabase
         .from('properties')
         .select('*')
         .eq('status', 'available')
-        .limit(12);
+        .range(currentPage * 6, (currentPage * 6) + 5);
       
       if (error) throw error;
       return data;
     },
   });
+
+  const onCarouselSelect = useCallback(() => {
+    if (!api) return;
+    
+    const current = api.selectedScrollSnap();
+    const total = api.scrollSnapList().length;
+    
+    // Load next batch when near the end
+    if (current >= total - 2 && properties && properties.length === 6) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentPage(prev => prev + 1);
+        setIsTransitioning(false);
+      }, 300);
+    }
+  }, [api, properties]);
+
+  useEffect(() => {
+    if (!api) return;
+    
+    const handleSelect = () => onCarouselSelect();
+    api.on("select", handleSelect);
+    
+    return () => {
+      api.off("select", handleSelect);
+    };
+  }, [api, onCarouselSelect]);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
@@ -81,19 +113,36 @@ const PropertyListings = () => {
         </div>
 
         <Carousel
+          setApi={setApi}
           opts={{
             align: "start",
             loop: true,
           }}
-          className="w-full"
+          className="w-full relative"
         >
+          {(isFetching || isTransitioning) && (
+            <div className="absolute inset-0 z-10 bg-background/80 backdrop-blur-sm flex items-center justify-center rounded-2xl">
+              <div className="flex flex-col items-center space-y-4">
+                <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full"></div>
+                <p className="text-muted-foreground text-sm">Loading upcoming properties...</p>
+              </div>
+            </div>
+          )}
+          
           <CarouselContent className="-ml-2 md:-ml-4">
             {properties.map((property, index) => (
               <CarouselItem key={property.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                 <Link
                   to={`/property/${property.id}`}
-                  className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer block ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer block transform-gpu ${
+                    isVisible 
+                      ? `${isTransitioning ? 'animate-slide-in-from-back' : 'animate-property-entrance'} opacity-100` 
+                      : 'opacity-0'
+                  }`}
+                  style={{ 
+                    animationDelay: `${index * 150}ms`,
+                    transformStyle: 'preserve-3d',
+                  }}
                 >
                   <div className="relative overflow-hidden">
                     <img
@@ -143,8 +192,8 @@ const PropertyListings = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
+          <CarouselPrevious className="hidden md:flex -left-12 hover:bg-primary hover:text-primary-foreground" />
+          <CarouselNext className="hidden md:flex -right-12 hover:bg-primary hover:text-primary-foreground" />
         </Carousel>
       </div>
     </section>
