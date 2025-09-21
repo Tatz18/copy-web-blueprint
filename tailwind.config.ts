@@ -87,68 +87,10 @@ export default {
             height: "0",
           },
         },
-        "fade-in": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(10px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
-        },
-        "slide-in-from-back": {
-          "0%": {
-            opacity: "0",
-            transform: "translateX(100%) translateZ(-50px) scale(0.8)",
-            filter: "blur(2px)",
-          },
-          "50%": {
-            opacity: "0.5",
-            transform: "translateX(50%) translateZ(-25px) scale(0.9)",
-            filter: "blur(1px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateX(0) translateZ(0) scale(1)",
-            filter: "blur(0px)",
-          },
-        },
-        "emerge-from-depth": {
-          "0%": {
-            opacity: "0",
-            transform: "perspective(1000px) rotateY(45deg) translateZ(-100px) scale(0.7)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "perspective(1000px) rotateY(0deg) translateZ(0) scale(1)",
-          },
-        },
-        "property-entrance": {
-          "0%": {
-            opacity: "0",
-            transform: "translateX(40px) translateY(20px) scale(0.85)",
-            filter: "brightness(0.7)",
-          },
-          "60%": {
-            opacity: "0.8",
-            transform: "translateX(10px) translateY(5px) scale(0.95)",
-            filter: "brightness(0.9)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateX(0) translateY(0) scale(1)",
-            filter: "brightness(1)",
-          },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.6s ease-out",
-        "slide-in-from-back": "slide-in-from-back 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
-        "emerge-from-depth": "emerge-from-depth 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
-        "property-entrance": "property-entrance 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
       },
     },
   },

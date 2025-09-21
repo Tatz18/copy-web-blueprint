@@ -2,7 +2,6 @@ import { Bed, Bath, Square, MapPin } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
-import { useState, useCallback, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Carousel,
@@ -10,58 +9,26 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  CarouselApi,
 } from "@/components/ui/carousel";
 
 const PropertyListings = () => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [api, setApi] = useState<CarouselApi>();
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
   
-  const { data: properties, isLoading, isFetching, error } = useQuery({
-    queryKey: ['properties', currentPage],
+  const { data: properties, isLoading, error } = useQuery({
+    queryKey: ['properties'],
     queryFn: async () => {
       const { data, error } = await supabase
         .from('properties')
         .select('*')
         .eq('status', 'available')
-        .range(currentPage * 6, (currentPage * 6) + 5);
+        .limit(12);
       
       if (error) throw error;
       return data;
     },
   });
 
-  const onCarouselSelect = useCallback(() => {
-    if (!api) return;
-    
-    const current = api.selectedScrollSnap();
-    const total = api.scrollSnapList().length;
-    
-    // Load next batch when near the end
-    if (current >= total - 2 && properties && properties.length === 6) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentPage(prev => prev + 1);
-        setIsTransitioning(false);
-      }, 300);
-    }
-  }, [api, properties]);
-
-  useEffect(() => {
-    if (!api) return;
-    
-    const handleSelect = () => onCarouselSelect();
-    api.on("select", handleSelect);
-    
-    return () => {
-      api.off("select", handleSelect);
-    };
-  }, [api, onCarouselSelect]);
-
-  const formatPrice = (price: number | null) => {
-    if (!price) return 'Price on request';
+  const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
       currency: 'INR',
@@ -69,8 +36,7 @@ const PropertyListings = () => {
     }).format(price);
   };
 
-  const formatSquareFeet = (sqft: number | null) => {
-    if (!sqft) return 'N/A';
+  const formatSquareFeet = (sqft: number) => {
     return `${sqft.toLocaleString()} sqft`;
   };
 
@@ -115,91 +81,70 @@ const PropertyListings = () => {
         </div>
 
         <Carousel
-          setApi={setApi}
           opts={{
             align: "start",
-            loop: false,
-            skipSnaps: false,
-            dragFree: true,
+            loop: true,
           }}
-          className="w-full relative"
+          className="w-full"
         >
-          {(isFetching && isTransitioning) && (
-            <div className="absolute top-4 right-4 z-10 bg-background/90 backdrop-blur-sm rounded-lg p-2 shadow-md">
-              <div className="flex items-center space-x-2">
-                <div className="animate-spin w-4 h-4 border-2 border-primary border-t-transparent rounded-full"></div>
-                <p className="text-muted-foreground text-xs">Loading more...</p>
-              </div>
-            </div>
-          )}
-          
-          <CarouselContent className="-ml-1 md:-ml-2">
-            {properties?.map((property, index) => (
-              <CarouselItem key={property.id} className="pl-1 md:pl-2 basis-full sm:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Link
-                    to={`/property/${property.id}`}
-                    className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-all duration-300 group cursor-pointer block will-change-transform ${
-                      isVisible 
-                        ? 'opacity-100 translate-y-0' 
-                        : 'opacity-0 translate-y-4'
-                    }`}
-                    style={{ 
-                      animationDelay: `${index * 100}ms`,
-                    }}
-                  >
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={property.image_url}
-                        alt={`Property at ${property.location || 'Unknown location'}`}
-                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {properties.map((property, index) => (
+              <CarouselItem key={property.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <Link
+                  to={`/property/${property.id}`}
+                  className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer block ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={property.image_url}
+                      alt={`Property at ${property.location}`}
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-smooth"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
+                  </div>
 
-                    <div className="p-6 space-y-4">
-                      <div className="space-y-2">
-                        <h3 className="text-2xl font-bold text-foreground">
-                          {formatPrice(property.price)}
-                        </h3>
-                        
-                        <h4 className="text-lg font-semibold text-foreground/90">
-                          {property.title}
-                        </h4>
+                  <div className="p-6 space-y-4">
+                    <div className="space-y-2">
+                      <h3 className="text-2xl font-bold text-foreground">
+                        {formatPrice(property.price)}
+                      </h3>
+                      
+                      <h4 className="text-lg font-semibold text-foreground/90">
+                        {property.title}
+                      </h4>
 
-                        <div className="flex items-center text-muted-foreground text-sm mb-2">
-                          <MapPin className="h-4 w-4 mr-1" />
-                          <span>{property.location || 'Location not specified'}</span>
+                      <div className="flex items-center text-muted-foreground text-sm mb-2">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        <span>{property.location}</span>
+                      </div>
+                      
+                      <div className="flex items-center space-x-4 text-muted-foreground text-sm">
+                        <div className="flex items-center space-x-1">
+                          <Bed className="h-4 w-4" />
+                          <span>{property.bedrooms} BHK</span>
                         </div>
-                        
-                        <div className="flex items-center space-x-4 text-muted-foreground text-sm">
-                          <div className="flex items-center space-x-1">
-                            <Bed className="h-4 w-4" />
-                            <span>{property.bedrooms || 0} BHK</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <Bath className="h-4 w-4" />
-                            <span>{property.bathrooms || 0} Bath</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <Square className="h-4 w-4" />
-                            <span>{formatSquareFeet(property.square_feet)}</span>
-                          </div>
+                        <div className="flex items-center space-x-1">
+                          <Bath className="h-4 w-4" />
+                          <span>{property.bathrooms} Bath</span>
                         </div>
-
-                        <div className="text-muted-foreground text-sm">
-                          {property.property_type || 'Property type not specified'}
+                        <div className="flex items-center space-x-1">
+                          <Square className="h-4 w-4" />
+                          <span>{formatSquareFeet(property.square_feet)}</span>
                         </div>
                       </div>
+
+                      <div className="text-muted-foreground text-sm">
+                        {property.property_type}
+                      </div>
                     </div>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-12 hover:bg-primary hover:text-primary-foreground transition-colors duration-200" />
-          <CarouselNext className="hidden md:flex -right-12 hover:bg-primary hover:text-primary-foreground transition-colors duration-200" />
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
         </Carousel>
       </div>
     </section>
