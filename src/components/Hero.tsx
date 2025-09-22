@@ -65,16 +65,35 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-tight">
-                Discover{" "}
-                <span className="block">Your Dream Home</span>
-                <span className="text-pink-500">in India</span>
+                <span className="inline-block opacity-0 animate-word-slide-up" style={{animationDelay: '0.1s'}}>
+                  Discover
+                </span>{" "}
+                <span className="block">
+                  <span className="inline-block opacity-0 animate-word-slide-up" style={{animationDelay: '0.3s'}}>
+                    Your
+                  </span>{" "}
+                  <span className="inline-block opacity-0 animate-word-slide-up" style={{animationDelay: '0.5s'}}>
+                    Dream
+                  </span>{" "}
+                  <span className="inline-block opacity-0 animate-word-slide-up" style={{animationDelay: '0.7s'}}>
+                    Home
+                  </span>
+                </span>
+                <span className="text-pink-500 block">
+                  <span className="inline-block opacity-0 animate-word-slide-up" style={{animationDelay: '0.9s'}}>
+                    in
+                  </span>{" "}
+                  <span className="inline-block opacity-0 animate-word-slide-up" style={{animationDelay: '1.1s'}}>
+                    India
+                  </span>
+                </span>
               </h1>
               
-              <p className="text-xl text-muted-foreground max-w-lg">
+              <p className="text-xl text-muted-foreground max-w-lg opacity-0 animate-text-reveal" style={{animationDelay: '1.3s'}}>
                 Find premium properties across India's most vibrant cities. Based in Kolkata, we serve the cultural capital and major metros with expert guidance for your perfect home.
               </p>
 
-              <div className="flex items-center space-x-2 text-muted-foreground">
+              <div className="flex items-center space-x-2 text-muted-foreground opacity-0 animate-text-reveal" style={{animationDelay: '1.5s'}}>
                 <MapPin className="h-5 w-5" />
                 <span>Kolkata</span>
                 <Button 
