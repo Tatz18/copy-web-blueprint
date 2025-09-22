@@ -118,21 +118,21 @@ export default {
           }
         },
         "text-reveal": {
-          "0%": {
+          "0%, 100%": {
             opacity: "0",
             transform: "translateY(20px)"
           },
-          "100%": {
+          "20%, 80%": {
             opacity: "1",
             transform: "translateY(0)"
           }
         },
         "word-slide-up": {
-          "0%": {
+          "0%, 100%": {
             opacity: "0",
             transform: "translateY(30px) rotateX(90deg)"
           },
-          "100%": {
+          "20%, 80%": {
             opacity: "1",
             transform: "translateY(0) rotateX(0deg)"
           }
@@ -143,8 +143,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.3s ease-out",
         "slide-in-from-back": "slide-in-from-back 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
-        "text-reveal": "text-reveal 0.8s ease-out forwards",
-        "word-slide-up": "word-slide-up 0.6s ease-out forwards",
+        "text-reveal": "text-reveal 0.8s ease-out infinite",
+        "word-slide-up": "word-slide-up 0.6s ease-out infinite",
       },
     },
   },
