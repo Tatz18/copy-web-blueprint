@@ -18,19 +18,26 @@ const PropertyListings = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [animatingIndex, setAnimatingIndex] = useState<number | null>(null);
+  const [visibleSlides, setVisibleSlides] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     if (!api) return;
 
     const onSelect = () => {
       const newIndex = api.selectedScrollSnap();
+      const currentlyVisible = api.slidesInView();
       
-      // Only animate the newly visible property
-      const visibleIndices = api.slidesInView();
-      const newlyVisible = visibleIndices.find(i => i !== current);
+      // Find newly visible slides (not previously visible)
+      const newlyVisible = currentlyVisible.filter(index => !visibleSlides.has(index));
       
-      if (newlyVisible !== undefined) {
-        setAnimatingIndex(newlyVisible);
+      if (newlyVisible.length > 0) {
+        // Animate the first newly visible slide
+        const slideToAnimate = newlyVisible[0];
+        setAnimatingIndex(slideToAnimate);
+        
+        // Update the set of visible slides
+        setVisibleSlides(prev => new Set([...prev, ...currentlyVisible]));
+        
         // Reset animation after it completes
         setTimeout(() => setAnimatingIndex(null), 800);
       }
@@ -40,10 +47,14 @@ const PropertyListings = () => {
 
     api.on("select", onSelect);
     
+    // Initialize with currently visible slides
+    const initialVisible = api.slidesInView();
+    setVisibleSlides(new Set(initialVisible));
+    
     return () => {
       api.off("select", onSelect);
     };
-  }, [api, current]);
+  }, [api, visibleSlides]);
   
   const { data: properties, isLoading, error } = useQuery({
     queryKey: ['properties'],
