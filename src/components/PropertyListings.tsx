@@ -37,7 +37,7 @@ const PropertyListings = () => {
           setAnimatingIndex(slideToAnimate);
           
           // Reset animation after it completes
-          setTimeout(() => setAnimatingIndex(null), 800);
+          setTimeout(() => setAnimatingIndex(null), 1200);
         }
         
         return new Set(currentlyVisible);
