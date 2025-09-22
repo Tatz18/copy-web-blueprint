@@ -32,7 +32,7 @@ const PropertyListings = () => {
         const newlyVisible = currentlyVisible.filter(index => !prev.has(index));
         
         if (newlyVisible.length > 0) {
-          // Animate the newly visible slide that's furthest from center (the one sliding in)
+          // Apply animation immediately to prevent flash
           const slideToAnimate = newlyVisible[newlyVisible.length - 1];
           setAnimatingIndex(slideToAnimate);
           
