@@ -28,19 +28,21 @@ const PropertyListings = () => {
       const currentlyVisible = api.slidesInView();
       
       // Find slides that are newly visible (not in previous visible set)
-      const newlyVisible = currentlyVisible.filter(index => !visibleSlides.has(index));
-      
-      if (newlyVisible.length > 0) {
-        // Animate the newly visible slide that's furthest from center (the one sliding in)
-        const slideToAnimate = newlyVisible[newlyVisible.length - 1];
-        setAnimatingIndex(slideToAnimate);
+      setVisibleSlides(prev => {
+        const newlyVisible = currentlyVisible.filter(index => !prev.has(index));
         
-        // Reset animation after it completes
-        setTimeout(() => setAnimatingIndex(null), 800);
-      }
+        if (newlyVisible.length > 0) {
+          // Animate the newly visible slide that's furthest from center (the one sliding in)
+          const slideToAnimate = newlyVisible[newlyVisible.length - 1];
+          setAnimatingIndex(slideToAnimate);
+          
+          // Reset animation after it completes
+          setTimeout(() => setAnimatingIndex(null), 800);
+        }
+        
+        return new Set(currentlyVisible);
+      });
       
-      // Update visible slides set
-      setVisibleSlides(new Set(currentlyVisible));
       setCurrent(newIndex);
     };
 
@@ -53,7 +55,7 @@ const PropertyListings = () => {
     return () => {
       api.off("select", onSelect);
     };
-  }, [api, visibleSlides]);
+  }, [api]);
   
   const { data: properties, isLoading, error } = useQuery({
     queryKey: ['properties'],
