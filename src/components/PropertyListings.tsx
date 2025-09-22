@@ -27,27 +27,26 @@ const PropertyListings = () => {
       const newIndex = api.selectedScrollSnap();
       const currentlyVisible = api.slidesInView();
       
-      // Find newly visible slides (not previously visible)
+      // Find slides that are newly visible (not in previous visible set)
       const newlyVisible = currentlyVisible.filter(index => !visibleSlides.has(index));
       
       if (newlyVisible.length > 0) {
-        // Animate the first newly visible slide
-        const slideToAnimate = newlyVisible[0];
+        // Animate the newly visible slide that's furthest from center (the one sliding in)
+        const slideToAnimate = newlyVisible[newlyVisible.length - 1];
         setAnimatingIndex(slideToAnimate);
-        
-        // Update the set of visible slides
-        setVisibleSlides(prev => new Set([...prev, ...currentlyVisible]));
         
         // Reset animation after it completes
         setTimeout(() => setAnimatingIndex(null), 800);
       }
       
+      // Update visible slides set
+      setVisibleSlides(new Set(currentlyVisible));
       setCurrent(newIndex);
     };
 
     api.on("select", onSelect);
     
-    // Initialize with currently visible slides
+    // Initialize with currently visible slides on mount
     const initialVisible = api.slidesInView();
     setVisibleSlides(new Set(initialVisible));
     
