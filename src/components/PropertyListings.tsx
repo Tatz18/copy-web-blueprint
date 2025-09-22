@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState, useCallback, useEffect } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -10,9 +11,32 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import type { CarouselApi } from "@/components/ui/carousel";
 
 const PropertyListings = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [animatingIndex, setAnimatingIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      const newIndex = api.selectedScrollSnap();
+      setAnimatingIndex(newIndex);
+      setCurrent(newIndex);
+      
+      // Reset animation after it completes
+      setTimeout(() => setAnimatingIndex(null), 500);
+    };
+
+    api.on("select", onSelect);
+    
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
   
   const { data: properties, isLoading, error } = useQuery({
     queryKey: ['properties'],
@@ -86,14 +110,22 @@ const PropertyListings = () => {
             loop: true,
           }}
           className="w-full"
+          setApi={setApi}
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {properties.map((property, index) => (
               <CarouselItem key={property.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                 <Link
                   to={`/property/${property.id}`}
-                  className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer block ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className={`gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-glow transition-smooth group cursor-pointer block relative ${
+                    isVisible ? 'animate-fade-in' : 'opacity-0'
+                  } ${
+                    animatingIndex === index ? 'animate-slide-in-from-back' : ''
+                  }`}
+                  style={{ 
+                    animationDelay: `${index * 100}ms`,
+                    transformStyle: 'preserve-3d'
+                  }}
                 >
                   <div className="relative overflow-hidden">
                     <img
