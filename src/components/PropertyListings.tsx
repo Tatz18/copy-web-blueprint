@@ -24,11 +24,18 @@ const PropertyListings = () => {
 
     const onSelect = () => {
       const newIndex = api.selectedScrollSnap();
-      setAnimatingIndex(newIndex);
-      setCurrent(newIndex);
       
-      // Reset animation after it completes
-      setTimeout(() => setAnimatingIndex(null), 500);
+      // Only animate the newly visible property
+      const visibleIndices = api.slidesInView();
+      const newlyVisible = visibleIndices.find(i => i !== current);
+      
+      if (newlyVisible !== undefined) {
+        setAnimatingIndex(newlyVisible);
+        // Reset animation after it completes
+        setTimeout(() => setAnimatingIndex(null), 500);
+      }
+      
+      setCurrent(newIndex);
     };
 
     api.on("select", onSelect);
@@ -36,7 +43,7 @@ const PropertyListings = () => {
     return () => {
       api.off("select", onSelect);
     };
-  }, [api]);
+  }, [api, current]);
   
   const { data: properties, isLoading, error } = useQuery({
     queryKey: ['properties'],
@@ -123,7 +130,7 @@ const PropertyListings = () => {
                     animatingIndex === index ? 'animate-slide-in-from-back' : ''
                   }`}
                   style={{ 
-                    animationDelay: `${index * 100}ms`,
+                    animationDelay: isVisible ? `${index * 100}ms` : '0ms',
                     transformStyle: 'preserve-3d'
                   }}
                 >
