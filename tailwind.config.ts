@@ -132,7 +132,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.3s ease-out",
-        "slide-in-from-back": "slide-in-from-back 0.3s ease-out",
+        "slide-in-from-back": "slide-in-from-back 0.8s ease-out",
         "text-reveal": "text-reveal 2s ease-out infinite",
         "word-slide-up": "word-slide-up 1.8s ease-out infinite",
       },
