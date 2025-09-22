@@ -32,7 +32,7 @@ const PropertyListings = () => {
       if (newlyVisible !== undefined) {
         setAnimatingIndex(newlyVisible);
         // Reset animation after it completes
-        setTimeout(() => setAnimatingIndex(null), 500);
+        setTimeout(() => setAnimatingIndex(null), 1200);
       }
       
       setCurrent(newIndex);
