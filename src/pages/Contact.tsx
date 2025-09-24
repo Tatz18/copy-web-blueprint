@@ -155,14 +155,14 @@ const Contact = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent">
+      <section className="py-20 bg-gradient-to-br from-pink/20 via-pink-soft/20 to-transparent">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-pink bg-clip-text text-transparent mb-6">
             Contact Us
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Ready to find your dream home? Our expert team is here to help. 
-            Get in touch with us today and let's start your property journey.
+            Have questions about properties, need expert advice, or ready to start your real estate journey? 
+            We're here to help you every step of the way.
           </p>
         </div>
       </section>
@@ -173,16 +173,16 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
-              const gradients = ['bg-gradient-primary', 'bg-gradient-card', 'bg-accent', 'bg-secondary'];
+              const gradients = ['bg-gradient-pink', 'bg-gradient-pink-soft', 'bg-pink', 'bg-accent'];
               return (
                 <Card key={index} className="text-center gradient-card shadow-card hover:shadow-glow transition-smooth group">
                   <CardContent className="p-6">
                     <div className={`w-16 h-16 ${gradients[index]} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-smooth`}>
                       <Icon className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold bg-gradient-primary bg-clip-text text-transparent mb-3">{info.title}</h3>
+                    <h3 className="text-lg font-bold bg-gradient-pink bg-clip-text text-transparent mb-3">{info.title}</h3>
                     {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-foreground font-medium bg-accent/10 px-3 py-1 rounded-full mb-1">
+                      <p key={detailIndex} className="text-foreground font-medium bg-pink/10 px-3 py-1 rounded-full mb-1">
                         {detail}
                       </p>
                     ))}
@@ -260,7 +260,7 @@ const Contact = () => {
                   </div>
                   
                   <Button 
-                    className="w-full" 
+                    className="w-full bg-gradient-pink hover:bg-gradient-pink/90" 
                     size="lg" 
                     type="submit"
                     disabled={isSubmitting}

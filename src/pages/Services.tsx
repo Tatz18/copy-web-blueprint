@@ -111,8 +111,8 @@ const Services = () => {
             {mainServices.map((service, index) => {
               const Icon = service.icon;
               const gradients = [
-                'bg-gradient-primary', 'bg-gradient-card', 'bg-primary', 
-                'bg-accent', 'bg-secondary', 'bg-gradient-hero'
+                'bg-gradient-primary', 'bg-gradient-pink', 'bg-pink', 
+                'bg-accent', 'bg-gradient-pink-soft', 'bg-secondary'
               ];
               return (
                 <Card key={index} className="h-full gradient-card shadow-card hover:shadow-glow transition-smooth group">
@@ -186,7 +186,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary/80">
+      <section className="py-20 bg-gradient-to-r from-pink to-pink/80">
         <div className="container mx-auto px-6 text-center text-white">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Find Your Dream Home?
@@ -200,7 +200,7 @@ const Services = () => {
               <Phone className="h-4 w-4 mr-2" />
               Call Now: +91 98765 43210
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-pink">
               <MapPin className="h-4 w-4 mr-2" />
               Schedule Site Visit
             </Button>

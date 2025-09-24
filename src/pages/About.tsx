@@ -1,7 +1,8 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Users, Award, Building, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Users, Award, Building, Heart, Phone, Mail } from "lucide-react";
 
 const About = () => {
   const stats = [
@@ -37,9 +38,9 @@ const About = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent">
+      <section className="py-20 bg-gradient-to-br from-pink/20 via-pink-soft/20 to-transparent">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-pink bg-clip-text text-transparent mb-6">
             About Phoenix Realesthatic
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -55,7 +56,7 @@ const About = () => {
           <div className="grid md:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
-              const gradients = ['bg-gradient-primary', 'bg-gradient-card', 'bg-primary', 'bg-accent'];
+              const gradients = ['bg-gradient-pink', 'bg-gradient-pink-soft', 'bg-pink', 'bg-accent'];
               return (
                 <Card key={index} className="text-center gradient-card shadow-glow hover:shadow-luxury transition-smooth">
                   <CardContent className="p-6">
@@ -133,8 +134,8 @@ const About = () => {
                     <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-2">{member.name}</h3>
-                  <p className="bg-gradient-primary bg-clip-text text-transparent font-semibold mb-2">{member.role}</p>
-                  <p className="text-muted-foreground text-sm bg-accent/10 px-3 py-1 rounded-full">{member.experience}</p>
+                   <p className="bg-gradient-pink bg-clip-text text-transparent font-semibold mb-2">{member.role}</p>
+                   <p className="text-muted-foreground text-sm bg-pink/10 px-3 py-1 rounded-full">{member.experience}</p>
                 </CardContent>
               </Card>
             ))}
@@ -149,8 +150,8 @@ const About = () => {
           
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="h-8 w-8 text-primary" />
+              <div className="w-16 h-16 bg-pink/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="h-8 w-8 text-pink" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">Trust & Transparency</h3>
               <p className="text-muted-foreground">
@@ -159,8 +160,8 @@ const About = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-primary" />
+              <div className="w-16 h-16 bg-pink/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-pink" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">Customer First</h3>
               <p className="text-muted-foreground">
@@ -169,8 +170,8 @@ const About = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-primary" />
+              <div className="w-16 h-16 bg-pink/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-pink" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">Excellence</h3>
               <p className="text-muted-foreground">
@@ -178,6 +179,28 @@ const About = () => {
               </p>
             </div>
           </div>
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-pink">
+        <div className="container mx-auto px-6 text-center text-white">
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Work with Us?
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Join thousands of satisfied clients who have found their dream homes with our expertise. 
+            Let's make your property dreams a reality.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="secondary">
+              <Phone className="h-4 w-4 mr-2" />
+              Call: +91 98765 43210
+            </Button>
+            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-pink">
+              <Mail className="h-4 w-4 mr-2" />
+              Email Us
+            </Button>
+          </div>
+        </div>
+      </section>
         </div>
       </section>
     </div>

@@ -55,10 +55,10 @@ const Properties = () => {
       <Navigation />
       
       {/* Hero Section with Search */}
-      <section className="py-20 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent">
+      <section className="py-20 bg-gradient-to-br from-pink/20 via-pink-soft/20 to-transparent">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-pink bg-clip-text text-transparent mb-6">
               {locationFilter || areaFilter ? `Properties in ${areaFilter ? areaFilter + ', ' : ''}${locationFilter || ''}` : 'Find Your Dream Home'}
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -183,10 +183,10 @@ const Properties = () => {
                           <Bath className="h-4 w-4 text-accent" />
                           <span className="text-accent font-medium">{property.bathrooms} Bath</span>
                         </div>
-                        <div className="flex items-center space-x-1 bg-secondary/20 px-2 py-1 rounded-full">
-                          <Square className="h-4 w-4 text-secondary" />
-                          <span className="text-secondary font-medium">{property.square_feet} sqft</span>
-                        </div>
+                         <div className="flex items-center space-x-1 bg-pink/10 px-2 py-1 rounded-full">
+                           <Square className="h-4 w-4 text-pink" />
+                           <span className="text-pink font-medium">{property.square_feet} sqft</span>
+                         </div>
                       </div>
                     </div>
                   </div>

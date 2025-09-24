@@ -43,6 +43,12 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        pink: {
+          DEFAULT: "hsl(var(--pink))",
+          foreground: "hsl(var(--pink-foreground))",
+          soft: "hsl(var(--pink-soft))",
+          "soft-foreground": "hsl(var(--pink-soft-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -56,6 +62,8 @@ export default {
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-card': 'var(--gradient-card)',
         'gradient-primary': 'var(--gradient-primary)',
+        'gradient-pink': 'var(--gradient-pink)',
+        'gradient-pink-soft': 'var(--gradient-pink-soft)',
       },
       boxShadow: {
         'luxury': 'var(--shadow-luxury)',
