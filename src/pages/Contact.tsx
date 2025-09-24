@@ -173,13 +173,16 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
+              const gradients = ['bg-gradient-primary', 'bg-gradient-card', 'bg-accent', 'bg-secondary'];
               return (
-                <Card key={index} className="text-center">
+                <Card key={index} className="text-center gradient-card shadow-card hover:shadow-glow transition-smooth group">
                   <CardContent className="p-6">
-                    <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="text-lg font-bold text-foreground mb-3">{info.title}</h3>
+                    <div className={`w-16 h-16 ${gradients[index]} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-smooth`}>
+                      <Icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold bg-gradient-primary bg-clip-text text-transparent mb-3">{info.title}</h3>
                     {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-foreground font-medium">
+                      <p key={detailIndex} className="text-foreground font-medium bg-accent/10 px-3 py-1 rounded-full mb-1">
                         {detail}
                       </p>
                     ))}

@@ -132,7 +132,7 @@ const Properties = () => {
             </div>
           ) : (
             <div className="grid md:grid-cols-3 gap-8">
-              {properties?.map((property) => (
+          {properties?.map((property) => (
                 <Link
                   key={property.id}
                   to={`/property/${property.id}`}
@@ -144,40 +144,49 @@ const Properties = () => {
                       alt={property.title}
                       className="w-full h-64 object-cover group-hover:scale-105 transition-smooth"
                     />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-gradient-primary text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                        {property.property_type}
+                      </span>
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                        Premium
+                      </span>
+                    </div>
                   </div>
 
                   <div className="p-6 space-y-4">
                     <div className="space-y-2">
-                      <h3 className="text-2xl font-bold text-foreground">
-                        {formatPrice(property.price)}
-                      </h3>
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                          {formatPrice(property.price)}
+                        </h3>
+                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                      </div>
                       
                       <h4 className="text-lg font-semibold text-foreground/90">
                         {property.title}
                       </h4>
 
                       <div className="flex items-center text-muted-foreground text-sm mb-2">
-                        <MapPin className="h-4 w-4 mr-1" />
+                        <MapPin className="h-4 w-4 mr-1 text-primary" />
                         <span>{property.location}</span>
                       </div>
                       
                       <div className="flex items-center space-x-4 text-muted-foreground text-sm">
-                        <div className="flex items-center space-x-1">
-                          <Bed className="h-4 w-4" />
-                          <span>{property.bedrooms} BHK</span>
+                        <div className="flex items-center space-x-1 bg-primary/10 px-2 py-1 rounded-full">
+                          <Bed className="h-4 w-4 text-primary" />
+                          <span className="text-primary font-medium">{property.bedrooms} BHK</span>
                         </div>
-                        <div className="flex items-center space-x-1">
-                          <Bath className="h-4 w-4" />
-                          <span>{property.bathrooms} Bath</span>
+                        <div className="flex items-center space-x-1 bg-accent/10 px-2 py-1 rounded-full">
+                          <Bath className="h-4 w-4 text-accent" />
+                          <span className="text-accent font-medium">{property.bathrooms} Bath</span>
                         </div>
-                        <div className="flex items-center space-x-1">
-                          <Square className="h-4 w-4" />
-                          <span>{property.square_feet} sqft</span>
+                        <div className="flex items-center space-x-1 bg-secondary/20 px-2 py-1 rounded-full">
+                          <Square className="h-4 w-4 text-secondary" />
+                          <span className="text-secondary font-medium">{property.square_feet} sqft</span>
                         </div>
-                      </div>
-
-                      <div className="text-muted-foreground text-sm">
-                        {property.property_type}
                       </div>
                     </div>
                   </div>

@@ -110,19 +110,25 @@ const Services = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {mainServices.map((service, index) => {
               const Icon = service.icon;
+              const gradients = [
+                'bg-gradient-primary', 'bg-gradient-card', 'bg-primary', 
+                'bg-accent', 'bg-secondary', 'bg-gradient-hero'
+              ];
               return (
-                <Card key={index} className="h-full">
+                <Card key={index} className="h-full gradient-card shadow-card hover:shadow-glow transition-smooth group">
                   <CardHeader>
-                    <Icon className="h-12 w-12 text-primary mb-4" />
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <div className={`w-16 h-16 ${gradients[index % gradients.length]} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-smooth`}>
+                      <Icon className="h-8 w-8 text-white" />
+                    </div>
+                    <CardTitle className="text-xl bg-gradient-primary bg-clip-text text-transparent">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground mb-6">{service.description}</p>
                     <ul className="space-y-2">
                       {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-sm">
+                        <li key={featureIndex} className="flex items-center text-sm bg-accent/5 p-2 rounded-lg">
                           <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                          <span>{feature}</span>
+                          <span className="text-foreground font-medium">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -144,12 +150,12 @@ const Services = () => {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8">
               {process.map((step, index) => (
-                <div key={index} className="flex items-start space-x-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg">
+                <div key={index} className="flex items-start space-x-6 bg-gradient-card p-6 rounded-2xl shadow-card hover:shadow-glow transition-smooth group">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-primary text-white rounded-full flex items-center justify-center font-bold text-lg shadow-glow group-hover:scale-110 transition-smooth">
                     {step.step}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
+                    <h3 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">{step.title}</h3>
                     <p className="text-muted-foreground">{step.description}</p>
                   </div>
                 </div>

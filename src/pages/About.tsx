@@ -55,12 +55,15 @@ const About = () => {
           <div className="grid md:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
+              const gradients = ['bg-gradient-primary', 'bg-gradient-card', 'bg-primary', 'bg-accent'];
               return (
-                <Card key={index} className="text-center">
+                <Card key={index} className="text-center gradient-card shadow-glow hover:shadow-luxury transition-smooth">
                   <CardContent className="p-6">
-                    <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <div className="text-3xl font-bold text-foreground mb-2">{stat.value}</div>
-                    <div className="text-muted-foreground">{stat.label}</div>
+                    <div className={`w-16 h-16 ${gradients[index]} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                      <Icon className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">{stat.value}</div>
+                    <div className="text-muted-foreground font-medium">{stat.label}</div>
                   </CardContent>
                 </Card>
               );
@@ -119,16 +122,19 @@ const About = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <Card key={index} className="text-center">
+              <Card key={index} className="text-center gradient-card shadow-card hover:shadow-glow transition-smooth group">
                 <CardContent className="p-6">
-                  <img 
-                    src={member.image}
-                    alt={member.name}
-                    className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                  />
+                  <div className="relative mb-4">
+                    <img 
+                      src={member.image}
+                      alt={member.name}
+                      className="w-24 h-24 rounded-full mx-auto object-cover ring-4 ring-primary/20 group-hover:ring-primary/40 transition-smooth"
+                    />
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
+                  </div>
                   <h3 className="text-xl font-bold text-foreground mb-2">{member.name}</h3>
-                  <p className="text-primary font-medium mb-2">{member.role}</p>
-                  <p className="text-muted-foreground text-sm">{member.experience}</p>
+                  <p className="bg-gradient-primary bg-clip-text text-transparent font-semibold mb-2">{member.role}</p>
+                  <p className="text-muted-foreground text-sm bg-accent/10 px-3 py-1 rounded-full">{member.experience}</p>
                 </CardContent>
               </Card>
             ))}
