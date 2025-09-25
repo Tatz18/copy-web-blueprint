@@ -72,7 +72,7 @@ const MarketAnalysis = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-primary/5 to-accent/5">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-accent/10 via-pink-soft/10 to-secondary/5">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -109,7 +109,7 @@ const MarketAnalysis = () => {
             {analysisServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card key={index} className="text-center">
+                <Card key={index} className={`text-center shadow-card hover:shadow-luxury transition-smooth ${index % 4 === 0 ? 'border-accent/20' : index % 4 === 1 ? 'border-pink/20' : index % 4 === 2 ? 'border-primary/20' : 'border-secondary/20'}`}>
                   <CardHeader>
                     <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
                     <CardTitle className="text-lg">{service.title}</CardTitle>
@@ -125,7 +125,7 @@ const MarketAnalysis = () => {
       </section>
 
       {/* Current Market Snapshot */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-gradient-to-r from-pink/5 via-primary/5 to-accent/10">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Kolkata Market Snapshot</h2>
@@ -136,7 +136,7 @@ const MarketAnalysis = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {localities.map((locality, index) => (
-              <Card key={index} className="text-center">
+              <Card key={index} className={`text-center shadow-card hover:shadow-glow transition-smooth ${index % 4 === 0 ? 'border-pink/30' : index % 4 === 1 ? 'border-secondary/30' : index % 4 === 2 ? 'border-accent/30' : 'border-primary/30'}`}>
                 <CardHeader>
                   <CardTitle className="text-lg text-primary">{locality.area}</CardTitle>
                 </CardHeader>
@@ -183,28 +183,28 @@ const MarketAnalysis = () => {
             </div>
 
             <div className="space-y-6">
-              <Card>
+              <Card className="shadow-luxury border-pink/20">
                 <CardHeader>
-                  <CardTitle className="text-center">Market Analysis Reports</CardTitle>
+                  <CardTitle className="text-center text-pink">Market Analysis Reports</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <Card className="p-4 text-center">
-                      <div className="text-2xl font-bold text-primary">25+</div>
+                    <Card className="p-4 text-center bg-gradient-pink-soft shadow-card">
+                      <div className="text-2xl font-bold text-pink">25+</div>
                       <div className="text-sm text-muted-foreground">Localities Covered</div>
                     </Card>
-                    <Card className="p-4 text-center">
-                      <div className="text-2xl font-bold text-primary">5000+</div>
+                    <Card className="p-4 text-center bg-gradient-card shadow-card">
+                      <div className="text-2xl font-bold text-secondary">5000+</div>
                       <div className="text-sm text-muted-foreground">Properties Analyzed</div>
                     </Card>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <Card className="p-4 text-center">
-                      <div className="text-2xl font-bold text-primary">92%</div>
+                    <Card className="p-4 text-center bg-gradient-card shadow-card">
+                      <div className="text-2xl font-bold text-accent">92%</div>
                       <div className="text-sm text-muted-foreground">Accuracy Rate</div>
                     </Card>
-                    <Card className="p-4 text-center">
-                      <div className="text-2xl font-bold text-primary">Weekly</div>
+                    <Card className="p-4 text-center bg-gradient-pink-soft shadow-card">
+                      <div className="text-2xl font-bold text-pink">Weekly</div>
                       <div className="text-sm text-muted-foreground">Report Updates</div>
                     </Card>
                   </div>
@@ -216,7 +216,7 @@ const MarketAnalysis = () => {
       </section>
 
       {/* Report Types */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-gradient-to-bl from-secondary/10 via-accent/5 to-pink-soft/15">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Analysis Report Types</h2>
@@ -249,9 +249,9 @@ const MarketAnalysis = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-primary relative">
+            <Card className="border-2 border-pink relative shadow-glow">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm">Popular</span>
+                <span className="bg-pink text-pink-foreground px-4 py-1 rounded-full text-sm">Popular</span>
               </div>
               <CardHeader>
                 <CardTitle className="text-xl">Comprehensive</CardTitle>
@@ -304,7 +304,7 @@ const MarketAnalysis = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary/5">
+      <section className="py-16 bg-gradient-to-r from-accent/5 via-primary/5 to-pink/10">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Make Data-Driven Real Estate Decisions</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">

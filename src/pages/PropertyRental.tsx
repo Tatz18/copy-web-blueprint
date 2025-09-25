@@ -43,7 +43,7 @@ const PropertyRental = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-primary/5 to-accent/5">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-secondary/10 via-pink/5 to-primary/10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -80,7 +80,7 @@ const PropertyRental = () => {
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card key={index} className="text-center">
+                <Card key={index} className={`text-center shadow-card hover:shadow-glow transition-smooth ${index % 2 === 0 ? 'border-pink-soft/30' : 'border-secondary/30'}`}>
                   <CardHeader>
                     <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
                     <CardTitle className="text-lg">{service.title}</CardTitle>
@@ -96,7 +96,7 @@ const PropertyRental = () => {
       </section>
 
       {/* Rental Plans */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-gradient-to-bl from-pink-soft/15 via-primary/5 to-accent/10">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Rental Management Plans</h2>
@@ -129,9 +129,9 @@ const PropertyRental = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-primary relative">
+            <Card className="border-2 border-pink relative shadow-glow">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm">Popular</span>
+                <span className="bg-pink text-pink-foreground px-4 py-1 rounded-full text-sm">Popular</span>
               </div>
               <CardHeader className="text-center">
                 <CardTitle className="text-xl">Standard Plan</CardTitle>
@@ -207,7 +207,7 @@ const PropertyRental = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary/5">
+      <section className="py-16 bg-gradient-to-r from-accent/5 via-secondary/10 to-pink/5">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Start Earning Rental Income Today</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">

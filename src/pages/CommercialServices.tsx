@@ -70,7 +70,7 @@ const CommercialServices = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-primary/5 to-accent/5">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-secondary/10 via-accent/5 to-pink-soft/15">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -107,7 +107,7 @@ const CommercialServices = () => {
             {serviceTypes.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card key={index} className="text-center">
+                <Card key={index} className={`text-center shadow-card hover:shadow-luxury transition-smooth ${index === 0 ? 'border-secondary/30' : index === 1 ? 'border-pink/30' : 'border-accent/30'}`}>
                   <CardHeader>
                     <Icon className="h-16 w-16 text-primary mx-auto mb-4" />
                     <CardTitle className="text-xl">{service.title}</CardTitle>
@@ -126,7 +126,7 @@ const CommercialServices = () => {
       </section>
 
       {/* Business Districts */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-gradient-to-r from-pink-soft/10 via-primary/5 to-secondary/10">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Prime Business Locations</h2>
@@ -137,7 +137,7 @@ const CommercialServices = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {businessDistricts.map((district, index) => (
-              <Card key={index}>
+              <Card key={index} className={`shadow-card hover:shadow-glow transition-smooth ${index % 4 === 0 ? 'border-pink/20' : index % 4 === 1 ? 'border-accent/20' : index % 4 === 2 ? 'border-secondary/20' : 'border-primary/20'}`}>
                 <CardHeader className="pb-3">
                   <div className="flex items-center mb-2">
                     <MapPin className="h-4 w-4 text-primary mr-2" />
@@ -185,7 +185,7 @@ const CommercialServices = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-gradient-to-bl from-accent/10 via-pink/5 to-primary/5">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Why Businesses Choose Us</h2>
@@ -195,7 +195,7 @@ const CommercialServices = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center">
+            <Card className="text-center shadow-card hover:shadow-glow transition-smooth border-pink/20">
               <CardHeader>
                 <div className="text-3xl font-bold text-primary mb-2">500+</div>
                 <CardTitle className="text-lg">Businesses Served</CardTitle>
@@ -207,7 +207,7 @@ const CommercialServices = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center shadow-card hover:shadow-glow transition-smooth border-accent/20">
               <CardHeader>
                 <div className="text-3xl font-bold text-primary mb-2">10M+</div>
                 <CardTitle className="text-lg">Sq Ft Managed</CardTitle>
@@ -219,7 +219,7 @@ const CommercialServices = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center shadow-card hover:shadow-glow transition-smooth border-secondary/20">
               <CardHeader>
                 <div className="text-3xl font-bold text-primary mb-2">95%</div>
                 <CardTitle className="text-lg">Client Retention</CardTitle>
@@ -231,7 +231,7 @@ const CommercialServices = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center shadow-card hover:shadow-glow transition-smooth border-primary/20">
               <CardHeader>
                 <div className="text-3xl font-bold text-primary mb-2">15</div>
                 <CardTitle className="text-lg">Years Experience</CardTitle>
@@ -257,9 +257,9 @@ const CommercialServices = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center">
+            <Card className="text-center shadow-card hover:shadow-glow transition-smooth">
               <CardHeader>
-                <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-12 h-12 bg-pink text-pink-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   1
                 </div>
                 <CardTitle className="text-lg">Requirements Analysis</CardTitle>
@@ -271,9 +271,9 @@ const CommercialServices = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center shadow-card hover:shadow-glow transition-smooth">
               <CardHeader>
-                <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-12 h-12 bg-secondary text-secondary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   2
                 </div>
                 <CardTitle className="text-lg">Property Search</CardTitle>
@@ -285,9 +285,9 @@ const CommercialServices = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center shadow-card hover:shadow-glow transition-smooth">
               <CardHeader>
-                <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-12 h-12 bg-accent text-accent-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   3
                 </div>
                 <CardTitle className="text-lg">Negotiation</CardTitle>
@@ -299,7 +299,7 @@ const CommercialServices = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center shadow-card hover:shadow-glow transition-smooth">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   4
@@ -317,7 +317,7 @@ const CommercialServices = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary/5">
+      <section className="py-16 bg-gradient-to-r from-pink/5 via-accent/5 to-secondary/10">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Find Your Ideal Commercial Space</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
