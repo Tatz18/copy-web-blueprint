@@ -2,34 +2,36 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, Award, Building, Heart, Phone, Mail } from "lucide-react";
+import { Users, Award, Building, Heart, Phone, Mail, CheckCircle } from "lucide-react";
 
 const About = () => {
   const stats = [
-    { icon: Building, value: "500+", label: "Properties Sold" },
-    { icon: Users, value: "1000+", label: "Happy Families" },
-    { icon: Award, value: "15+", label: "Years Experience" },
-    { icon: Heart, value: "99%", label: "Client Satisfaction" }
+    { icon: Users, value: "1500+", label: "Happy Clients" },
+    { icon: Heart, value: "90%", label: "Client Satisfaction" },
+    { icon: Award, value: "7+", label: "Years Experience" },
+    { icon: Building, value: "200+", label: "Properties Sold" }
   ];
 
-  const team = [
+  const workProcess = [
     {
-      name: "Rajesh Kumar",
-      role: "Founder & CEO",
-      experience: "15+ years in Real Estate",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+      step: "1",
+      title: "Understand Your Needs",
+      description: "We start by understanding your specific requirements, budget, and preferred locations to find the perfect match."
     },
     {
-      name: "Priya Sharma", 
-      role: "Sales Director",
-      experience: "12+ years in Property Sales",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face"
+      step: "2", 
+      title: "Curate Property Lists",
+      description: "Our experts handpick properties that align with your criteria, saving you time and ensuring quality options."
     },
     {
-      name: "Amit Singh",
-      role: "Property Consultant", 
-      experience: "8+ years in Real Estate",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+      step: "3",
+      title: "Expert Guidance", 
+      description: "From viewing to negotiation to closing, we provide professional guidance throughout your property journey."
+    },
+    {
+      step: "4",
+      title: "Ongoing Support",
+      description: "Our relationship doesn't end at closing. We provide continued support for all your real estate needs."
     }
   ];
 
@@ -39,14 +41,56 @@ const About = () => {
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-pink/20 via-pink-soft/20 to-transparent">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-pink bg-clip-text text-transparent mb-6">
-            About Phoenix Realesthatic
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Your trusted partner in finding the perfect home across India. We've been helping families 
-            find their dream properties for over 15 years with dedication, expertise, and personalized service.
-          </p>
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+              <span className="bg-gradient-pink bg-clip-text text-transparent">Empowering</span>
+              <br />
+              <span className="text-foreground">Real Estate</span>
+              <br />
+              <span className="text-foreground">Excellence</span>
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Founder */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="bg-gradient-to-br from-pink/10 to-pink-soft/10 rounded-3xl p-8">
+              <h2 className="text-3xl font-bold text-foreground mb-6">Meet Our Founder</h2>
+              <h3 className="text-2xl font-bold bg-gradient-pink bg-clip-text text-transparent mb-6">Prasenjit Mallick</h3>
+              
+              <div className="space-y-4 mb-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  "Since founding Phoenix Realesthatic in 2018, my vision has been simple yet ambitious - to transform how people experience real estate. We've built more than just a business; we've created a legacy of trust, innovation, and excellence."
+                </p>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  "With over a decade of combined team experience and having served 1500+ satisfied clients, we continue to push boundaries in the real estate industry. Our 90% client satisfaction rate represents families who found their dream homes and investors who achieved their goals."
+                </p>
+                
+                <p className="text-muted-foreground leading-relaxed italic">
+                  "At Phoenix Realesthatic, we don't just sell properties - we turn them into prosperities, creating lasting value for our clients and communities across Eastern India."
+                </p>
+              </div>
+              
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span className="font-semibold">Prasenjit Mallick</span>
+                <span>•</span>
+                <span>Founder</span>
+              </div>
+            </div>
+            
+            <div className="flex justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
+                alt="Prasenjit Mallick - Founder & CEO"
+                className="rounded-3xl shadow-2xl max-w-md w-full object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -73,72 +117,83 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* How We Work With You */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Our Story</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-6 text-center">How We Work With You</h2>
+            <p className="text-xl text-muted-foreground text-center mb-12">
+              Our proven 4-step process ensures a smooth and successful real estate experience
+            </p>
             
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <img 
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
-                  alt="Modern office building"
-                  className="rounded-2xl shadow-xl"
-                />
-              </div>
-              
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-foreground">
-                  Building Dreams Since 2008
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  Phoenix Realesthatic was founded with a simple mission: to make the dream of homeownership 
-                  accessible to every Indian family. What started as a small real estate consultancy 
-                  in Kolkata has grown into one of India's most trusted property platforms.
-                </p>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  We understand that buying a home is one of life's biggest decisions. That's why 
-                  we go beyond just showing properties – we provide comprehensive guidance, market 
-                  insights, and personalized support throughout your journey.
-                </p>
-                
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">Trusted by 1000+ Families</Badge>
-                  <Badge variant="secondary">Pan-India Presence</Badge>
-                  <Badge variant="secondary">Expert Team</Badge>
+            <div className="grid md:grid-cols-2 gap-8">
+              {workProcess.map((process, index) => (
+                <div key={index} className="relative">
+                  <Card className="gradient-card shadow-card hover:shadow-glow transition-smooth h-full">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-gradient-pink rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white font-bold text-lg">{process.step}</span>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-foreground mb-3">{process.title}</h3>
+                          <p className="text-muted-foreground leading-relaxed">{process.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Team */}
+      {/* Client Testimonials Preview */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Meet Our Team</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-12 text-center">What Our Clients Say</h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <Card key={index} className="text-center gradient-card shadow-card hover:shadow-glow transition-smooth group">
-                <CardContent className="p-6">
-                  <div className="relative mb-4">
-                    <img 
-                      src={member.image}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto object-cover ring-4 ring-primary/20 group-hover:ring-primary/40 transition-smooth"
-                    />
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{member.name}</h3>
-                   <p className="bg-gradient-pink bg-clip-text text-transparent font-semibold mb-2">{member.role}</p>
-                   <p className="text-muted-foreground text-sm bg-pink/10 px-3 py-1 rounded-full">{member.experience}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="gradient-card shadow-card p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face"
+                  alt="Client"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-semibold text-foreground">Rajesh Kumar</h4>
+                  <p className="text-sm text-muted-foreground">Property Buyer</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "Phoenix Realesthatic made our home buying journey incredibly smooth. Their expertise and dedication helped us find our dream home within our budget."
+              </p>
+              <div className="flex text-yellow-400">
+                ★★★★★
+              </div>
+            </Card>
+            
+            <Card className="gradient-card shadow-card p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face"
+                  alt="Client"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-semibold text-foreground">Priya Sharma</h4>
+                  <p className="text-sm text-muted-foreground">Investor</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "Professional service and excellent market knowledge. They helped me make profitable investments in premium properties across Kolkata."
+              </p>
+              <div className="flex text-yellow-400">
+                ★★★★★
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -179,6 +234,9 @@ const About = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-pink">
         <div className="container mx-auto px-6 text-center text-white">
@@ -199,8 +257,6 @@ const About = () => {
               Email Us
             </Button>
           </div>
-        </div>
-      </section>
         </div>
       </section>
     </div>
