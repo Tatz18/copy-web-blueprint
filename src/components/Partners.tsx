@@ -1,13 +1,12 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import recaLogo from "@/assets/reca-kolkata-logo.png";
+import narLogo from "@/assets/nar-india-logo.png";
 
 const Partners = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
   const partners = [
-    "WATG",
-    "IMPACT",
-    "PRP",
-    "DEVELOP",
-    "LUXE PARTNERS"
+    { name: "RECA Kolkata", logo: recaLogo, alt: "RECA Kolkata - Your Gateway to World of Realty" },
+    { name: "National Association of Realtors - India", logo: narLogo, alt: "National Association of Realtors India - Credible Voice of Realtors" }
   ];
 
   return (
@@ -22,16 +21,18 @@ const Partners = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center justify-items-center max-w-4xl mx-auto">
           {partners.map((partner, index) => (
             <div
               key={index}
-              className={`flex items-center justify-center p-6 rounded-xl hover:bg-card/50 transition-smooth cursor-pointer group ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+              className={`flex items-center justify-center p-8 rounded-xl hover:bg-card/50 transition-smooth cursor-pointer group ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <span className="text-xl lg:text-2xl font-bold text-muted-foreground/60 group-hover:text-foreground transition-smooth">
-                {partner}
-              </span>
+              <img 
+                src={partner.logo} 
+                alt={partner.alt}
+                className="max-h-24 w-auto object-contain group-hover:scale-105 transition-smooth"
+              />
             </div>
           ))}
         </div>
