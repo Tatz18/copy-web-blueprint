@@ -31,7 +31,7 @@ const Partners = () => {
               <img 
                 src={partner.logo} 
                 alt={partner.alt}
-                className="max-h-40 w-auto object-contain group-hover:scale-105 transition-smooth drop-shadow-sm"
+                className={`w-auto object-contain group-hover:scale-105 transition-smooth drop-shadow-sm ${index === 1 ? 'max-h-48' : 'max-h-40'}`}
               />
             </div>
           ))}
