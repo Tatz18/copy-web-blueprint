@@ -25,13 +25,13 @@ const Partners = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className={`flex items-center justify-center p-8 rounded-xl hover:bg-card/50 transition-smooth cursor-pointer group ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+              className={`flex items-center justify-center p-8 rounded-xl bg-gradient-to-br from-blue-500/20 via-pink-500/20 to-blue-600/20 hover:from-blue-500/30 hover:via-pink-500/30 hover:to-blue-600/30 backdrop-blur-sm border border-white/10 transition-smooth cursor-pointer group shadow-lg hover:shadow-xl ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <img 
                 src={partner.logo} 
                 alt={partner.alt}
-                className="max-h-24 w-auto object-contain group-hover:scale-105 transition-smooth"
+                className="max-h-24 w-auto object-contain group-hover:scale-105 transition-smooth drop-shadow-sm"
               />
             </div>
           ))}
