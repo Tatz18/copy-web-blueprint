@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Users, Award, Building, Heart, Phone, Mail, CheckCircle } from "lucide-react";
+import bengaliMan1 from "@/assets/testimonial-bengali-man-1.jpg";
+import bengaliWoman1 from "@/assets/testimonial-bengali-woman-1.jpg";
 
 const About = () => {
   const stats = [
@@ -191,12 +193,12 @@ const About = () => {
             <Card className="gradient-card shadow-card p-6">
               <div className="flex items-center gap-4 mb-4">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face"
+                  src={bengaliMan1}
                   alt="Client"
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <h4 className="font-semibold text-foreground">Rajesh Kumar</h4>
+                  <h4 className="font-semibold text-foreground">Debashis Chatterjee</h4>
                   <p className="text-sm text-muted-foreground">Property Buyer</p>
                 </div>
               </div>
@@ -211,12 +213,12 @@ const About = () => {
             <Card className="gradient-card shadow-card p-6">
               <div className="flex items-center gap-4 mb-4">
                 <img 
-                  src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face"
+                  src={bengaliWoman1}
                   alt="Client"
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <h4 className="font-semibold text-foreground">Priya Sharma</h4>
+                  <h4 className="font-semibold text-foreground">Ananya Mukherjee</h4>
                   <p className="text-sm text-muted-foreground">Investor</p>
                 </div>
               </div>
