@@ -74,10 +74,10 @@ const CommercialServices = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Commercial Services
+              Commercial Real Estate Solutions
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Expert commercial real estate solutions for businesses across Kolkata
+              Empowering businesses with strategic commercial real estate services. From office spaces to industrial complexes, we provide comprehensive solutions tailored to your business needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8">

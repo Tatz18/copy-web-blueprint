@@ -1,84 +1,88 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Home, Wrench, Users, Shield, CheckCircle, ArrowRight, Phone, Clock } from "lucide-react";
+import { Home, Wrench, Users, Shield, CheckCircle, ArrowRight, DollarSign, FileText, Star, Clock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 const PropertyManagement = () => {
-  const services = [
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const managementServices = [
     {
-      title: "Maintenance & Repairs",
-      description: "24/7 maintenance support and regular property upkeep",
-      icon: Wrench
+      icon: Clock,
+      title: "24/7 Maintenance",
+      description: "Round-the-clock maintenance support with verified technicians for all types of repairs and emergencies."
     },
     {
+      icon: DollarSign,
+      title: "Rent Collection",
+      description: "Automated rent collection system with timely payments, late fee management, and detailed financial reporting."
+    },
+    {
+      icon: Users,
       title: "Tenant Management",
-      description: "Complete tenant relations and communication handling",
-      icon: Users
+      description: "Complete tenant lifecycle management from screening to lease renewal and dispute resolution."
     },
     {
-      title: "Security Services", 
-      description: "Property security monitoring and emergency response",
-      icon: Shield
+      icon: Shield,
+      title: "Legal Compliance",
+      description: "Ensure all properties comply with local regulations, safety standards, and legal requirements."
     },
     {
-      title: "Facility Management",
-      description: "Common area maintenance and utility management",
-      icon: Home
+      icon: FileText,
+      title: "Property Inspections",
+      description: "Regular property inspections with detailed reports and maintenance recommendations."
+    },
+    {
+      icon: Home,
+      title: "Digital Platform",
+      description: "Owner and tenant portal for seamless communication, payments, and service requests."
     }
   ];
 
-  const managementServices = [
-    "Regular property inspections and maintenance",
-    "Tenant screening and lease management", 
-    "Rent collection and financial reporting",
-    "Emergency maintenance and repairs",
-    "Common area cleaning and upkeep",
-    "Security system monitoring",
-    "Utility management and bill payments",
-    "Property insurance coordination",
-    "Legal compliance and documentation",
-    "Vendor management and quality control"
+  const keyFeatures = [
+    {
+      title: "Tenant Screening",
+      description: "Comprehensive background checks including credit verification, employment history, and previous landlord references.",
+      benefits: ["Quality tenants", "Reduced defaults", "Long-term leases"]
+    },
+    {
+      title: "Financial Management",
+      description: "Complete financial oversight including rent collection, expense tracking, and detailed monthly reporting.",
+      benefits: ["Timely payments", "Transparent accounting", "Tax documentation"]
+    },
+    {
+      title: "Maintenance Coordination",
+      description: "Proactive maintenance scheduling with trusted vendors and emergency response capabilities.",
+      benefits: ["Property preservation", "Cost optimization", "Tenant satisfaction"]
+    },
+    {
+      title: "Legal Compliance",
+      description: "Ensure properties meet all regulatory requirements including safety standards and documentation.",
+      benefits: ["Risk mitigation", "Legal protection", "Regulatory compliance"]
+    }
   ];
 
-  const packages = [
+  const successStories = [
     {
-      name: "Residential",
-      price: "₹2,500",
-      period: "per month",
-      description: "Complete management for residential properties",
-      features: [
-        "24/7 maintenance support",
-        "Tenant management",
-        "Monthly inspections",
-        "Rent collection",
-        "Basic security monitoring"
-      ]
+      name: "Rajesh Kumar",
+      properties: "3 Properties in Salt Lake",
+      income: "₹85,000/month",
+      quote: "Phoenix manages all my rental properties flawlessly. Tenants are happy, maintenance is prompt, and I receive regular updates."
     },
     {
-      name: "Commercial", 
-      price: "₹5,000",
-      period: "per month", 
-      description: "Comprehensive management for commercial spaces",
-      features: [
-        "All residential features",
-        "Advanced security systems",
-        "Facility management",
-        "Compliance monitoring",
-        "Vendor coordination"
-      ]
+      name: "Priya Sharma",
+      properties: "Commercial Complex, Sector V",
+      income: "₹2,50,000/month",
+      quote: "Professional property management with excellent tenant relations. They handle everything so I can focus on my business."
     },
     {
-      name: "Premium",
-      price: "₹8,000", 
-      period: "per month",
-      description: "Full-service management with concierge support",
-      features: [
-        "All commercial features",
-        "Concierge services",
-        "VIP maintenance",
-        "Property enhancement",
-        "Investment advisory"
-      ]
+      name: "Amit Sengupta",
+      properties: "5 Apartments across Kolkata",
+      income: "₹1,45,000/month",
+      quote: "Best decision was to hand over property management to Phoenix. Consistent income and well-maintained properties."
     }
   ];
 
@@ -91,46 +95,54 @@ const PropertyManagement = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Property Management
+              Hassle-Free Property Management
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Complete property management services in Kolkata - from maintenance to tenant relations
+              Complete property management services ensuring optimal returns, happy tenants, and well-maintained properties with 24/7 support and professional oversight.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
-                Get Management Quote
+              <Button 
+                size="lg" 
+                className="text-lg px-8"
+                onClick={() => navigate("/contact")}
+              >
+                Start Management
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
-                <Phone className="mr-2 h-5 w-5" />
-                Emergency: +91 98765 43210
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8"
+                onClick={() => navigate("/properties")}
+              >
+                View Managed Properties
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* Comprehensive Management Services */}
       <section className="py-16">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Comprehensive Management Services</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Professional property management that protects your investment and ensures tenant satisfaction
+              Full-service property management covering every aspect of property ownership
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {managementServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card key={index} className={`text-center shadow-card hover:shadow-luxury transition-smooth ${index % 4 === 0 ? 'border-pink/20' : index % 4 === 1 ? 'border-secondary/20' : index % 4 === 2 ? 'border-accent/20' : 'border-primary/20'}`}>
+                <Card key={index} className="gradient-card shadow-card hover:shadow-glow transition-smooth">
                   <CardHeader>
-                    <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <CardTitle className="text-lg">{service.title}</CardTitle>
+                    <Icon className="h-12 w-12 text-pink mx-auto mb-4" />
+                    <CardTitle className="text-lg text-center">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground text-sm">{service.description}</p>
+                    <p className="text-muted-foreground text-sm text-center">{service.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -139,40 +151,35 @@ const PropertyManagement = () => {
         </div>
       </section>
 
-      {/* Management Packages */}
-      <section className="py-16 bg-gradient-to-r from-secondary/10 via-pink-soft/15 to-primary/5">
+      {/* Key Management Features */}
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Management Packages</h2>
-            <p className="text-muted-foreground">
-              Choose the right management package for your property type and needs
+            <h2 className="text-3xl font-bold mb-4">Key Management Features</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Detailed breakdown of our comprehensive management approach
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {packages.map((pkg, index) => (
-              <Card key={index} className={index === 1 ? "border-2 border-pink relative shadow-glow" : "border-2 shadow-card hover:shadow-luxury transition-smooth"}>
-                {index === 1 && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-pink text-pink-foreground px-4 py-1 rounded-full text-sm">Most Popular</span>
-                  </div>
-                )}
-                <CardHeader className="text-center">
-                  <CardTitle className="text-xl">{pkg.name}</CardTitle>
-                  <div className="text-3xl font-bold text-primary">{pkg.price}</div>
-                  <p className="text-muted-foreground text-sm">{pkg.period}</p>
-                  <p className="text-muted-foreground text-sm pt-2">{pkg.description}</p>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {keyFeatures.map((feature, index) => (
+              <Card key={index} className="gradient-card shadow-card hover:shadow-glow transition-smooth">
+                <CardHeader>
+                  <CardTitle className="text-xl">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  {pkg.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground text-sm">{feature.description}</p>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground mb-2">Key Benefits:</p>
+                    <div className="space-y-2">
+                      {feature.benefits.map((benefit, idx) => (
+                        <div key={idx} className="flex items-center text-sm">
+                          <CheckCircle className="h-4 w-4 text-pink mr-2" />
+                          <span className="text-foreground">{benefit}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                  <Button className="w-full mt-6">
-                    Choose {pkg.name}
-                  </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -180,75 +187,36 @@ const PropertyManagement = () => {
         </div>
       </section>
 
-      {/* What's Included */}
+      {/* Success Stories */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Complete Management Services</h2>
-              <p className="text-muted-foreground">
-                Everything you need to maintain and protect your property investment
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {managementServices.map((service, index) => (
-                <div key={index} className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 mr-4 flex-shrink-0" />
-                  <span className="text-foreground">{service}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Emergency Services */}
-      <section className="py-16 bg-gradient-to-bl from-accent/10 via-primary/5 to-pink-soft/10">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">24/7 Emergency Support</h2>
-            <p className="text-muted-foreground mb-8 text-lg">
-              Round-the-clock emergency response for urgent property issues
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Property Owner Success Stories</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Real experiences from property owners who trust us with their investments
             </p>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="text-center shadow-card hover:shadow-glow transition-smooth border-pink/20">
-                <CardHeader>
-                  <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <CardTitle>Immediate Response</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Emergency calls answered within 15 minutes, 24/7/365
-                  </p>
-                </CardContent>
-              </Card>
+          </div>
 
-              <Card className="text-center shadow-card hover:shadow-glow transition-smooth border-secondary/20">
+          <div className="grid md:grid-cols-3 gap-8">
+            {successStories.map((story, index) => (
+              <Card key={index} className="gradient-card shadow-card hover:shadow-glow transition-smooth">
                 <CardHeader>
-                  <Wrench className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <CardTitle>On-Site Support</CardTitle>
+                  <div className="flex justify-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Technician dispatch within 2 hours for urgent issues
-                  </p>
+                <CardContent className="space-y-4 text-center">
+                  <p className="text-muted-foreground italic">"{story.quote}"</p>
+                  <div className="border-t pt-4 space-y-1">
+                    <h4 className="font-semibold text-foreground">{story.name}</h4>
+                    <p className="text-sm text-muted-foreground">{story.properties}</p>
+                    <p className="text-sm font-medium text-pink">Income: {story.income}</p>
+                  </div>
                 </CardContent>
               </Card>
-
-              <Card className="text-center shadow-card hover:shadow-glow transition-smooth border-accent/20">
-                <CardHeader>
-                  <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <CardTitle>Security Monitoring</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Continuous security monitoring and incident response
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -256,16 +224,28 @@ const PropertyManagement = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-primary/5 via-pink/5 to-secondary/10">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Protect Your Property Investment</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready for Professional Property Management?</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let our professional team handle all aspects of property management while you enjoy peace of mind
+            Let our experienced team take care of your properties while you enjoy consistent returns and peace of mind. Get started with professional property management today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8">
-              Start Management Service
+            <Button 
+              size="lg" 
+              className="text-lg px-8"
+              onClick={() => {
+                navigate("/contact");
+                toast({ title: "Start Management", description: "We'll contact you to discuss your property management needs." });
+              }}
+            >
+              Start Management
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8">
-              Schedule Property Inspection
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-lg px-8"
+              onClick={() => navigate("/properties")}
+            >
+              View Our Portfolio
             </Button>
           </div>
         </div>
