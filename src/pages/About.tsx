@@ -117,6 +117,39 @@ const About = () => {
         </div>
       </section>
 
+      {/* Mission & Vision */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Our Mission & Vision</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <Card className="gradient-card shadow-card hover:shadow-glow transition-smooth">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-gradient-pink rounded-full flex items-center justify-center mb-6">
+                  <CheckCircle className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To empower individuals and businesses with exceptional real estate solutions that transform properties into lasting prosperity. We are committed to delivering transparent, innovative, and client-focused services that exceed expectations and build lifelong relationships.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="gradient-card shadow-card hover:shadow-glow transition-smooth">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-gradient-pink-soft rounded-full flex items-center justify-center mb-6">
+                  <Award className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To be the most trusted and innovative real estate partner across Eastern India, recognized for creating value, fostering sustainable communities, and setting new standards of excellence in property services that inspire confidence and drive success.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* How We Work With You */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
