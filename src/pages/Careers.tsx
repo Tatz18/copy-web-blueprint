@@ -81,7 +81,7 @@ const Careers = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6">
+      <section className="relative pt-32 pb-20 px-6 gradient-pink-soft">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold">
@@ -154,7 +154,7 @@ const Careers = () => {
                         </div>
                       </div>
                     </div>
-                    <Button onClick={() => handleApply(position.title)}>
+                    <Button className="gradient-pink" onClick={() => handleApply(position.title)}>
                       Apply Now
                     </Button>
                   </div>

@@ -77,10 +77,10 @@ const BusinessEnquiry = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6">
+      <section className="relative pt-32 pb-20 px-6 gradient-pink-soft">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center space-y-6">
-            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-4">
+            <div className="inline-block px-4 py-2 bg-pink/10 rounded-full text-sm font-medium text-pink mb-4">
               B2B Solutions
             </div>
             <h1 className="text-4xl md:text-6xl font-bold">
@@ -351,7 +351,7 @@ const BusinessEnquiry = () => {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="w-full gradient-pink">
                     Submit Enquiry
                   </Button>
                 </form>
