@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { 
   MapPin, Phone, Mail, Clock, 
   Facebook, Twitter, Instagram, Linkedin,
-  Building2, Home, Users, Shield
+  Building2, Home, Users, Shield, Briefcase, Handshake
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -72,7 +72,9 @@ const Footer = () => {
     { name: "Investment Consulting", icon: Shield, href: "/investment-consulting" },
     { name: "Property Management", icon: Users, href: "/property-management" },
     { name: "Market Analysis", icon: Building2, href: "/market-analysis" },
-    { name: "Commercial Services", icon: Home, href: "/commercial-services" }
+    { name: "Commercial Services", icon: Home, href: "/commercial-services" },
+    { name: "Careers", icon: Briefcase, href: "/careers" },
+    { name: "Business Enquiry", icon: Handshake, href: "/business-enquiry" }
   ];
 
   const socialLinks = [
