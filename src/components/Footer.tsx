@@ -190,12 +190,11 @@ const Footer = () => {
             <div className="pt-4">
               <h5 className="font-medium text-foreground mb-3">Coverage Areas</h5>
               <ul className="space-y-2">
-                <li className="text-muted-foreground text-sm">• Kolkata (HQ)</li>
-                <li className="text-muted-foreground text-sm">• Mumbai</li>
-                <li className="text-muted-foreground text-sm">• Delhi NCR</li>
-                <li className="text-muted-foreground text-sm">• Bangalore</li>
-                <li className="text-muted-foreground text-sm">• Chennai</li>
-                <li className="text-muted-foreground text-sm">• Pune</li>
+                <li className="text-muted-foreground text-sm">• Kolkata North</li>
+                <li className="text-muted-foreground text-sm">• Central Kolkata</li>
+                <li className="text-muted-foreground text-sm">• South Kolkata</li>
+                <li className="text-muted-foreground text-sm">• Saltlake</li>
+                <li className="text-muted-foreground text-sm">• NewTown</li>
               </ul>
             </div>
           </div>
