@@ -45,6 +45,7 @@ const App = () => (
             <Route path="/investment-consulting" element={<InvestmentConsulting />} />
             <Route path="/property-management" element={<PropertyManagement />} />
             <Route path="/market-analysis" element={<MarketAnalysis />} />
+            <Route path="/commercial-services" element={<CommercialServices />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
