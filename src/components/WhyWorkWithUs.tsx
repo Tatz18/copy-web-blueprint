@@ -15,7 +15,7 @@ const WhyWorkWithUs = () => {
     },
     {
       icon: Award,
-      title: "15+ Years Experience",
+      title: "7+ Years Experience",
       description: "Trusted by over 50,000 families across India with a proven track record in real estate transactions.",
       color: "text-green-500",
       bgColor: "bg-green-50/50 dark:bg-green-900/10",
