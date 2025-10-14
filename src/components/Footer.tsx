@@ -125,10 +125,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div>
               <img src="/ph-logo.png" alt="Phoenix Realestatic - Turning Properties into Prosperities" className="h-16 w-auto mb-3" />
-              <p className="text-muted-foreground leading-relaxed">
-                Your trusted real estate partner in Kolkata and across India. 
-                Helping families find their dream homes since 2008.
-              </p>
+              <p className="text-muted-foreground leading-relaxed">Your trusted real estate partner in Kolkata and across India. Helping families find their dream homes since 2018.</p>
             </div>
             
             <div className="space-y-3">
