@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Users, Award, Building, Heart, Phone, Mail, CheckCircle } from "lucide-react";
 import bengaliMan1 from "@/assets/testimonial-bengali-man-1.jpg";
 import bengaliWoman1 from "@/assets/testimonial-bengali-woman-1.jpg";
+import founderImage from "@/assets/founder-prasenjit.jpg";
 
 const About = () => {
   const stats = [
@@ -87,7 +88,7 @@ const About = () => {
             
             <div className="flex justify-center">
               <img 
-                src="/lovable-uploads/6cfec74f-8510-4ad2-896d-4477495fe2f1.png"
+                src={founderImage}
                 alt="Prasenjit Mallick - Founder & CEO"
                 className="rounded-3xl shadow-2xl max-w-md w-full object-cover"
               />
