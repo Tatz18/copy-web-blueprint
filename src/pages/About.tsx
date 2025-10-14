@@ -87,7 +87,7 @@ const About = () => {
             
             <div className="flex justify-center">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
+                src="/lovable-uploads/6cfec74f-8510-4ad2-896d-4477495fe2f1.png"
                 alt="Prasenjit Mallick - Founder & CEO"
                 className="rounded-3xl shadow-2xl max-w-md w-full object-cover"
               />
