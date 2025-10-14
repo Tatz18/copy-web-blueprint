@@ -31,7 +31,7 @@ const Partners = () => {
               <img 
                 src={partner.logo} 
                 alt={partner.alt}
-                className="max-h-40 w-auto object-contain group-hover:scale-105 transition-smooth drop-shadow-sm"
+                className="max-h-56 w-auto object-contain group-hover:scale-105 transition-smooth drop-shadow-sm"
               />
             </div>
           ))}
