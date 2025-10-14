@@ -43,7 +43,7 @@ const Services = () => {
                   <Shield className="h-5 w-5 text-primary" />
                 </div>
               <p className="text-sm font-medium text-muted-foreground tracking-wider uppercase">
-                Trusted Real Estate Partner Across <span className="text-pink-500">India</span>
+                Trusted Real Estate Partner Across <span className="text-pink-500">KOLKATA</span>
               </p>
             </div>
             
