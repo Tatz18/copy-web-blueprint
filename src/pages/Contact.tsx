@@ -248,14 +248,15 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <Button 
-                      className="w-full" 
-                      size="lg"
-                      onClick={handleCall}
-                    >
-                      <Phone className="h-4 w-4 mr-2" />
-                      Call Now: +91 93301 02817
-                    </Button>
+                    <a href="tel:9330102817">
+                      <Button 
+                        className="w-full" 
+                        size="lg"
+                      >
+                        <Phone className="h-4 w-4 mr-2" />
+                        Call Now: +91 93301 02817
+                      </Button>
+                    </a>
                     <Button 
                       variant="outline" 
                       className="w-full" 
