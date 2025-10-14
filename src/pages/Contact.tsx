@@ -266,15 +266,16 @@ const Contact = () => {
                       <MessageCircle className="h-4 w-4 mr-2" />
                       WhatsApp Chat
                     </Button>
-                    <Button 
-                      variant="outline" 
-                      className="w-full" 
-                      size="lg"
-                      onClick={handleEmailSupport}
-                    >
-                      <Mail className="h-4 w-4 mr-2" />
-                      Email Support
-                    </Button>
+                    <a href="mailto:info@phoenixrealesthatic.com">
+                      <Button 
+                        variant="outline" 
+                        className="w-full" 
+                        size="lg"
+                      >
+                        <Mail className="h-4 w-4 mr-2" />
+                        Email Support
+                      </Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
