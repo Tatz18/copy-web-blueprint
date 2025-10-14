@@ -10,16 +10,16 @@ const FAQ = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
   const faqs = [
     {
-      question: "What services does your company provide?",
-      answer: "We specialize in property buying, selling, for both residential and commercial properties."
+      question: "How do I buy a property through Phoenix Realesthatic?",
+      answer: "Our process is simple: Browse properties, schedule a viewing, get expert consultation, and complete legal formalities with our assistance. We handle documentation and ensure smooth transactions."
     },
     {
       question: "What are the charges for property consultation?",
       answer: "Property consultation is completely free for buyers. We earn through partnerships with developers and verified sellers, ensuring no hidden costs for our clients."
     },
     {
-      question: "Do you provide home loan assistance?",
-      answer: "Yes, we have partnerships with leading Indian banks like SBI, HDFC, ICICI, and Axis Bank. We help you get pre-approved loans with competitive interest rates."
+      question: "What services does your company provide?",
+      answer: "We specialize in property buying, selling, for both residential and commercial properties."
     },
     {
       question: "How do you verify property documents?",
