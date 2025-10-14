@@ -3,12 +3,17 @@ import { Shield, Award, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 const Services = () => {
   const navigate = useNavigate();
-  const { toast } = useToast();
-  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
-
+  const {
+    toast
+  } = useToast();
+  const {
+    ref: sectionRef,
+    isVisible
+  } = useScrollAnimation({
+    threshold: 0.05
+  });
   const handleLearnMore = (type: "premium" | "loan") => {
     if (type === "premium") {
       navigate("/about");
@@ -24,12 +29,13 @@ const Services = () => {
       });
     }
   };
-  return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-accent/5 via-background to-accent/10">
+  return <section ref={sectionRef} className="py-20 bg-gradient-to-br from-accent/5 via-background to-accent/10">
       <div className={`container mx-auto px-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className={`space-y-12 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
+          <div className={`space-y-12 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+          animationDelay: '200ms'
+        }}>
             {/* Seller's Assurance Program */}
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
@@ -49,10 +55,7 @@ const Services = () => {
                 Experience seamless property transactions with Phoenix Realesthatic. Based in Kolkata's cultural heart, we serve from Bengal's heritage properties to Mumbai's commercial hubs, providing comprehensive real estate solutions across <span className="text-pink-500">India</span>.
               </p>
               
-              <Button 
-                className="group bg-pink-500 hover:bg-pink-600 text-white border-pink-500 border"
-                onClick={() => handleLearnMore("premium")}
-              >
+              <Button className="group bg-pink-500 hover:bg-pink-600 text-white border-pink-500 border" onClick={() => handleLearnMore("premium")}>
                 Learn more
                 <span className="ml-2 group-hover:translate-x-1 transition-smooth">→</span>
               </Button>
@@ -73,14 +76,10 @@ const Services = () => {
               </div>
               
               <p className="text-muted-foreground leading-relaxed">
-                Get expert assistance finding the best properties that match your needs and budget. Our team helps you discover premium properties across <span className="text-pink-500">India</span> with personalized guidance throughout your journey.
+                Get expert assistance finding the best properties that match your needs and budget. Our team helps you discover premium properties across <span className="text-pink-500">Kolkata</span> with personalized guidance throughout your journey.
               </p>
               
-              <Button 
-                variant="outline" 
-                className="bg-pink-500 hover:bg-pink-600 text-white border-pink-500 group"
-                onClick={() => handleLearnMore("loan")}
-              >
+              <Button variant="outline" className="bg-pink-500 hover:bg-pink-600 text-white border-pink-500 group" onClick={() => handleLearnMore("loan")}>
                 Learn more
                 <span className="ml-2 group-hover:translate-x-1 transition-smooth">→</span>
               </Button>
@@ -88,7 +87,9 @@ const Services = () => {
           </div>
 
           {/* Right Content - Service Image */}
-          <div className={`relative ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '400ms' }}>
+          <div className={`relative ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+          animationDelay: '400ms'
+        }}>
             <div className="gradient-card rounded-2xl p-8 shadow-card bg-pink-200/60 dark:bg-pink-800/30">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-6 bg-blue-50/70 dark:bg-blue-900/20 border border-blue-200/40 dark:border-blue-800/40 rounded-xl hover:bg-blue-100/80 dark:hover:bg-blue-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
@@ -112,8 +113,6 @@ const Services = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Services;
