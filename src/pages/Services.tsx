@@ -16,12 +16,19 @@ const Services = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     service: "",
     message: ""
+  });
+  const [infoFormData, setInfoFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    interests: ""
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,6 +49,27 @@ const Services = () => {
         phone: "",
         service: "",
         message: ""
+      });
+    }, 1000);
+  };
+
+  const handleInfoRequest = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Information Request Received!",
+        description: "We'll send you detailed information about our services shortly.",
+      });
+      setIsSubmitting(false);
+      setIsInfoOpen(false);
+      setInfoFormData({
+        name: "",
+        email: "",
+        phone: "",
+        interests: ""
       });
     }, 1000);
   };
@@ -314,9 +342,67 @@ const Services = () => {
                 </form>
               </DialogContent>
             </Dialog>
-            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-pink">
-              Request Information
-            </Button>
+            <Dialog open={isInfoOpen} onOpenChange={setIsInfoOpen}>
+              <DialogTrigger asChild>
+                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-pink">
+                  Request Information
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[500px]">
+                <DialogHeader>
+                  <DialogTitle>Request Information</DialogTitle>
+                  <DialogDescription>
+                    Let us know what you're interested in and we'll send you detailed information about our services.
+                  </DialogDescription>
+                </DialogHeader>
+                <form onSubmit={handleInfoRequest} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="info-name">Full Name *</Label>
+                    <Input
+                      id="info-name"
+                      placeholder="Enter your full name"
+                      required
+                      value={infoFormData.name}
+                      onChange={(e) => setInfoFormData({ ...infoFormData, name: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="info-email">Email *</Label>
+                    <Input
+                      id="info-email"
+                      type="email"
+                      placeholder="your.email@example.com"
+                      required
+                      value={infoFormData.email}
+                      onChange={(e) => setInfoFormData({ ...infoFormData, email: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="info-phone">Phone Number</Label>
+                    <Input
+                      id="info-phone"
+                      type="tel"
+                      placeholder="+91 XXXXX XXXXX"
+                      value={infoFormData.phone}
+                      onChange={(e) => setInfoFormData({ ...infoFormData, phone: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="interests">Areas of Interest</Label>
+                    <Textarea
+                      id="interests"
+                      placeholder="Tell us which services you're interested in learning more about..."
+                      rows={4}
+                      value={infoFormData.interests}
+                      onChange={(e) => setInfoFormData({ ...infoFormData, interests: e.target.value })}
+                    />
+                  </div>
+                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Send Request"}
+                  </Button>
+                </form>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </section>
