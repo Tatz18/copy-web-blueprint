@@ -22,8 +22,8 @@ const FAQ = () => {
       answer: "Our legal team conducts thorough due diligence including title verification, encumbrance checks, approval verifications, and compliance with local regulations before listing any property."
     },
     {
-      question: "What locations do you cover in India?",
-      answer: "We operate in major Indian cities including Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, Pune, Kolkata, and Ahmedabad with plans to expand to more cities."
+      question: "What locations do you cover in Kolkata?",
+      answer: "We cover all major areas in Kolkata including North Kolkata, Central Kolkata, South Kolkata, Saltlake, and NewTown. Our expert team has in-depth knowledge of each locality to help you find the perfect property."
     },
   ];
 
