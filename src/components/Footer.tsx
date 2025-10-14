@@ -253,7 +253,7 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="container mx-auto px-6 py-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div className="text-sm text-muted-foreground">© 2024 Phoenix Realesthatic. All rights reserved. | RERA Registration: WB RERA/A/KOL/2024/000577</div>
+          <div className="text-sm text-muted-foreground">© 2025 Phoenix Realesthatic. All rights reserved. | RERA Registration: WB RERA/A/KOL/2024/000577</div>
           
           <div className="flex items-center space-x-6 text-sm text-muted-foreground">
             <span>Made with ❤️ in Kolkata</span>
