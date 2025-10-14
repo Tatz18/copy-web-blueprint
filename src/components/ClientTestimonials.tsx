@@ -132,17 +132,6 @@ const ClientTestimonials = () => {
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center space-x-2 bg-card rounded-full px-6 py-3 shadow-sm">
-            <div className="flex items-center space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <span className="text-foreground font-semibold">4.9/5</span>
-            <span className="text-muted-foreground">from 2,500+ reviews</span>
-          </div>
-        </div>
       </div>
     </section>
   );
