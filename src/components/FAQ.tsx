@@ -25,10 +25,6 @@ const FAQ = () => {
       question: "What locations do you cover in India?",
       answer: "We operate in major Indian cities including Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, Pune, Kolkata, and Ahmedabad with plans to expand to more cities."
     },
-    {
-      question: "Can I sell my property through Phoenix Realesthatic?",
-      answer: "Absolutely! We provide end-to-end selling services including property valuation, marketing, buyer verification, and transaction support with competitive commission rates."
-    }
   ];
 
   return (
