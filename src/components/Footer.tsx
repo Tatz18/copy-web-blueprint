@@ -103,7 +103,7 @@ const Footer = () => {
   const socialLinks = [{
     name: "Facebook",
     icon: Facebook,
-    href: "https://facebook.com/phoenixrealesthatic"
+    href: "https://www.facebook.com/profile.php?id=61574123769484"
   }, {
     name: "Twitter",
     icon: Twitter,
@@ -111,11 +111,11 @@ const Footer = () => {
   }, {
     name: "Instagram",
     icon: Instagram,
-    href: "https://instagram.com/phoenixrealesthatic"
+    href: "https://www.instagram.com/phoenixrealesthatic?igsh=MXBkcTU0MnZzeDUwcA=="
   }, {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://linkedin.com/company/phoenixrealesthatic"
+    href: "https://www.linkedin.com/company/phoenix-realesthatic/"
   }];
   return <footer className="bg-card border-t">
       {/* Main Footer */}
