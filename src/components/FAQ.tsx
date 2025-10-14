@@ -10,8 +10,8 @@ const FAQ = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
   const faqs = [
     {
-      question: "How do I buy a property through Phoenix Realesthatic?",
-      answer: "Our process is simple: Browse properties, schedule a viewing, get expert consultation, and complete legal formalities with our assistance. We handle documentation and ensure smooth transactions."
+      question: "What services does your company provide?",
+      answer: "We specialize in property buying, selling, for both residential and commercial properties."
     },
     {
       question: "What are the charges for property consultation?",
