@@ -90,7 +90,7 @@ const About = () => {
               <img 
                 src={founderImage}
                 alt="Prasenjit Mallick - Founder & CEO"
-                className="rounded-3xl shadow-2xl max-w-md w-full object-cover"
+                className="rounded-3xl shadow-2xl max-w-xl w-full object-cover"
               />
             </div>
           </div>
