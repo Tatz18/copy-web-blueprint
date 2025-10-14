@@ -283,10 +283,12 @@ const About = () => {
             Let's make your property dreams a reality.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
-              <Phone className="h-4 w-4 mr-2" />
-              Call: +91 98765 43210
-            </Button>
+            <a href="tel:9330102817">
+              <Button size="lg" variant="secondary">
+                <Phone className="h-4 w-4 mr-2" />
+                Call: 9330102817
+              </Button>
+            </a>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-pink">
               <Mail className="h-4 w-4 mr-2" />
               Email Us
