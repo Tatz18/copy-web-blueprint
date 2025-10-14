@@ -289,10 +289,12 @@ const About = () => {
                 Call: 9330102817
               </Button>
             </a>
-            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-pink">
-              <Mail className="h-4 w-4 mr-2" />
-              Email Us
-            </Button>
+            <a href="mailto:info@phoenixrealesthatic.com">
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-pink">
+                <Mail className="h-4 w-4 mr-2" />
+                Email Us
+              </Button>
+            </a>
           </div>
         </div>
       </section>
