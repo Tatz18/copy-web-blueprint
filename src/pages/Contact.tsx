@@ -300,9 +300,11 @@ const Contact = () => {
                           <Phone className="h-4 w-4 text-muted-foreground mr-2" />
                           <p className="text-sm font-medium">+91 93301 02817</p>
                         </div>
-                        <Button variant="outline" className="w-full mt-4">
-                          Get Directions
-                        </Button>
+                        <a href="https://share.google/Vu0dR2AGCJ1hTUpnN" target="_blank" rel="noopener noreferrer">
+                          <Button variant="outline" className="w-full mt-4">
+                            Get Directions
+                          </Button>
+                        </a>
                       </div>
                     </div>
                   </div>
