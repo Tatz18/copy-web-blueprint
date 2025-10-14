@@ -18,10 +18,6 @@ const FAQ = () => {
       answer: "Property consultation is completely free for buyers. We earn through partnerships with developers and verified sellers, ensuring no hidden costs for our clients."
     },
     {
-      question: "What services does your company provide?",
-      answer: "We specialize in property buying, selling, for both residential and commercial properties."
-    },
-    {
       question: "How do you verify property documents?",
       answer: "Our legal team conducts thorough due diligence including title verification, encumbrance checks, approval verifications, and compliance with local regulations before listing any property."
     },
