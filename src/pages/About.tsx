@@ -11,7 +11,7 @@ const About = () => {
     { icon: Users, value: "1500+", label: "Happy Clients" },
     { icon: Heart, value: "90%", label: "Client Satisfaction" },
     { icon: Award, value: "7+", label: "Years Experience" },
-    { icon: Building, value: "200+", label: "Properties Sold" }
+    { icon: Building, value: "500+", label: "Properties Sold" }
   ];
 
   const workProcess = [
