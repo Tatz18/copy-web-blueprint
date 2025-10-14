@@ -68,12 +68,12 @@ const Services = () => {
                   <Award className="h-5 w-5 text-primary" />
                 </div>
                 <h4 className="text-xl font-bold text-foreground">
-                  Home Loan Assistance Program
+                  Assistance with Best Properties
                 </h4>
               </div>
               
               <p className="text-muted-foreground leading-relaxed">
-                Get expert assistance with home loans from leading <span className="text-pink-500">Indian</span> banks. Our partnerships help you secure the best interest rates and simplified documentation processes.
+                Get expert assistance finding the best properties that match your needs and budget. Our team helps you discover premium properties across <span className="text-pink-500">India</span> with personalized guidance throughout your journey.
               </p>
               
               <Button 
