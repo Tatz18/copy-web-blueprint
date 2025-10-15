@@ -86,10 +86,12 @@ const MarketAnalysis = () => {
                 Get Market Report
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
-                <Phone className="mr-2 h-5 w-5" />
-                Analyst Call: +91 98765 43210
-              </Button>
+              <a href="tel:9330102817">
+                <Button variant="outline" size="lg" className="text-lg px-8">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Analyst Call: +91 93301 02817
+                </Button>
+              </a>
             </div>
           </div>
         </div>
