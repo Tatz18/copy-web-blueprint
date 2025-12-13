@@ -8,6 +8,13 @@ import { useToast } from "@/hooks/use-toast";
 const Careers = () => {
   const { toast } = useToast();
   const [selectedPosition, setSelectedPosition] = useState<string>("");
+  
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [position, setPosition] = useState("");
+  const [file, setFile] = useState<File | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleApply = (position: string) => {
     setSelectedPosition(position);
@@ -15,6 +22,69 @@ const Careers = () => {
       title: "Application Process",
       description: `To apply for ${position}, please send your resume to careers@phoenixrealesthatic.com`,
     });
+  };
+
+  const fileToBase64 = (file: File) =>
+    new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = () => reject(new Error("Failed to read file"));
+      reader.onload = () => {
+        const result = reader.result as string;
+        // strip "data:<mime>;base64," prefix
+        const base64 = result.split(",")[1];
+        resolve(base64);
+      };
+      reader.readAsDataURL(file);
+    }
+  );
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !mobile || !position || !file) {
+      toast({ title: "Missing fields", description: "Please fill all fields and upload your resume." });
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const base64 = await fileToBase64(file);
+
+      const body = {
+        name,
+        email,
+        mobile,
+        position,
+        file: {
+          name: file.name,
+          type: file.type,
+          data: base64, // base64-encoded string (no prefix)
+        },
+      };
+
+      const resp = await fetch("/api/send-application", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      if (!resp.ok) {
+        const err = await resp.text();
+        throw new Error(err || "Failed to submit application");
+      }
+
+      toast({ title: "Application sent", description: "Confirmation email sent to you and application received by HR." });
+      // reset form
+      setName("");
+      setEmail("");
+      setMobile("");
+      setPosition("");
+      setFile(null);
+    } catch (error: any) {
+      console.error(error);
+      toast({ title: "Error", description: error.message || "Something went wrong." });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const benefits = [
@@ -91,6 +161,102 @@ const Careers = () => {
               Build Your Career in Real Estate with Phoenix Realesthatic. We're looking for passionate individuals to grow with us.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Application Form */}
+      <section className="py-20 px-6 bg-muted/30">
+        <div className="container mx-auto max-w-3xl">
+          <Card>
+            <CardHeader>
+              <CardTitle>Apply Now</CardTitle>
+              <CardDescription>
+                Submit your details and our HR team will contact you.
+              </CardDescription>
+            </CardHeader>
+
+            <CardContent>
+              <form className="space-y-6" onSubmit={handleSubmit}>
+
+                {/* Select Position */}
+                <div className="flex flex-col">
+                  <label className="font-medium mb-1">Select Position</label>
+                  <select
+                    className="border rounded-lg px-4 py-2"
+                    defaultValue=""
+                    required
+                    value={position}
+                    onChange={(e) => setPosition(e.target.value)}
+                  >
+                    <option value="" disabled>Select a position</option>
+                      <option value="Sales Executive">
+                        Sales Executive
+                      </option>
+                      <option value="Back Office Executive">
+                        Back Office Executive
+                      </option>
+                  </select>
+                </div>
+
+                {/* Full Name */}
+                <div className="flex flex-col">
+                  <label className="font-medium mb-1">Full Name</label>
+                  <input
+                    type="text"
+                    className="border rounded-lg px-4 py-2"
+                    placeholder="Enter your full name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="flex flex-col">
+                  <label className="font-medium mb-1">Email</label>
+                  <input
+                    type="email"
+                    className="border rounded-lg px-4 py-2"
+                    placeholder="Enter your email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+
+                {/* Mobile */}
+                <div className="flex flex-col">
+                  <label className="font-medium mb-1">Mobile Number</label>
+                  <input
+                    type="tel"
+                    className="border rounded-lg px-4 py-2"
+                    placeholder="Enter mobile number"
+                    required
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value)}
+                  />
+                </div>
+
+                {/* Upload File */}
+                <div className="flex flex-col">
+                  <label className="font-medium mb-1">Upload Resume</label>
+                  <input
+                    type="file"
+                    className="border rounded-lg px-4 py-2 bg-white"
+                    accept=".pdf,.doc,.docx"
+                    required
+                    onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <Button type="submit" className="w-full gradient-pink" disabled={submitting}>
+                  {submitting ? "Submitting..." : "Submit Application"}
+                </Button>
+
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
