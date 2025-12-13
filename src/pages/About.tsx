@@ -6,6 +6,7 @@ import { Users, Award, Building, Heart, Phone, Mail, CheckCircle } from "lucide-
 import bengaliMan1 from "@/assets/testimonial-bengali-man-1.jpg";
 import bengaliWoman1 from "@/assets/testimonial-bengali-woman-1.jpg";
 import founderImage from "@/assets/founder-prasenjit.jpg";
+import Teams from "@/components/Teams";
 
 const About = () => {
   const stats = [
@@ -152,6 +153,9 @@ const About = () => {
           </div>
         </div>
       </section>
+      
+      {/* Our Teams */}
+      <Teams />
 
       {/* How We Work With You */}
       <section className="py-20 bg-muted/30">
