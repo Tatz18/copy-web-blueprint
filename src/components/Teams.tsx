@@ -6,37 +6,31 @@ const Teams = () => {
     {
       name: "Avijit Guha",
       text: 'Sales Manager',
-      empid: 'EMP001',
+      empid: 'PR24S-001',
       avatar: "teams/profile.png"
     },
     {
       name: "Aniket Prasad",
       text: 'Sales Executive',
-      empid: 'EMP002',
-      avatar: "teams/profile.png"
-    },
-    {
-      name: "Mukteswar Mondal",
-      text: 'Web Developer',
-      empid: 'EMP003',
+      empid: 'PR25S-002',
       avatar: "teams/profile.png"
     },
     {
       name: "Saini Dutta",
-      text: 'Human Resource Manager',
-      empid: 'EMP004',
+      text: 'Administrative Manager',
+      empid: 'PR25A-003',
       avatar: "teams/profile.png"
     },
     {
       name: "Saina Goon",
       text: 'Back Office Executive',
-      empid: 'EMP005',
+      empid: '',
       avatar: "teams/profile.png"
     },
     {
       name: "Mallika Sarker",
       text: 'Telecaller Executive',
-      empid: 'EMP006',
+      empid: '',
       avatar: "teams/profile.png"
     }
   ];
