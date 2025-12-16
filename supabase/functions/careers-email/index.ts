@@ -28,37 +28,6 @@ serve(async (req) => {
     const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
 
     if (action === 'send') {
-      // Generate 6-digit OTP
-      const generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
-      const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 minutes
-      const cName = "Phoenix Travelopedia";
-
-      // Delete any existing OTPs for this email
-      await supabase
-        .from('otp_verifications')
-        .delete()
-        .eq('identifier', email)
-        .eq('type', 'email');
-
-      // Store OTP in database
-      const { error: insertError } = await supabase
-        .from('otp_verifications')
-        .insert({
-          identifier: email,
-          otp_code: generatedOtp,
-          type: 'email',
-          expires_at: expiresAt
-        });
-
-      if (insertError) {
-        console.error('Error storing OTP:', insertError);
-        return new Response(
-          JSON.stringify({ success: false, message: 'Failed to store OTP' }),
-          { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-
-      console.log(`Email Sending OTP ${generatedOtp} generated for ${email}`);
 
       // For now, just log the OTP (in production, send via email service)
       // Email sending would be implemented here with a proper email service
@@ -75,7 +44,7 @@ serve(async (req) => {
             {
               to: [
                 {
-                  name: "User",
+                  name: "Phoenix Realesthatic",
                   email: email
                 },
               ],
