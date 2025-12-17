@@ -13,12 +13,12 @@ serve(async (req) => {
   try {
     if (!MSG91_AUTH_KEY) {
       return new Response(
-        JSON.stringify({ error: "MSG91 key missing" }),
+        JSON.stringify({ error: "MSG91 API key missing" }),
         { status: 500 }
       );
     }
-    
-    const { name, email, mobile, position, file } = await req.json();
+
+    const body = await req.json();
 
     if (!name || !email || !mobile || !position || !file) {
       return new Response(
@@ -26,75 +26,81 @@ serve(async (req) => {
         { status: 400 }
       );
     }
+    
+    const { name, email, mobile, position, file } = await req.json();
 
     /* ---------------- HR EMAIL ---------------- */
-    const hrPayload = {
-      to: [{ email: HR_EMAIL }],
-      from: {
-        email: "no-reply@phoenixtravelopedia.com",
-        name: "Careers Portal",
-      },
-      template_id: HR_TEMPLATE_ID,
-      variables: {
-        VAR2:name,
-        VAR3:email,
-        VAR4:mobile,
-        VAR1:position,
-      },
-      attachments: [
-        {
-          filename: file.name,
-          content: file.data,
-          type: file.type,
-          disposition: "attachment",
+    const hrResponse = await fetch("https://api.msg91.com/api/v5/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authkey: MSG91_API_KEY,
         },
-      ],
-    };
+        body: JSON.stringify({
+          to: [{ email: HR_EMAIL }],
+          from: {
+            email: "no-reply@phoenixtravelopedia.com",
+            name: "Careers Portal",
+          },
+          template_id: HR_TEMPLATE_ID,
+          variables: {
+            VAR1:position,
+            VAR2:name,
+            VAR3:email,
+            VAR4:mobile,
+          },
+          attachments: [
+            {
+              filename: file.name,
+              content: file.data,
+              type: file.type,
+              disposition: "attachment",
+            },
+          ],
+        }),
+      }
+    );
 
-    await fetch("https://api.msg91.com/api/v5/email/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authkey: MSG91_AUTH_KEY,
-      },
-      body: JSON.stringify(hrPayload),
-    });
+    if (!hrResponse.ok) {
+      const err = await hrResponse.text();
+      console.error("MSG91 HR ERROR:", err);
+      return new Response(err, { status: 500 });
+    }
 
     /* ---------------- USER AUTO REPLY ---------------- */
-    const userPayload = {
-      to: [{ email }],
-      from: {
-        email: "no-reply@phoenixtravelopedia.com",
-        name: "HR Team",
-      },
-      template_id: USER_TEMPLATE_ID,
-      variables: {
-        VAR2:name,
-        VAR1:position,
-      },
-    };
-
     await fetch("https://api.msg91.com/api/v5/email/send", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authkey: MSG91_AUTH_KEY,
+        Authkey: MSG91_API_KEY,
       },
-      body: JSON.stringify(userPayload),
+      body: JSON.stringify({
+        to: [{ email }],
+        from: {
+          email: "no-reply@phoenixtravelopedia.com"",
+          name: "No Reply",
+        },
+        template_id: USER_TEMPLATE_ID,
+        variables: {
+          VAR1:position,
+          VAR2:name,
+        },
+      }),
     });
 
     return new Response(
       JSON.stringify({ success: true }),
-      { headers: { "Content-Type": "application/json" } }
+      { status: 200 }
     );
 
   } catch (err) {
-    console.error(err);
+    console.error("EDGE ERROR:", err);
     return new Response(
-      JSON.stringify({ error: "Server error" }),
+      JSON.stringify({ error: "Internal server error" }),
       { status: 500 }
     );
   }
 });
+
 
 
