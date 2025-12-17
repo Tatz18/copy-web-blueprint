@@ -17,7 +17,7 @@ const Partners = () => {
             Partners & Clients
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground max-w-3xl mx-auto leading-tight">
-            Our valued collaborators and friends over the last decade
+            We collaborate with leading real estate associations in Kolkata and across India to deliver trusted property solutions.
           </h2>
         </div>
 
