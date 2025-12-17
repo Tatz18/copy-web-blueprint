@@ -91,6 +91,7 @@ const Hero = () => {
               
               <p className="text-xl text-muted-foreground max-w-lg opacity-0 animate-text-reveal" style={{animationDelay: '1.3s'}}>
                 Find verified premium properties across Kolkata and leading Indian cities. Based in Kolkata, Phoenix Realesthatic delivers transparent, expert-driven real estate solutions for homebuyers and investors.
+              </p>
               <div className="flex items-center space-x-2 text-muted-foreground opacity-0 animate-text-reveal" style={{animationDelay: '1.5s'}}>
                 <MapPin className="h-5 w-5" />
                 <span>Kolkata</span>
