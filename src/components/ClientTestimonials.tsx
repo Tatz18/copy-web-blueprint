@@ -72,7 +72,7 @@ const ClientTestimonials = () => {
             What Our Clients Say
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Real stories from families who found their dream homes with Phoenix Realesthatic in Kolkata
+            Genuine testimonials from happy families who discovered their ideal homes with Phoenix Realesthatic, a trusted real estate expert in Kolkata.
           </p>
         </div>
 
