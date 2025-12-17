@@ -11,6 +11,13 @@ const USER_TEMPLATE_ID = "11122025";
 
 serve(async (req) => {
   try {
+    if (!MSG91_AUTH_KEY) {
+      return new Response(
+        JSON.stringify({ error: "MSG91 key missing" }),
+        { status: 500 }
+      );
+    }
+    
     const { name, email, mobile, position, file } = await req.json();
 
     if (!name || !email || !mobile || !position || !file) {
@@ -89,4 +96,5 @@ serve(async (req) => {
     );
   }
 });
+
 
