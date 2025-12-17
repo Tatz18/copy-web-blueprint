@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Briefcase, Users, TrendingUp, MapPin, Clock, DollarSign } from "lucide-react";
+import { Users, TrendingUp, MapPin, Clock, DollarSign } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from '@/integrations/supabase/client';
 
@@ -10,10 +10,10 @@ const Careers = () => {
   const { toast } = useToast();
   const [selectedPosition, setSelectedPosition] = useState<string>("");
   
+  const [position, setPosition] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
-  const [position, setPosition] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -41,6 +41,7 @@ const Careers = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!name || !email || !mobile || !position || !file) {
       toast({ title: "Missing fields", description: "Please fill all fields and upload your resume." });
       return;
@@ -50,7 +51,7 @@ const Careers = () => {
     try {
       const base64 = await fileToBase64(file);
 
-      const body = {
+      const payload  = {
         name,
         email,
         mobile,
@@ -63,14 +64,11 @@ const Careers = () => {
       };
 
       const { data, error } = await supabase.functions.invoke('careers-email', {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+        body: payload ,
       });
 
-      if (!resp.ok) {
-        const err = await resp.text();
-        throw new Error(err || "Failed to submit application");
+      if (error) {
+        throw error;
       }
 
       toast({ title: "Application sent", description: "Confirmation email sent to you and application received by HR." });
