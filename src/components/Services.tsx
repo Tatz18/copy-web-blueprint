@@ -22,7 +22,8 @@ const Services = () => {
         description: "Discover our premium property solutions and services."
       });
     } else {
-      navigate("/investment-consulting");
+      navigate("/properties");
+      //navigate("/investment-consulting");
       toast({
         title: "Home Loan Assistance",
         description: "Get expert guidance on home loans and financing options."
