@@ -12,13 +12,13 @@ const Partners = () => {
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-br from-accent/10 via-background to-accent/5">
       <div className={`container mx-auto px-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <div className="text-center mb-16">
-          <p className="text-sm font-medium text-muted-foreground mb-4 tracking-wider uppercase">
+        <div className="text-center mb-16">          
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Partners & Clients
-          </p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground max-w-3xl mx-auto leading-tight">
-            We collaborate with leading real estate associations in Kolkata and across India to deliver trusted property solutions.
           </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            We collaborate with leading real estate associations in Kolkata and across India to deliver trusted property solutions.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center justify-items-center max-w-4xl mx-auto">
