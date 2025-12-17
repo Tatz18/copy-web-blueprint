@@ -74,7 +74,7 @@ const PopularLocations = () => {
             Popular Locations Across Kolkata
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover the most sought-after residential areas across North, South, Central, East & West Kolkata
+            Discover the most in-demand residential locations across North, South, Central, East, and West Kolkata, offering excellent connectivity and lifestyle options.
           </p>
         </div>
 
