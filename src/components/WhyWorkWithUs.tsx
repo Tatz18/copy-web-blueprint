@@ -63,7 +63,7 @@ const WhyWorkWithUs = () => {
             Why Choose Phoenix Realesthatic?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We're not just another real estate platform. We're your trusted partner in finding the perfect property across India.
+            Phoenix Realesthatic is a leading real estate consultancy in Kolkata, offering trusted property solutions across India. We help homebuyers, sellers, and investors find verified residential and commercial properties with complete transparency and professional expertise.
           </p>
         </div>
 
