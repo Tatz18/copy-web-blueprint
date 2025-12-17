@@ -34,7 +34,8 @@ serve(async (req) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          authkey: MSG91_AUTH_KEY,
+          Accept: "application/json",
+          authkey: MSG91_AUTH_KEY
         },
         body: JSON.stringify({
           to: [{ email: HR_EMAIL }],
@@ -72,7 +73,8 @@ serve(async (req) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        authkey: MSG91_AUTH_KEY,
+        Accept: "application/json",
+        authkey: MSG91_AUTH_KEY
       },
       body: JSON.stringify({
         to: [{ email }],
@@ -101,3 +103,4 @@ serve(async (req) => {
     );
   }
 });
+
