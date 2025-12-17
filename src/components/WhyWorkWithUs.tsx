@@ -9,48 +9,48 @@ const WhyWorkWithUs = () => {
   });
   const reasons = [{
     icon: Shield,
-    title: "100% Verified Properties",
-    description: "Every property goes through our rigorous 50-point verification process ensuring legal compliance and authenticity.",
+    title: "100% Verified Properties in Kolkata & Across India",
+    description: "Every property listed with Phoenix Realesthatic undergoes a thorough multi-point verification process to ensure legal compliance, authenticity, and clear ownership, giving buyers complete confidence in their property purchase.",
     color: "text-blue-500",
     bgColor: "bg-blue-50/50 dark:bg-blue-900/10",
     borderColor: "border-blue-200/30 dark:border-blue-800/30",
     hoverBg: "hover:bg-blue-50/80 dark:hover:bg-blue-900/20"
   }, {
     icon: Award,
-    title: "7+ Years Experience",
-    description: "Trusted by over 50,000 families across India with a proven track record in real estate transactions.",
+    title: "8+ Years of Real Estate Experience",
+    description: "With over seven years of experience in the Indian real estate market, we have successfully assisted thousands of families and investors across Kolkata and major cities in India with secure and reliable property transactions.",
     color: "text-green-500",
     bgColor: "bg-green-50/50 dark:bg-green-900/10",
     borderColor: "border-green-200/30 dark:border-green-800/30",
     hoverBg: "hover:bg-green-50/80 dark:hover:bg-green-900/20"
   }, {
     icon: Users,
-    title: "Expert Team Support",
-    description: "Dedicated relationship managers, legal experts, and financial advisors to guide you at every step.",
+    title: "Expert Real Estate Team Support",
+    description: "Our dedicated team of relationship managers, legal experts, and financial advisors provides end-to-end guidance, ensuring a smooth and hassle-free property buying or investment experience.",
     color: "text-purple-500",
     bgColor: "bg-purple-50/50 dark:bg-purple-900/10",
     borderColor: "border-purple-200/30 dark:border-purple-800/30",
     hoverBg: "hover:bg-purple-50/80 dark:hover:bg-purple-900/20"
   }, {
     icon: Zap,
-    title: "Quick Process",
-    description: "Streamlined digital processes reduce transaction time by 40% compared to traditional methods.",
+    title: "Fast & Efficient Property Buying Process",
+    description: "Our streamlined and digital-first processes significantly reduce transaction timelines, making property buying and selling in Kolkata and India faster and more efficient than traditional methods.",
     color: "text-orange-500",
     bgColor: "bg-orange-50/50 dark:bg-orange-900/10",
     borderColor: "border-orange-200/30 dark:border-orange-800/30",
     hoverBg: "hover:bg-orange-50/80 dark:hover:bg-orange-900/20"
   }, {
     icon: HeartHandshake,
-    title: "Transparent Dealings",
-    description: "Zero hidden charges, complete transparency in pricing, and honest market valuations.",
+    title: "Transparent Property Dealings",
+    description: "We maintain complete pricing transparency with zero hidden charges, honest market valuations, and ethical practices—earning us the trust of property buyers and investors across India.",
     color: "text-red-500",
     bgColor: "bg-red-50/50 dark:bg-red-900/10",
     borderColor: "border-red-200/30 dark:border-red-800/30",
     hoverBg: "hover:bg-red-50/80 dark:hover:bg-red-900/20"
   }, {
     icon: TrendingUp,
-    title: "Investment Guidance",
-    description: "Data-driven insights and market analysis to help you make informed investment decisions.",
+    title: "Strategic Property Investment Guidance",
+    description: "Our data-driven insights, market research, and location analysis help clients make smart real estate investment decisions in high-growth areas of Kolkata and other key Indian markets.",
     color: "text-cyan-500",
     bgColor: "bg-cyan-50/50 dark:bg-cyan-900/10",
     borderColor: "border-cyan-200/30 dark:border-cyan-800/30",
@@ -93,16 +93,16 @@ const WhyWorkWithUs = () => {
         <div className="bg-card rounded-3xl p-8 md:p-12 shadow-card border border-accent/20">
           <div className="grid lg:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-accent">5K+</div>
-              <div className="text-muted-foreground">Happy Families</div>
+              <div className="text-4xl md:text-5xl font-bold text-accent">5000+</div>
+              <div className="text-muted-foreground">Happy Homebuyers Across India</div>
             </div>
             <div className="space-y-2">
               <div className="text-4xl md:text-5xl font-bold text-primary">5+</div>
-              <div className="text-muted-foreground">Cities Covered</div>
+              <div className="text-muted-foreground">Cities Including Kolkata</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-accent">₹10Cr+</div>
-              <div className="text-muted-foreground">Properties Sold</div>
+              <div className="text-4xl md:text-5xl font-bold text-accent">₹50 thousand+</div>
+              <div className="text-muted-foreground">Real Estate Transactions Completed</div>
             </div>
           </div>
         </div>
