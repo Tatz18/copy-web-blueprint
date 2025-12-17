@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 
-const MSG91_KEY = Deno.env.get("MSG91_API_KEY")!;
+const MSG91_AUTH_KEY = Deno.env.get("MSG91_API_KEY")!;
 
 // Emails
 const HR_EMAIL = "careers@phoenixrealesthatic.com";
@@ -48,7 +48,7 @@ serve(async (req) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authkey: MSG91_KEY,
+        Authkey: MSG91_AUTH_KEY,
       },
       body: JSON.stringify(hrPayload),
     });
@@ -71,7 +71,7 @@ serve(async (req) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authkey: MSG91_KEY,
+        Authkey: MSG91_AUTH_KEY,
       },
       body: JSON.stringify(userPayload),
     });
@@ -89,3 +89,4 @@ serve(async (req) => {
     );
   }
 });
+
