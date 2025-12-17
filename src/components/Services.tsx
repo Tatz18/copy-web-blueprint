@@ -16,7 +16,7 @@ const Services = () => {
   });
   const handleLearnMore = (type: "premium" | "loan") => {
     if (type === "premium") {
-      navigate("/about");
+      navigate("/properties");
       toast({
         title: "Learn More",
         description: "Discover our premium property solutions and services."
@@ -52,7 +52,7 @@ const Services = () => {
             </h3>
             
              <p className="text-muted-foreground leading-relaxed">
-                Experience seamless property transactions with Phoenix Realesthatic. Based in Kolkata's cultural heart, we serve from Bengal's heritage properties to Mumbai's commercial hubs, providing comprehensive real estate solutions across <span className="text-pink-500">Kolkata.</span>.
+                Experience seamless and transparent property transactions with Phoenix Realesthatic. Headquartered in the cultural heart of Kolkata, we specialize in delivering premium real estate solutions—from heritage properties across Bengal to select commercial investments in major Indian markets—backed by expertise, integrity, and personalized service.
               </p>
               
               <Button className="group bg-pink-500 hover:bg-pink-600 text-white border-pink-500 border" onClick={() => handleLearnMore("premium")}>
@@ -71,12 +71,12 @@ const Services = () => {
                   <Award className="h-5 w-5 text-primary" />
                 </div>
                 <h4 className="text-xl font-bold text-foreground">
-                  Assistance with Best Properties
+                  Expert Assistance in Finding the Best Properties
                 </h4>
               </div>
               
               <p className="text-muted-foreground leading-relaxed">
-                Get expert assistance finding the best properties that match your needs and budget. Our team helps you discover premium properties across <span className="text-pink-500">Kolkata</span> with personalized guidance throughout your journey.
+                Get personalized expert guidance to find properties that perfectly match your requirements and budget. Our experienced team helps you discover premium residential and commercial properties across Kolkata, ensuring a smooth, transparent, and well-informed property journey.
               </p>
               
               <Button variant="outline" className="bg-pink-500 hover:bg-pink-600 text-white border-pink-500 group" onClick={() => handleLearnMore("loan")}>
