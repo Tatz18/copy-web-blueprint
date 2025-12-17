@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, Users, TrendingUp, MapPin, Clock, DollarSign } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from '@/integrations/supabase/client';
 
 const Careers = () => {
   const { toast } = useToast();
@@ -61,7 +62,7 @@ const Careers = () => {
         },
       };
 
-      const resp = await fetch("/api/send-application", {
+      const { data, error } = await supabase.functions.invoke('careers-email', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -183,6 +184,7 @@ const Careers = () => {
                   <label className="font-medium mb-1">Select Position</label>
                   <select
                     className="border rounded-lg px-4 py-2"
+                    name="position"
                     defaultValue=""
                     required
                     value={position}
@@ -203,6 +205,7 @@ const Careers = () => {
                   <label className="font-medium mb-1">Full Name</label>
                   <input
                     type="text"
+                    name="name"
                     className="border rounded-lg px-4 py-2"
                     placeholder="Enter your full name"
                     required
@@ -216,6 +219,7 @@ const Careers = () => {
                   <label className="font-medium mb-1">Email</label>
                   <input
                     type="email"
+                    name="email"
                     className="border rounded-lg px-4 py-2"
                     placeholder="Enter your email"
                     required
@@ -229,6 +233,7 @@ const Careers = () => {
                   <label className="font-medium mb-1">Mobile Number</label>
                   <input
                     type="tel"
+                    name="mobile"
                     className="border rounded-lg px-4 py-2"
                     placeholder="Enter mobile number"
                     required
@@ -242,6 +247,7 @@ const Careers = () => {
                   <label className="font-medium mb-1">Upload Resume</label>
                   <input
                     type="file"
+                    name="file"
                     className="border rounded-lg px-4 py-2 bg-white"
                     accept=".pdf,.doc,.docx"
                     required
