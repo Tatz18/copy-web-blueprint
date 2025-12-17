@@ -1,4 +1,4 @@
-import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const MSG91_AUTH_KEY = Deno.env.get("MSG91_AUTH_KEY")!;
 
@@ -34,7 +34,7 @@ serve(async (req) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authkey: MSG91_AUTH_KEY,
+          authkey: MSG91_AUTH_KEY,
         },
         body: JSON.stringify({
           to: [{ email: HR_EMAIL }],
@@ -72,7 +72,7 @@ serve(async (req) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authkey: MSG91_AUTH_KEY,
+        authkey: MSG91_AUTH_KEY,
       },
       body: JSON.stringify({
         to: [{ email }],
@@ -101,3 +101,4 @@ serve(async (req) => {
     );
   }
 });
+
