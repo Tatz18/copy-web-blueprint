@@ -71,7 +71,7 @@ const Careers = () => {
         },
       };
 
-      const { data, error } = await supabase.functions.invoke("send-application",
+      const { data, error } = await supabase.functions.invoke("careers-email",
         { body: payload }
       );
 
