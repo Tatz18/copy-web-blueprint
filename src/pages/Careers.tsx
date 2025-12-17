@@ -45,6 +45,14 @@ const Careers = () => {
     if (!name || !email || !mobile || !position || !file) {
       toast({ title: "Missing fields", description: "Please fill all fields and upload your resume." });
       return;
+    }  
+    // Optional size limit (recommended)
+    if (file.size > 1 * 1024 * 1024) {
+      toast({
+        title: "File too large",
+        description: "Resume must be under 1MB",
+      });
+      return;
     }
 
     setSubmitting(true);
@@ -63,15 +71,13 @@ const Careers = () => {
         },
       };
 
-      const { data, error } = await supabase.functions.invoke('careers-email', {
-        body: payload ,
-      });
+      const { data, error } = await supabase.functions.invoke("careers-email",
+        { body: payload }
+      );
 
-      if (error) {
-        throw error;
-      }
+      if (error) throw error;
 
-      toast({ title: "Application sent", description: "Confirmation email sent to you and application received by HR." });
+      toast({ title: "Application sent", description: "Your application has been sent. HR will contact you soon." });
       // reset form
       setName("");
       setEmail("");
