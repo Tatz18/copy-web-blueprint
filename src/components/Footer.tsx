@@ -132,7 +132,7 @@ const Footer = () => {
               <div className="flex items-start text-muted-foreground">
                 <MapPin className="h-4 w-4 mr-3 flex-shrink-0 mt-0.5" />
                 <div className="text-sm">
-                  <div>Regus Globsyn Crystals</div>
+                  <div>Globsyn Crystals</div>
                   <div>X-11& 12, Block-EP</div>
                   <div>Saltlake Sector-V, Kolkata-91, IN</div>
                 </div>
@@ -148,9 +148,7 @@ const Footer = () => {
               <div className="flex items-start text-muted-foreground">
                 <Clock className="h-4 w-4 mr-3 flex-shrink-0 mt-0.5" />
                 <div className="text-sm">
-                  <div>Mon-Fri: 9:00 AM - 6:00 PM</div>
-                  <div>Saturday: 10:00 AM - 4:00 PM</div>
-                  <div>Sunday: Closed</div>
+                  <div>Monday-Sunday: 9:00 AM - 6:00 PM</div>
                 </div>
               </div>
             </div>
