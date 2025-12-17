@@ -1,1 +1,7 @@
 project_id = "isdfubjkhkyymtbkbgss"
+
+[functions.send-application]
+verify_jwt = false
+
+[functions.careers-email]
+verify_jwt = false
