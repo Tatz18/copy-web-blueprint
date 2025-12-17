@@ -90,9 +90,7 @@ const Hero = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-lg opacity-0 animate-text-reveal" style={{animationDelay: '1.3s'}}>
-                Find premium properties across India's most vibrant cities. Based in Kolkata, we serve the cultural capital and major metros with expert guidance for your perfect home.
-              </p>
-
+                Find verified premium properties across Kolkata and leading Indian cities. Based in Kolkata, Phoenix Realesthatic delivers transparent, expert-driven real estate solutions for homebuyers and investors.
               <div className="flex items-center space-x-2 text-muted-foreground opacity-0 animate-text-reveal" style={{animationDelay: '1.5s'}}>
                 <MapPin className="h-5 w-5" />
                 <span>Kolkata</span>
@@ -114,7 +112,7 @@ const Hero = () => {
                   onClick={() => setActiveTab("find")}
                   className="px-6"
                 >
-                  Find a home
+                  Explore Properties
                 </Button>
                 <Button
                   variant={activeTab === "value" ? "default" : "secondary"}
@@ -124,7 +122,7 @@ const Hero = () => {
                   }}
                   className="px-6 dark:bg-pink-500 dark:hover:bg-pink-600 dark:text-white"
                 >
-                  My home value
+                  Get Free Consultation
                 </Button>
               </div>
 
