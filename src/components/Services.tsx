@@ -96,10 +96,12 @@ const Services = () => {
                   <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">98%</div>
                   <div className="text-sm text-muted-foreground">Success Rate</div>
                 </div>
+                {/*
                 <div className="text-center p-6 bg-green-50/70 dark:bg-green-900/20 border border-green-200/40 dark:border-green-800/40 rounded-xl hover:bg-green-100/80 dark:hover:bg-green-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">15</div>
                   <div className="text-sm text-muted-foreground">Days Average</div>
                 </div>
+                */}
                 <div className="text-center p-6 bg-purple-50/70 dark:bg-purple-900/20 border border-purple-200/40 dark:border-purple-800/40 rounded-xl hover:bg-purple-100/80 dark:hover:bg-purple-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">5K+</div>
                   <div className="text-sm text-muted-foreground">Happy Clients</div>
