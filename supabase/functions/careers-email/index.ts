@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 
-const MSG91_AUTH_KEY = Deno.env.get("MSG91_API_KEY")!;
+const MSG91_AUTH_KEY = Deno.env.get("MSG91_AUTH_KEY")!;
 
 // Emails
 const HR_EMAIL = "careers@phoenixrealesthatic.com";
@@ -20,21 +20,21 @@ serve(async (req) => {
 
     const body = await req.json();
 
-    if (!name || !email || !mobile || !position || !file) {
+    if (!body?.name || !body?.email || !body?.mobile || !body?.position || !body?.file) {
       return new Response(
         JSON.stringify({ error: "Invalid payload" }),
         { status: 400 }
       );
     }
     
-    const { name, email, mobile, position, file } = await req.json();
+    const { name, email, mobile, position, file } = body;
 
     /* ---------------- HR EMAIL ---------------- */
     const hrResponse = await fetch("https://api.msg91.com/api/v5/email/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authkey: MSG91_API_KEY,
+          Authkey: MSG91_AUTH_KEY,
         },
         body: JSON.stringify({
           to: [{ email: HR_EMAIL }],
@@ -72,12 +72,12 @@ serve(async (req) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authkey: MSG91_API_KEY,
+        Authkey: MSG91_AUTH_KEY,
       },
       body: JSON.stringify({
         to: [{ email }],
         from: {
-          email: "no-reply@phoenixtravelopedia.com"",
+          email: "no-reply@phoenixtravelopedia.com",
           name: "No Reply",
         },
         template_id: USER_TEMPLATE_ID,
@@ -101,6 +101,3 @@ serve(async (req) => {
     );
   }
 });
-
-
-
