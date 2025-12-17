@@ -38,18 +38,23 @@ serve(async (req) => {
           authkey: MSG91_AUTH_KEY
         },
         body: JSON.stringify({
-          to: [{ email: HR_EMAIL }],
+          recipients: [
+            {
+              to: [{ email: HR_EMAIL }],
+              variables: {
+                VAR1: position,
+                VAR2: name,
+                VAR3: email,
+                VAR4: mobile,
+              },
+            },
+          ],
           from: {
-            email: "no-reply@phoenixtravelopedia.com",
+            email: "noreply@phoenixtravelopedia.com",
             name: "Careers Portal",
           },
+          domain: "phoenixtravelopedia.com",
           template_id: HR_TEMPLATE_ID,
-          variables: {
-            VAR1:position,
-            VAR2:name,
-            VAR3:email,
-            VAR4:mobile,
-          },
           attachments: [
             {
               filename: file.name,
@@ -77,16 +82,21 @@ serve(async (req) => {
         authkey: MSG91_AUTH_KEY
       },
       body: JSON.stringify({
-        to: [{ email }],
+        recipents: [
+          {
+            to: [{ email }],
+            variables: {
+              VAR1: position,
+              VAR2: name,
+            },
+          },
+        ],
         from: {
-          email: "no-reply@phoenixtravelopedia.com",
+          email: "noreply@phoenixtravelopedia.com",
           name: "No Reply",
         },
+        domain: "phoenixtravelopedia.com",
         template_id: USER_TEMPLATE_ID,
-        variables: {
-          VAR1:position,
-          VAR2:name,
-        },
       }),
     });
 
@@ -103,4 +113,3 @@ serve(async (req) => {
     );
   }
 });
-
