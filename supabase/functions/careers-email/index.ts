@@ -30,7 +30,7 @@ serve(async (req) => {
     const { name, email, mobile, position, file } = body;
 
     /* ---------------- HR EMAIL ---------------- */
-    const hrResponse = await fetch("https://api.msg91.com/api/v5/email/send", {
+    const hrResponse = await fetch("https://control.msg91.com/api/v5/email/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ serve(async (req) => {
     }
 
     /* ---------------- USER AUTO REPLY ---------------- */
-    await fetch("https://api.msg91.com/api/v5/email/send", {
+    await fetch("https://control.msg91.com/api/v5/email/send", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,4 +101,3 @@ serve(async (req) => {
     );
   }
 });
-
