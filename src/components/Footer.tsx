@@ -116,6 +116,10 @@ const Footer = () => {
     name: "LinkedIn",
     icon: Linkedin,
     href: "https://www.linkedin.com/company/phoenix-realesthatic/"
+  }, {
+    name: "WhatsApp",
+    icon: WhatsApp,
+    href: "https://api.whatsapp.com/send?phone=919330102817"
   }];
   return <footer className="bg-card border-t">
       {/* Main Footer */}
