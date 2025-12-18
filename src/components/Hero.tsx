@@ -111,6 +111,7 @@ const Hero = () => {
                 <Button
                   variant={activeTab === "find" ? "default" : "secondary"}
                   onClick={() => setActiveTab("find")}
+                  navigate("/properties");
                   className="px-6"
                 >
                   Explore Properties
@@ -119,7 +120,8 @@ const Hero = () => {
                   variant={activeTab === "value" ? "default" : "secondary"}
                   onClick={() => {
                     setActiveTab("value");
-                    handleHomeValue();
+                    navigate("/contact");
+                    //handleHomeValue();
                   }}
                   className="px-6 dark:bg-pink-500 dark:hover:bg-pink-600 dark:text-white"
                 >
