@@ -12,6 +12,8 @@ import PropertyDetails from "./pages/PropertyDetails";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Blogs from "./pages/Blogs";
+import BlogDetails from "./pages/BlogDetails";
 import PropertySales from "./pages/PropertySales";
 import PropertyRental from "./pages/PropertyRental";
 import InvestmentConsulting from "./pages/InvestmentConsulting";
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blog/:id" element={<BlogDetails />} />
             <Route path="/property-sales" element={<PropertySales />} />
             <Route path="/property-rental" element={<PropertyRental />} />
             <Route path="/investment-consulting" element={<InvestmentConsulting />} />
