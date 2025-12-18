@@ -101,7 +101,7 @@ const WhyWorkWithUs = () => {
               <div className="text-muted-foreground">Cities Including Kolkata</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-bold text-accent">₹50 thousand+</div>
+              <div className="text-4xl md:text-5xl font-bold text-accent">50000+</div>
               <div className="text-muted-foreground">Real Estate Transactions Completed</div>
             </div>
           </div>
