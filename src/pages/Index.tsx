@@ -7,12 +7,16 @@ import PopularLocations from "@/components/PopularLocations";
 import WhyWorkWithUs from "@/components/WhyWorkWithUs";
 import ClientTestimonials from "@/components/ClientTestimonials";
 import FAQ from "@/components/FAQ";
+import WhoWeAre from "@/components/WhoWeAre";
+import HomeService from "@/components/HomeService";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      <WhoWeAre />
+      <HomeService />
       <PropertyListings />
       <PopularLocations />
       <WhyWorkWithUs />
