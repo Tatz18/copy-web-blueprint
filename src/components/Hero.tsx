@@ -110,8 +110,10 @@ const Hero = () => {
               <div className="flex space-x-4">
                 <Button
                   variant={activeTab === "find" ? "default" : "secondary"}
-                  onClick={() => setActiveTab("find")}
-                  navigate("/properties");
+                  onClick={() => {
+                    setActiveTab("find");
+                    navigate("/properties");
+                  }}
                   className="px-6"
                 >
                   Explore Properties
