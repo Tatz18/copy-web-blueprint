@@ -110,7 +110,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Our Office",
-      details: ["Regus Globsyn Crystals", "X-11& 12, Block-EP", "Saltlake Sector-V, Kolkata-91, IN"],
+      details: ["Globsyn Crystals", "X-11& 12, Block-EP", "Saltlake Sector-V, Kolkata-91, IN"],
       description: "Get directions to our office"
     },
     {
@@ -293,7 +293,7 @@ const Contact = () => {
                         <div className="flex items-start">
                           <MapPin className="h-4 w-4 text-muted-foreground mt-1 mr-2 flex-shrink-0" />
                           <p className="text-sm text-muted-foreground">
-                            Regus Globsyn Crystals, X-11& 12, Block-EP<br />
+                            Globsyn Crystals, X-11& 12, Block-EP<br />
                             Saltlake Sector-V, Kolkata-91, IN
                           </p>
                         </div>
