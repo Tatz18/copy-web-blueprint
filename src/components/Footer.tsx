@@ -5,6 +5,8 @@ import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Linkedin, Bui
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { FaWhatsapp } from "react-icons/fa";
+
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
@@ -51,6 +53,7 @@ const Footer = () => {
       window.open(url, '_blank');
     }
   };
+
   const quickLinks = [{
     name: "Home",
     href: "/"
@@ -67,6 +70,7 @@ const Footer = () => {
     name: "Contact",
     href: "/contact"
   }];
+
   const services = [{
     name: "Property Sales",
     icon: Home,
@@ -100,6 +104,7 @@ const Footer = () => {
     icon: Handshake,
     href: "/business-enquiry"
   }];
+
   const socialLinks = [{
     name: "Facebook",
     icon: Facebook,
@@ -116,7 +121,12 @@ const Footer = () => {
     name: "LinkedIn",
     icon: Linkedin,
     href: "https://www.linkedin.com/company/phoenix-realesthatic/"
+  }, {
+    name: "WhatsApp",
+    icon: FaWhatsapp,
+    href: "https://wa.me/919330102817?text=Hello%20Phoenix%20Realesthatic!"
   }];
+
   return <footer className="bg-card border-t">
       {/* Main Footer */}
       <div className="container mx-auto px-6 py-16">
