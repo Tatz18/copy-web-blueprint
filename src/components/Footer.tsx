@@ -5,7 +5,6 @@ import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Linkedin, Bui
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -121,10 +120,6 @@ const Footer = () => {
     name: "LinkedIn",
     icon: Linkedin,
     href: "https://www.linkedin.com/company/phoenix-realesthatic/"
-  }, {
-    name: "WhatsApp",
-    icon: FaWhatsapp,
-    href: "https://wa.me/919330102817?text=Hello%20Phoenix%20Realesthatic!"
   }];
 
   return <footer className="bg-card border-t">
