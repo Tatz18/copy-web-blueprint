@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Linkedin, Building2, Home, Users, Shield, Briefcase, Handshake } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Linkedin, MessageCircle, Building2, Home, Users, Shield, Briefcase, Handshake } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -120,6 +120,10 @@ const Footer = () => {
     name: "LinkedIn",
     icon: Linkedin,
     href: "https://www.linkedin.com/company/phoenix-realesthatic/"
+  }, {
+    name: "WhatsApp",
+    icon: MessageCircle,
+    href: "https://wa.me/919330102817?text=Hello%20Phoenix%20Realesthatic!"
   }];
 
   return <footer className="bg-card border-t">
